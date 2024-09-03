@@ -63,7 +63,7 @@
             fill-opacity: 0;
             stroke-width: 3px;
             stroke-dasharray: 4500;
-            animation: draw 8s ease;
+            animation: draw 8s ease infinite;
         }
 
         @keyframes draw {
@@ -97,11 +97,13 @@
             position: absolute;
             top: 0;
             left: 0;
-            visibility: hidden;
+            opacity: 0;
+            /* Use opacity instead of visibility for fade-in effect */
+            transition: opacity 1s ease-in-out;
         }
 
         .loaded iframe {
-            visibility: visible;
+            opacity: 1;
         }
 
         .loaded .loader-wrapper {
@@ -128,6 +130,34 @@
         integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        const timeoutDuration = 5000; // 5 seconds
+        let timeout;
+
+        // Function to handle timeout
+        const handleTimeout = () => {
+            gsap.fromTo(
+                ".loading-page",
+                { opacity: 1 },
+                {
+                    opacity: 0,
+                    display: "none",
+                    duration: 1.5,
+                    delay: 0,
+                }
+            );
+        };
+
+        // Check if the iframe has loaded
+        const iframe = document.querySelector('iframe');
+        iframe.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            clearTimeout(timeout);
+        });
+
+        // Set a timeout to handle cases where the iframe takes too long to load
+        timeout = setTimeout(handleTimeout, timeoutDuration);
+
+        // Ensure animation is faster if the connection is good
         gsap.fromTo(
             ".loading-page",
             { opacity: 1 },
