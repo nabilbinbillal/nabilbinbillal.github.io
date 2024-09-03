@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://nabilbinbillal.github.io/#about</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://nabilbinbillal.github.io/#projects</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://nabilbinbillal.github.io/#testimonials</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://nabilbinbillal.github.io/#contact</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>
