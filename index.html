@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nabil Bin Billal - Portfolio</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Nabil Bin Billal">
+    <meta property="og:site_name" content="Nabil Bin Billal">
+    <meta property="og:url" content="https://nabil.bidibo.xyz/">
+    <meta property="og:description" content="Nabil Bin Billal is a MERN Stack Developer">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="https://nabil.bidibo.xyz/jsm-logo.png">
+
+    <!-- Favicon and Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Styles -->
     <style>
         body,
         html {
@@ -12,18 +30,52 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         iframe {
+            display: none;
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        .loaded iframe {
+            display: block;
+        }
+
+        .loaded .loader {
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <iframe src="https://nabilbinbillal.vercel.app/"></iframe>
+    <div class="loader"></div>
+    <iframe src="https://nabilbinbillal.vercel.app/" onload="document.body.classList.add('loaded');"></iframe>
 </body>
 
 </html>
