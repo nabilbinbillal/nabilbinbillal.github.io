@@ -18,7 +18,13 @@ Welcome to my GitHub profile! I'm **Nabil Bin Billal**, a passionate developer a
 
 - 🌱 **Currently Learning:** Advanced **Next.js**, **React.js**, **Node.js**, **Flutter**, and enhancing my scientific writing skills.
 
-- 🌿 **Contributing To:** The **3ZERO Club**, focusing on **climate change** and **environmental** activities to promote a sustainable future.
+
+Here's the updated version:
+
+🌿 **Contributing To:** The **[3ZERO Club](https://3zero.club/)** with a focus on **climate change** and **environmental** initiatives to promote a sustainable future. Additionally, serving as a moderator for two prominent science communities:
+- **কি... বিজ্ঞান খুঁজছেন [427k members+]** – [*Link:*](https://www.facebook.com/groups/777602136864885) https://www.facebook.com/groups/777602136864885
+- **বিজ্ঞান খুঁজে লাভ নাই [271k members+]** – [*Link:*](https://www.facebook.com/groups/1092290431877571) https://www.facebook.com/groups/1092290431877571)
+- Working as a writer at the **[Science & Experiment](https://www.facebook.com/sciandexp)** science page.
 
 - 👯 **Looking to Collaborate On:** Open-source projects, web development, Android app development, and scientific research.
 
@@ -83,8 +89,8 @@ Welcome to my GitHub profile! I'm **Nabil Bin Billal**, a passionate developer a
 
 ## 🚀 **Projects**
 
-- **Bidibo News:** A trusted source for daily latest news.
-- **Notun Protidin:** A Bangla News Website.
+- **[Bidibo News:](https://www.bidibo.xyz)** A trusted source for daily latest news.
+- **[Notun Protidin:](https://www.notunprotidin.xyz)** A Bangla News Website.
 - **KBKh Chatroom:** A private chatroom with a focus on privacy, media management, and user-friendly UI.
 - **Bidibo Translator Plugin:** A WordPress plugin with URL transfer-based language switching.
 
