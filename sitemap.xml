@@ -21,4 +21,16 @@
     <changefreq>monthly</changefreq>
   </url>
 
+
+
+    <url>
+    <loc>https://nabilbinbillal.github.io/about-me</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+     <url>
+    <loc>https://nabilbinbillal.github.io/contact</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
 </urlset>
