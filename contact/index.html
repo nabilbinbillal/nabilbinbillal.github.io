@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Nabil Bin Billal for collaborations, web development inquiries, or general queries.">
+    <title>Contact - Nabil Bin Billal | Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #1e1e1e; /* Dark background */
+            color: #f5f5f5; /* Light text color */
+        }
+        h1, h2 {
+            color: #ffffff; /* White headings */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #4CAF50; /* Green color for links */
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #81C784; /* Lighter green on hover */
+        }
+        .copy-email {
+            cursor: pointer;
+            color: #4CAF50; /* Green for email copy */
+            display: inline-block;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .copy-email:hover {
+            background-color: #4CAF50;
+            color: white; /* Change text color on hover */
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaaaaa; /* Lighter gray for footer */
+        }
+        #copyButton {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        #copyButton:hover {
+            background-color: #66BB6A; /* Lighter green on hover */
+        }
+    </style>
+    <script>
+        function copyEmail() {
+            const email = "nabilbinbillal@gmail.com";
+            navigator.clipboard.writeText(email).then(function() {
+                alert("Email copied to clipboard: " + email);
+            }, function(err) {
+                console.error("Could not copy email: ", err);
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Contact Nabil Bin Billal</h1>
+        <p>Feel free to get in touch with me through any of the social platforms below or by using my email address.</p>
+    </header>
+
+    <section>
+        <h2>Email</h2>
+        <p class="copy-email" onclick="copyEmail()">nabilbinbillal@gmail.com</p>
+        <button id="copyButton" onclick="copyEmail()">Copy</button>
+    </section>
+
+    <section>
+        <h2>🌐 Social Profiles:</h2>
+        <ul>
+            <li><strong>Facebook:</strong> <a href="https://www.facebook.com/nabilbinbillal" target="_blank">https://www.facebook.com/nabilbinbillal</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nabilbinbillal" target="_blank">https://www.linkedin.com/in/nabilbinbillal</a></li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/nabilbinbillal" target="_blank">https://www.instagram.com/nabilbinbillal</a></li>
+            <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@NabilBinBillal" target="_blank">https://www.youtube.com/@NabilBinBillal</a></li>
+            <li><strong>Twitter/X:</strong> <a href="https://x.com/nabilbinbillal" target="_blank">https://x.com/nabilbinbillal</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/nabilbinbillal" target="_blank">https://github.com/nabilbinbillal</a></li>
+            <li><strong>Threads:</strong> <a href="https://www.threads.net/@nabilbinbillal" target="_blank">https://www.threads.net/@nabilbinbillal</a></li>
+            <li><strong>Portfolio:</strong> <a href="https://nabilbinbillal.github.io" target="_blank">https://nabilbinbillal.github.io</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 <a href="https://nabilbinbillal.github.io" style="color: #4CAF50;">Nabil Bin Billal</a>. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
