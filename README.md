@@ -18,6 +18,7 @@ Welcome to my GitHub profile! I'm **Nabil Bin Billal**, a passionate developer a
 
 - 🌱 **Currently Learning:** Advanced **Next.js**, **React.js**, **Node.js**, **Flutter**, and enhancing my scientific writing skills.
 
+- 🎓 **Education:** I am currently studying in the Science group at [Brahmanbaria Govt. College](https://bgc.edu.bd).
 
 Here's the updated version:
 
