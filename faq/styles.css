@@ -215,44 +215,46 @@ footer {
 footer .back-home {
     display: inline-block;
     padding: 12px 30px;
-    background: linear-gradient(45deg, #ff9e00, #ff6600); /* Gradient background */
+    background: #ff9e00; /* Solid background color */
     color: #fff;
-    border-radius: 50px; /* Rounded corners */
+    border: 2px solid #ff9e00; /* Matching border */
+    border-radius: 5px; /* Slight rounding of the corners */
     text-decoration: none;
     font-size: 1.3em;
     font-weight: bold;
-    margin-bottom: 20px;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    animation: pulse 1.5s infinite; /* Pulse animation */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
 /* Hover Effects */
 footer .back-home:hover {
-    background: linear-gradient(45deg, #ff6600, #ff9e00); /* Reverse the gradient */
-    transform: scale(1.1) rotate(3deg); /* Slight scaling and rotation for dynamic hover effect */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    background: #ff6600; /* Hover background color */
+    color: #fff;
+    border-color: #ff6600; /* Border changes on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
 }
 
 /* Active (clicked) state */
 footer .back-home:active {
-    transform: scale(1.05);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
-    background: #ff6600;
+    transform: scale(1.02); /* Slightly reduce size when clicked */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Strongest shadow when clicked */
+    background: #ff6600; /* Active background color */
+    border-color: #ff6600; /* Active border color */
 }
 
-/* Pulse Animation for Back to Home */
+/* Animation for Back to Home */
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
     50% {
         transform: scale(1.05);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 }
