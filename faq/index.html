@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frequently Asked Questions (FAQ) page to address common queries and provide detailed answers about Nabil Bin Billal for better user understanding.">
+    <meta name="description" content="Find answers to common questions about Nabil Bin Billal's services, achievements, and more.">
     <meta name="keywords" content="FAQ, Nabil Bin Billal, web developer, MERN Stack, Android Developer, content writer, scientific writer">
     <meta name="author" content="Nabil Bin Billal">
     <meta property="og:title" content="FAQ - Nabil Bin Billal">
-    <meta property="og:description" content="Find answers to the most common questions about our services, policies, and more.">
+    <meta property="og:description" content="Discover insights about Nabil Bin Billal's expertise and services.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nabilbinbillal.github.io/faq">
     <meta property="og:image" content="https://nabilbinbillal.github.io/jsm-logo.png">
@@ -23,6 +23,7 @@
             color: #333;
             transition: background-color 0.3s, color 0.3s;
         }
+
         .container {
             max-width: 900px;
             margin: 20px auto;
@@ -32,14 +33,17 @@
             border-radius: 10px;
             transition: background 0.3s;
         }
+
         h1 {
             text-align: center;
             color: #ff6600;
             margin-bottom: 20px;
         }
+
         .faq {
             margin-bottom: 20px;
         }
+
         .faq h2 {
             font-size: 1.2em;
             color: #333;
@@ -54,10 +58,17 @@
             align-items: center;
             transition: background 0.3s, color 0.3s;
         }
+
         .faq h2:hover {
             background: #ff6600;
             color: #fff;
         }
+
+        .faq h2[aria-expanded="true"] {
+            background: #ff6600;
+            color: #fff;
+        }
+
         .faq p {
             display: none;
             padding: 15px;
@@ -66,15 +77,19 @@
             border-top: none;
             border-radius: 0 0 8px 8px;
         }
+
         .faq.open p {
             display: block;
         }
+
         .faq h2 i {
             transition: transform 0.3s;
         }
+
         .faq.open h2 i {
             transform: rotate(180deg);
         }
+
         footer {
             text-align: center;
             padding: 15px 0;
@@ -83,19 +98,23 @@
             margin-top: 30px;
             font-size: 0.9em;
         }
+
         footer a {
             color: #ff6600;
             text-decoration: none;
         }
+
         footer a:hover {
             text-decoration: underline;
         }
+
         .social-icons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             margin-top: 50px;
         }
+
         .social-icon {
             margin: 15px;
             text-align: center;
@@ -109,24 +128,54 @@
             text-decoration: none;
             color: #333;
         }
+
         .social-icon:hover {
             transform: scale(1.05);
         }
+
         .social-icon i {
             font-size: 36px;
             color: #333;
             margin-bottom: 10px;
         }
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5em;
             }
+
             .faq h2 {
                 font-size: 1em;
             }
+
             .faq p {
                 font-size: 0.9em;
             }
+        }
+
+        .dark-theme {
+            background-color: #333;
+            color: #f9f9f9;
+        }
+
+        .dark-theme .container {
+            background-color: #444;
+            color: #f9f9f9;
+        }
+
+        .dark-theme .faq h2 {
+            background: #555;
+            color: #f9f9f9;
+        }
+
+        .dark-theme .faq h2:hover {
+            background: #ff6600;
+            color: #fff;
+        }
+
+        .dark-theme footer {
+            background: #222;
+            color: #f9f9f9;
         }
     </style>
 </head>
@@ -266,23 +315,32 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Nabil Bin Billal. All rights reserved. <a href="https://nabilbinbillal.github.io">Visit our homepage</a></p>
-    </footer>
+    <p>&copy; 2024 Nabil Bin Billal. All rights reserved.</p>
+    <a href="https://nabilbinbillal.github.io" target="_blank" 
+       style="display: inline-block; margin-top: 10px; padding: 12px 20px; font-size: 16px; font-weight: bold; color: #fff; text-align: center; text-decoration: none; background-color: #ff6600; border: none; border-radius: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: background-color 0.3s, transform 0.2s;" 
+       onmouseover="this.style.backgroundColor='#e65c00'; this.style.transform='scale(1.05)';" 
+       onmouseout="this.style.backgroundColor='#ff6600'; this.style.transform='scale(1)';">
+        Visit Homepage
+    </a>
+</footer>
+
 
     <script>
         document.querySelectorAll('.faq h2').forEach(faq => {
             faq.addEventListener('click', () => {
                 const parent = faq.parentElement;
+                const expanded = faq.getAttribute('aria-expanded') === 'true';
+                faq.setAttribute('aria-expanded', !expanded);
                 parent.classList.toggle('open');
+            });
+
+            faq.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    faq.click();
+                }
             });
         });
 
-        // Theme toggle functionality
-        const toggleTheme = () => {
-            document.body.classList.toggle('dark-theme');
-        };
-
-        // Add a button to toggle themes
         const themeButton = document.createElement('button');
         themeButton.innerText = 'Toggle Dark/Light Theme';
         themeButton.style.position = 'fixed';
@@ -294,7 +352,9 @@
         themeButton.style.border = 'none';
         themeButton.style.borderRadius = '5px';
         themeButton.style.cursor = 'pointer';
-        themeButton.onclick = toggleTheme;
+        themeButton.onclick = () => {
+            document.body.classList.toggle('dark-theme');
+        };
         document.body.appendChild(themeButton);
     </script>
 </body>
