@@ -159,25 +159,68 @@
             margin: 20px 0;
         }
 
-        .social-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            background: #444;
-            color: #fff;
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 24px;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-        }
+        /* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
 
-        .social-icon:hover {
-            background: #ff9e00;
-            box-shadow: 0 0 10px #ff9e00;
-        }
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #2b2b3b;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.3s ease-in-out;
+}
 
+.social-icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Specific Accent Colors */
+.social-icon.facebook:hover {
+    background-color: #4267B2;
+    box-shadow: 0 0 15px #4267B2;
+}
+
+.social-icon.linkedin:hover {
+    background-color: #0077B5;
+    box-shadow: 0 0 15px #0077B5;
+}
+
+.social-icon.instagram:hover {
+    background-color: #E1306C;
+    box-shadow: 0 0 15px #E1306C;
+}
+
+.social-icon.youtube:hover {
+    background-color: #FF0000;
+    box-shadow: 0 0 15px #FF0000;
+}
+
+.social-icon.twitter:hover {
+    background-color: #1DA1F2;
+    box-shadow: 0 0 15px #1DA1F2;
+}
+
+.social-icon.github:hover {
+    background-color: #171515;
+    box-shadow: 0 0 15px #171515;
+}
+
+.social-icon.portfolio:hover {
+    background-color: #00FFCC;
+    box-shadow: 0 0 15px #00FFCC;
+}
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.8em;
@@ -221,15 +264,29 @@
             <p>Nabil is an intermediate first-year science student and a self-taught developer with a strong commitment to continuous learning.</p>
         </div>
 
-        <!-- Social Icons -->
-        <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-        </div>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/nabilbinbillal" target="_blank" class="social-icon facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/nabilbinbillal" target="_blank" class="social-icon linkedin">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://www.instagram.com/nabilbinbillal" target="_blank" class="social-icon instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.youtube.com/@NabilBinBillal" target="_blank" class="social-icon youtube">
+        <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://x.com/nabilbinbillal" target="_blank" class="social-icon twitter">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://github.com/nabilbinbillal" target="_blank" class="social-icon github">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="https://nabilbinbillal.github.io" target="_blank" class="social-icon portfolio">
+        <i class="fas fa-briefcase"></i>
+    </a>
+</div>
     </div>
 
     <script>
