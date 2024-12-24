@@ -28,64 +28,60 @@
             max-width: 900px;
             margin: 30px auto;
             padding: 20px;
-            background: #fff;
+            background: linear-gradient(145deg, #ffffff, #f9f9f9);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
+            transition: background 0.4s;
         }
 
         h1 {
             text-align: center;
-            color: #00bcd4;
+            background: linear-gradient(90deg, #00bcd4, #007b9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.2em;
             margin-bottom: 20px;
-            text-shadow: 0 0 8px #00bcd4;
         }
 
         /* FAQ Styling */
         .faq {
             margin-bottom: 20px;
+            border-radius: 8px;
         }
 
         .faq h2 {
             font-size: 1.2em;
-            color: #555;
             cursor: pointer;
             margin: 0;
             padding: 15px;
-            background: #f0f0f0;
+            background: linear-gradient(90deg, #00bcd4, #007b9e);
+            color: #fff;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease-in-out;
+            transition: background 0.4s ease, color 0.4s ease;
         }
 
         .faq h2:hover {
-            background: #00bcd4;
-            color: #fff;
+            background: linear-gradient(90deg, #007b9e, #00bcd4);
         }
 
         .faq.open h2 {
-            background: #00bcd4;
-            color: #fff;
+            background: linear-gradient(90deg, #007b9e, #00bcd4);
         }
 
         .faq p {
             display: none;
             padding: 15px;
             background: #f9f9f9;
+            color: #333;
             border-radius: 0 0 8px 8px;
+            transition: background 0.4s ease, color 0.4s ease;
         }
 
         .faq.open p {
             display: block;
-        }
-
-        .faq h2 i {
-            transition: transform 0.3s;
-        }
-
-        .faq.open h2 i {
-            transform: rotate(180deg);
         }
 
         /* Light/Dark Theme Toggle */
@@ -104,7 +100,7 @@
             position: relative;
             width: 60px;
             height: 30px;
-            background: #ccc;
+            background: linear-gradient(90deg, #00bcd4, #007b9e);
             border-radius: 15px;
             cursor: pointer;
             transition: background 0.4s;
@@ -123,12 +119,12 @@
         }
 
         input:checked + .slider {
-            background: #00bcd4;
+            background: linear-gradient(90deg, #ff8c00, #ff4500);
         }
 
         input:checked + .slider:before {
             transform: translateX(30px);
-            background: #007b9e;
+            background: #ff5722;
         }
 
         body.dark {
@@ -137,17 +133,21 @@
         }
 
         body.dark .container {
+            background: linear-gradient(145deg, #444, #555);
+        }
+
+        body.dark .faq p {
             background: #444;
             color: #fff;
         }
 
         body.dark .faq h2 {
-            background: #555;
+            background: linear-gradient(90deg, #ff5722, #ff8c00);
             color: #fff;
         }
 
         body.dark .faq h2:hover {
-            background: #00bcd4;
+            background: linear-gradient(90deg, #ff8c00, #ff5722);
         }
 
         /* Social Icons */
@@ -169,36 +169,36 @@
             border-radius: 50%;
             text-decoration: none;
             font-size: 24px;
-            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
         }
 
         .social-icon.facebook:hover {
-            background: #4267B2;
+            background: linear-gradient(90deg, #4267B2, #264c7f);
             box-shadow: 0 0 15px #4267B2;
         }
 
         .social-icon.linkedin:hover {
-            background: #0077B5;
+            background: linear-gradient(90deg, #0077B5, #004a78);
             box-shadow: 0 0 15px #0077B5;
         }
 
         .social-icon.instagram:hover {
-            background: #E1306C;
+            background: linear-gradient(90deg, #E1306C, #962850);
             box-shadow: 0 0 15px #E1306C;
         }
 
         .social-icon.youtube:hover {
-            background: #FF0000;
+            background: linear-gradient(90deg, #FF0000, #b80000);
             box-shadow: 0 0 15px #FF0000;
         }
 
         .social-icon.twitter:hover {
-            background: #1DA1F2;
+            background: linear-gradient(90deg, #1DA1F2, #157ab5);
             box-shadow: 0 0 15px #1DA1F2;
         }
 
         .social-icon.github:hover {
-            background: #333;
+            background: linear-gradient(90deg, #333, #222);
             box-shadow: 0 0 15px #333;
         }
     </style>
