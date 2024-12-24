@@ -2,16 +2,10 @@
 const themeSwitch = document.getElementById('theme-switch');
 
 // Apply saved theme on load
-window.addEventListener('load', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark');
-        themeSwitch.checked = true;
-    } else {
-        document.body.classList.remove('dark');
-        themeSwitch.checked = false;
-    }
-});
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    themeSwitch.checked = true;
+}
 
 // Toggle theme on checkbox change
 themeSwitch.addEventListener('change', () => {
