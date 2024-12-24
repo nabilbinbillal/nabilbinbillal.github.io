@@ -1,8 +1,8 @@
-// Theme Switcher Logic
+// Toggle light/dark theme
 const themeSwitch = document.getElementById('theme-switch');
 const body = document.body;
 
-// Apply saved theme on load
+// Check localStorage for preferred theme
 if (localStorage.getItem('theme') === 'dark') {
     body.classList.add('dark');
     themeSwitch.checked = true;
@@ -11,7 +11,7 @@ if (localStorage.getItem('theme') === 'dark') {
     themeSwitch.checked = false;
 }
 
-// Toggle theme on checkbox change
+// Change theme when toggle is clicked
 themeSwitch.addEventListener('change', () => {
     const isDark = themeSwitch.checked;
     body.classList.toggle('dark', isDark);
@@ -19,7 +19,7 @@ themeSwitch.addEventListener('change', () => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
-// FAQ Toggle Logic
+// FAQ toggle functionality
 const faqItems = document.querySelectorAll('.faq h2');
 
 faqItems.forEach(faq => {
