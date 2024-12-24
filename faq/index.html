@@ -14,395 +14,202 @@
     <title>FAQ - Nabil Bin Billal</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-          /* General Styling */
         body {
             font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #e0e0e0;
-            transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
+        /* Container Styling */
         .container {
             max-width: 900px;
             margin: 20px auto;
             padding: 20px;
-            background: #1e1e2f;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: #ffffff;
             border-radius: 10px;
-            transition: background 0.4s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
             text-align: center;
-            color: #00ffcc;
-            margin-bottom: 20px;
-            text-shadow: 0 0 8px #00ffcc;
+            color: #007BFF;
+            text-shadow: 0px 1px 5px rgba(0, 123, 255, 0.7);
         }
 
         /* FAQ Styling */
+        .faq {
+            margin-bottom: 20px;
+        }
+
         .faq h2 {
             font-size: 1.2em;
-            color: #fff;
             cursor: pointer;
-            margin: 0;
+            background: #007BFF;
+            color: #fff;
             padding: 15px;
-            background: #2b2b3b;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease-in-out;
+            transition: background 0.3s, transform 0.3s;
         }
 
         .faq h2:hover {
-            background: #00ffcc;
-            color: #000;
-            transform: scale(1.05);
-        }
-
-        .faq.open h2 {
-            background: #00ffcc;
-            color: #000;
+            background: #0056b3;
+            transform: scale(1.02);
         }
 
         .faq p {
             display: none;
             padding: 15px;
-            background: #252535;
-            border-radius: 0 0 8px 8px;
+            background: #f9f9f9;
+            border-left: 5px solid #007BFF;
+            margin-top: 10px;
+            border-radius: 8px;
         }
 
         .faq.open p {
             display: block;
         }
 
-        .faq h2 i {
-            transition: transform 0.3s;
+        /* Light and Dark Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #f4f4f4;
+            border: 2px solid #007BFF;
+            border-radius: 20px;
+            width: 50px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.4s;
         }
 
-        .faq.open h2 i {
-            transform: rotate(180deg);
+        .theme-toggle .toggle-circle {
+            background: #007BFF;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-left: 5px;
+            transition: all 0.4s;
+        }
+
+        .dark-mode .theme-toggle {
+            background: #333;
+        }
+
+        .dark-mode .theme-toggle .toggle-circle {
+            margin-left: 25px;
+            background: #f4f4f4;
         }
 
         /* Social Icons */
-/* Social Icons */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
-}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-.social-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #ff6600;
-    color: #fff;
-    border-radius: 50%;
-    text-decoration: none;
-    font-size: 24
-
-
-        .social-icon i {
-            font-size: 24px;
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #007BFF;
             color: #fff;
-            transition: color 0.3s, box-shadow 0.3s;
+            font-size: 24px;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
         }
 
         .social-icon:hover {
             transform: scale(1.2);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
         }
 
-        .social-icon.facebook:hover i {
-            color: #4267B2;
-            box-shadow: 0 0 15px #4267B2;
+        .social-icon.facebook:hover {
+            background: #4267B2;
         }
 
-        .social-icon.linkedin:hover i {
-            color: #0077B5;
-            box-shadow: 0 0 15px #0077B5;
+        .social-icon.instagram:hover {
+            background: #C13584;
         }
 
-        .social-icon.instagram:hover i {
-            color: #E1306C;
-            box-shadow: 0 0 15px #E1306C;
-        }
-
-        .social-icon.youtube:hover i {
-            color: #FF0000;
-            box-shadow: 0 0 15px #FF0000;
-        }
-
-        .social-icon.twitter:hover i {
-            color: #1DA1F2;
-            box-shadow: 0 0 15px #1DA1F2;
-        }
-
-        .social-icon.github:hover i {
-            color: #171515;
-            box-shadow: 0 0 15px #171515;
-        }
-
-        .social-icon.portfolio:hover i {
-            color: #00ffcc;
-            box-shadow: 0 0 15px #00ffcc;
+        .social-icon.linkedin:hover {
+            background: #0077B5;
         }
 
         /* Footer */
         footer {
             text-align: center;
+            margin-top: 20px;
             padding: 10px;
-            background: #1e1e2f;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: #121212;
             color: #e0e0e0;
         }
 
-        /* Visit Homepage Button */
-        .homepage-button {
-            display: block;
-            margin: 20px auto;
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            background: #00ffcc;
-            border: none;
-            border-radius: 25px;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.4s ease-in-out;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        .dark-mode .container {
+            background: #1e1e1e;
         }
 
-        .homepage-button:hover {
-            background: #009977;
-            transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5em;
-            }
-
-            .faq h2 {
-                font-size: 1em;
-            }
-
-            .faq p {
-                font-size: 0.9em;
-            }
-        }
-
-        .dark-theme {
-            background-color: #333;
-            color: #f9f9f9;
-        }
-
-        .dark-theme .container {
-            background-color: #444;
-            color: #f9f9f9;
-        }
-
-        .dark-theme .faq h2 {
-            background: #555;
-            color: #f9f9f9;
-        }
-
-        .dark-theme .faq h2:hover {
-            background: #ff6600;
-            color: #fff;
-        }
-
-        .dark-theme footer {
-            background: #222;
-            color: #f9f9f9;
+        .dark-mode footer {
+            background: #333;
         }
     </style>
 </head>
 <body>
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <div class="toggle-circle"></div>
+    </div>
+
     <div class="container">
         <h1>Frequently Asked Questions (FAQ)</h1>
 
+        <!-- FAQ Section -->
         <div class="faq">
-            <h2>Who is Nabil Bin Billal? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal is a talented web developer, content creator, and scientific writer. He is experienced in MERN stack development, WordPress, Android development, and also serves as a content writer and moderator in the science community.</p>
+            <h2>Who is Nabil Bin Billal?</h2>
+            <p>Nabil is a web developer, MERN stack specialist, and a scientific writer with achievements in content creation.</p>
         </div>
 
-        <div class="faq">
-            <h2>What are Nabil Bin Billal’s academic qualifications? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal is currently studying Science at Brahmanbaria Govt. College. He earned a Golden A+ with a GPA of 5 in his SSC exams.</p>
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
         </div>
-
-        <div class="faq">
-            <h2>When was Nabil Bin Billal born? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal was born on January 1st, 2008, in Bangladesh.</p>
-        </div>
-
-        <div class="faq">
-            <h2>What achievements has Nabil Bin Billal accomplished? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil’s notable achievements include earning a Golden A+ with GPA 5 in the SSC exam and placing first in local Math and Science Olympiads.</p>
-        </div>
-
-        <div class="faq">
-            <h2>What services does Nabil Bin Billal offer? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil offers services in web development, particularly in the MERN stack, WordPress, and Android app development. He is also skilled in content writing, fact-checking, and scientific research.</p>
-        </div>
-
-        <div class="faq">
-            <h2>Is Nabil Bin Billal available for work or collaboration? <i class="fas fa-chevron-down"></i></h2>
-            <p>Yes, Nabil Bin Billal is available for work and contributions. You can contact him at <a href="mailto:nabilbinbillal@gmail.com">nabilbinbillal@gmail.com</a> or through his social media profiles: <a href="https://www.facebook.com/nabilbinbillal" target="_blank">Facebook</a>, <a href="https://www.linkedin.com/in/nabilbinbillal" target="_blank">LinkedIn</a>, <a href="https://www.instagram.com/nabilbinbillal" target="_blank">Instagram</a <a href="https://www.youtube.com/@NabilBinBillal" target="_blank">YouTube</a>, <a href="https://x.com/nabilbinbillal" target="_blank">Twitter/X</a>, <a href="https://github.com/nabilbinbillal" target="_blank">GitHub</a>, <a href="https://www.threads.net/@nabilbinbillal" target="_blank">Threads</a>, <a href="https://nabilbinbillal.github.io" target="_blank">Portfolio</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>What are Nabil Bin Billal’s hobbies and interests? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil enjoys programming, reading books, writing, research, gardening, and tree plantation.</p>
-        </div>
-
-        <div class="faq">
-            <h2>What organizations is Nabil Bin Billal associated with? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil is a moderator for two large science communities on Facebook: 'কি?... বিজ্ঞান খুঁজছেন' and 'বিজ্ঞান খুঁজে লাভ নাই!'. He is also a key volunteer at Dr. Yunus’s 3Zero Club, focusing on environmental sustainability and climate change.</p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal’s website? <i class="fas fa-chevron-down"></i></h2>
-            <p>You can view Nabil’s work and portfolio on his official website: <a href="https://nabilbinbillal.github.io" target="_blank">https://nabilbinbillal.github.io</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>How can I contact Nabil Bin Billal for work or inquiries? <i class="fas fa-chevron-down"></i></h2>
-            <p>You can contact him at <a href="mailto:nabilbinbillal@gmail.com">nabilbinbillal@gmail.com</a> or via his social media profiles: <a href="https://www.facebook.com/nabilbinbillal" target="_blank">Facebook</a>, <a href="https://www.linkedin.com/in/nabilbinbillal" target="_blank">LinkedIn</a>, <a href="https://www.instagram.com/nabilbinbillal" target="_blank">Instagram</a>, <a href="https://www.youtube.com/@NabilBinBillal" target="_blank">YouTube</a>, <a href="https://x.com/nabilbinbillal" target="_blank">Twitter/X</a>, <a href="https://github.com/nabilbinbillal" target="_blank">GitHub</a>, <a href="https://www.threads.net/@nabilbinbillal" target="_blank">Threads</a>, <a href="https://nabilbinbillal.github.io" target="_blank">Portfolio</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>In which college does Nabil Bin Billal study? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal is currently studying at Brahmanbaria Govt. College, pursuing his education in Science.</p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal's Facebook profile? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal's Facebook profile is <a href="https://www.facebook.com/nabilbinbillal" target="_blank">https://www.facebook.com/nabilbinbillal</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal's LinkedIn profile? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal's LinkedIn profile is <a href="https://www.linkedin.com/in/nabilbinbillal" target="_blank">https://www.linkedin.com/in/nabilbinbillal</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal's Instagram profile? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal's Instagram profile is <a href="https://www.instagram.com/nabilbinbillal" target="_blank">https://www.instagram.com/nabilbinbillal</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal's YouTube profile? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal's YouTube profile is <a href="https://www.youtube.com/@NabilBinBillal" target="_blank">https://www.youtube.com/@NabilBinBillal</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal's Twitter/X profile? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal's Twitter/X profile is <a href="https://x.com/nabilbinbillal" target="_blank">https://x.com/nabilbinbillal</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal's GitHub profile? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal's GitHub profile is <a href="https://github.com/nabilbinbillal" target="_blank">https://github.com/nabilbinbillal</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal's Threads profile? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal's Threads profile is <a href="https://www.threads.net/@nabilbinbillal" target="_blank">https://www.threads.net/@nabilbinbillal</a></p>
-        </div>
-
-        <div class="faq">
-            <h2>What is Nabil Bin Billal's portfolio website? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal's portfolio is available at <a href="https://nabilbinbillal.github.io" target="_blank">https://nabilbinbillal.github.io</a></p>
-        </div>
-
-<div class="social-icons">
-    <a href="https://www.facebook.com/nabilbinbillal" target="_blank" class="social-icon">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/nabilbinbillal" target="_blank" class="social-icon">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://www.instagram.com/nabilbinbillal" target="_blank" class="social-icon">
-        <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.youtube.com/@NabilBinBillal" target="_blank" class="social-icon">
-        <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://x.com/nabilbinbillal" target="_blank" class="social-icon">
-        <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://github.com/nabilbinbillal" target="_blank" class="social-icon">
-        <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.threads.net/@nabilbinbillal" target="_blank" class="social-icon">
-        <i class="fab fa-threads"></i>
-    </a>
-    <a href="https://nabilbinbillal.github.io" target="_blank" class="social-icon">
-        <i class="fas fa-briefcase"></i>
-    </a>
-</div>
-</div>
-
-
-    
-
-<footer style="text-align: center; padding: 20px; background-color: #f8f9fa; font-family: Arial, sans-serif;">
-    <div class="homepage-button" style="margin-bottom: 10px;">
-        <a href="https://nabilbinbillal.github.io" target="_blank" 
-           style="display: inline-block; padding: 12px 20px; font-size: 16px; font-weight: bold; color: #fff; text-align: center; text-decoration: none; background-color: #ff6600; border: none; border-radius: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: background-color 0.3s, transform 0.2s;" 
-           onmouseover="this.style.backgroundColor='#e65c00'; this.style.transform='scale(1.05)';" 
-           onmouseout="this.style.backgroundColor='#ff6600'; this.style.transform='scale(1)';">
-            Visit Homepage
-        </a>
     </div>
-    <p style="margin: 0; font-size: 14px; color: #555;">
-        &copy; 2024 <a href="https://nabilbinbillal.github.io" target="_blank" style="color: #ff6600; text-decoration: none;">Nabil Bin Billal.</a> All rights reserved.
-    </p>
-</footer>
 
-
+    <footer>
+        © 2024 Nabil Bin Billal. All Rights Reserved.
+    </footer>
 
     <script>
-        document.querySelectorAll('.faq h2').forEach(faq => {
-            faq.addEventListener('click', () => {
-                const parent = faq.parentElement;
-                const expanded = faq.getAttribute('aria-expanded') === 'true';
-                faq.setAttribute('aria-expanded', !expanded);
-                parent.classList.toggle('open');
-            });
+        const body = document.body;
 
-            faq.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    faq.click();
-                }
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+        }
+
+        document.querySelectorAll('.faq h2').forEach(question => {
+            question.addEventListener('click', () => {
+                const faq = question.parentElement;
+                faq.classList.toggle('open');
             });
         });
-
-        const themeButton = document.createElement('button');
-        themeButton.innerText = 'Toggle Dark/Light Theme';
-        themeButton.style.position = 'fixed';
-        themeButton.style.top = '20px';
-        themeButton.style.right = '20px';
-        themeButton.style.padding = '10px';
-        themeButton.style.backgroundColor = '#ff6600';
-        themeButton.style.color = '#fff';
-        themeButton.style.border = 'none';
-        themeButton.style.borderRadius = '5px';
-        themeButton.style.cursor = 'pointer';
-        themeButton.onclick = () => {
-            document.body.classList.toggle('dark-theme');
-        };
-        document.body.appendChild(themeButton);
     </script>
 </body>
 </html>
