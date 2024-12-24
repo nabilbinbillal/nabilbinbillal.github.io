@@ -5,12 +5,21 @@ const themeSwitch = document.getElementById('theme-switch');
 if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark');
     themeSwitch.checked = true;
+} else {
+    document.body.classList.add('light');
+    themeSwitch.checked = false;
 }
 
 // Toggle theme on checkbox change
 themeSwitch.addEventListener('change', () => {
     const isDark = themeSwitch.checked;
-    document.body.classList.toggle('dark', isDark);
+    if (isDark) {
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+    } else {
+        document.body.classList.add('light');
+        document.body.classList.remove('dark');
+    }
     // Save theme preference
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
