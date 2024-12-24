@@ -26,7 +26,7 @@
 
         .container {
             max-width: 900px;
-            margin: 30px auto;
+            margin: 20px auto;
             padding: 20px;
             background: linear-gradient(145deg, #ffffff, #f9f9f9);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -153,6 +153,7 @@
         /* Social Icons */
         .social-icons {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
             margin: 20px 0;
@@ -201,6 +202,22 @@
             background: linear-gradient(90deg, #333, #222);
             box-shadow: 0 0 15px #333;
         }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .social-icons {
+                gap: 10px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -218,10 +235,16 @@
         <!-- FAQs -->
         <div class="faq">
             <h2>Who is Nabil Bin Billal? <i class="fas fa-chevron-down"></i></h2>
-            <p>Nabil Bin Billal is a talented web developer, content creator, and scientific writer...</p>
+            <p>Nabil Bin Billal is a skilled web developer, content writer, and scientific writer with a passion for MERN stack development and Android programming.</p>
         </div>
-
-        <!-- Repeat similar structure for all questions -->
+        <div class="faq">
+            <h2>What services does Nabil offer? <i class="fas fa-chevron-down"></i></h2>
+            <p>Nabil offers web and mobile development, WordPress solutions, and scientific content writing services tailored to your needs.</p>
+        </div>
+        <div class="faq">
+            <h2>What is Nabil's educational background? <i class="fas fa-chevron-down"></i></h2>
+            <p>Nabil is an intermediate first-year science student and a self-taught developer with a strong commitment to continuous learning.</p>
+        </div>
 
         <!-- Social Icons -->
         <div class="social-icons">
