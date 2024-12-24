@@ -94,9 +94,9 @@ body.dark .faq p {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background: #2b2b2b;
+    background: #fff; /* Light background in light theme */
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow for light theme */
     word-wrap: break-word;
 }
 
