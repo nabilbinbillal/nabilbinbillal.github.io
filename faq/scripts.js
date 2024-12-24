@@ -20,5 +20,9 @@ document.querySelectorAll('.faq h2').forEach((faqHeader) => {
     faqHeader.addEventListener('click', () => {
         const faq = faqHeader.parentElement;
         faq.classList.toggle('open');
+        const icon = faqHeader.querySelector('i');
+        // Toggle the icon (expand/collapse)
+        icon.classList.toggle('fa-chevron-up');
+        icon.classList.toggle('fa-chevron-down');
     });
 });
