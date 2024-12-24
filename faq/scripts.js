@@ -1,35 +1,5 @@
 // Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-    // Theme toggle logic
-    const themeToggle = document.getElementById('theme-switch');
-    const body = document.body;
-
-    // Function to toggle theme classes on body
-    const toggleTheme = () => {
-        if (themeToggle.checked) {
-            body.classList.remove('light');
-            body.classList.add('dark');
-        } else {
-            body.classList.remove('dark');
-            body.classList.add('light');
-        }
-    };
-
-    // Initialize theme from localStorage or default to light theme
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-        body.classList.add(storedTheme);
-        themeToggle.checked = storedTheme === 'dark';
-    } else {
-        body.classList.add('light');
-    }
-
-    // Set theme toggle on change event
-    themeToggle.addEventListener('change', () => {
-        toggleTheme();
-        localStorage.setItem('theme', themeToggle.checked ? 'dark' : 'light');
-    });
-
+document.addEventListener('DOMContentLoaded', () => {
     // FAQ Accordion logic
     const faqItems = document.querySelectorAll('.faq h2');
 
