@@ -216,3 +216,85 @@ input:checked + .slider .moon {
         font-size: 20px;
     }
 }
+
+
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.back-to-home {
+    font-size: 1.2em;
+    color: #ff9e00;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #444;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect for Back to Home Link */
+.back-to-home:hover {
+    background-color: #ff9e00;
+    transform: scale(1.1);
+}
+
+/* Copyright Styling */
+.copyright {
+    font-size: 0.9em;
+    color: #fff;
+}
+
+.name-link {
+    color: #ff9e00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect for Name Link */
+.name-link:hover {
+    color: #ff5722;
+}
+
+/* Animation for Footer (Slide from Bottom) */
+footer {
+    animation: slideInUp 0.8s ease-in-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .back-to-home {
+        margin-bottom: 10px;
+    }
+}
