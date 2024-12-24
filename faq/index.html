@@ -509,6 +509,18 @@ body.dark .faq p {
     box-shadow: 0 0 15px #FF0000;
 }
 
+.threads-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Optional: Makes the icon circular */
+    transition: transform 0.3s;
+}
+
+.social-icon:hover .threads-icon {
+    transform: scale(1.1);
+}
+
+
 .social-icon.twitter:hover {
     background-color: #1DA1F2;
     box-shadow: 0 0 15px #1DA1F2;
@@ -677,9 +689,9 @@ body.dark .faq p {
     <a href="https://github.com/nabilbinbillal" target="_blank" class="social-icon">
         <i class="fab fa-github"></i>
     </a>
-    <a href="https://www.threads.net/@nabilbinbillal" target="_blank" class="social-icon">
-        <i class="fab fa-threads"></i>
-    </a>
+    <a href="https://www.threads.net/@nabilbinbillal" target="_blank" class="social-icon" title="Follow on Threads">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Threads_app_logo.svg" alt="Threads Icon" class="threads-icon">
+</a>
     <a href="https://nabilbinbillal.github.io" target="_blank" class="social-icon">
         <i class="fas fa-briefcase"></i>
     </a>
