@@ -14,29 +14,30 @@
     <title>FAQ - Nabil Bin Billal</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+        /* General Styling */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            transition: all 0.4s ease;
-            background-color: #f4f4f4;
+            background-color: #f5f5f5;
             color: #333;
+            transition: all 0.4s ease-in-out;
         }
 
-        /* Container Styling */
         .container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
+            background: #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
         }
 
         h1 {
             text-align: center;
-            color: #007BFF;
-            text-shadow: 0px 1px 5px rgba(0, 123, 255, 0.7);
+            color: #00bcd4;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px #00bcd4;
         }
 
         /* FAQ Styling */
@@ -46,67 +47,107 @@
 
         .faq h2 {
             font-size: 1.2em;
+            color: #555;
             cursor: pointer;
-            background: #007BFF;
-            color: #fff;
+            margin: 0;
             padding: 15px;
+            background: #f0f0f0;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.3s, transform 0.3s;
+            transition: all 0.3s ease-in-out;
         }
 
         .faq h2:hover {
-            background: #0056b3;
-            transform: scale(1.02);
+            background: #00bcd4;
+            color: #fff;
+        }
+
+        .faq.open h2 {
+            background: #00bcd4;
+            color: #fff;
         }
 
         .faq p {
             display: none;
             padding: 15px;
             background: #f9f9f9;
-            border-left: 5px solid #007BFF;
-            margin-top: 10px;
-            border-radius: 8px;
+            border-radius: 0 0 8px 8px;
         }
 
         .faq.open p {
             display: block;
         }
 
-        /* Light and Dark Theme Toggle */
+        .faq h2 i {
+            transition: transform 0.3s;
+        }
+
+        .faq.open h2 i {
+            transform: rotate(180deg);
+        }
+
+        /* Light/Dark Theme Toggle */
         .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #f4f4f4;
-            border: 2px solid #007BFF;
-            border-radius: 20px;
-            width: 50px;
-            height: 25px;
             display: flex;
+            justify-content: center;
             align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .theme-toggle input {
+            display: none;
+        }
+
+        .slider {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #ccc;
+            border-radius: 15px;
             cursor: pointer;
-            transition: all 0.4s;
+            transition: background 0.4s;
         }
 
-        .theme-toggle .toggle-circle {
-            background: #007BFF;
-            width: 20px;
-            height: 20px;
+        .slider:before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #fff;
             border-radius: 50%;
-            margin-left: 5px;
-            transition: all 0.4s;
+            top: 2.5px;
+            left: 2.5px;
+            transition: transform 0.4s, background 0.4s;
         }
 
-        .dark-mode .theme-toggle {
-            background: #333;
+        input:checked + .slider {
+            background: #00bcd4;
         }
 
-        .dark-mode .theme-toggle .toggle-circle {
-            margin-left: 25px;
-            background: #f4f4f4;
+        input:checked + .slider:before {
+            transform: translateX(30px);
+            background: #007b9e;
+        }
+
+        body.dark {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.dark .container {
+            background: #444;
+            color: #fff;
+        }
+
+        body.dark .faq h2 {
+            background: #555;
+            color: #fff;
+        }
+
+        body.dark .faq h2:hover {
+            background: #00bcd4;
         }
 
         /* Social Icons */
@@ -114,99 +155,94 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
         .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
             width: 50px;
             height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #007BFF;
+            background: #ccc;
             color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
             font-size: 24px;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-        }
-
-        .social-icon:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
         }
 
         .social-icon.facebook:hover {
             background: #4267B2;
-        }
-
-        .social-icon.instagram:hover {
-            background: #C13584;
+            box-shadow: 0 0 15px #4267B2;
         }
 
         .social-icon.linkedin:hover {
             background: #0077B5;
+            box-shadow: 0 0 15px #0077B5;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background: #f4f4f4;
-            color: #333;
+        .social-icon.instagram:hover {
+            background: #E1306C;
+            box-shadow: 0 0 15px #E1306C;
         }
 
-        /* Dark Mode */
-        .dark-mode {
-            background: #121212;
-            color: #e0e0e0;
+        .social-icon.youtube:hover {
+            background: #FF0000;
+            box-shadow: 0 0 15px #FF0000;
         }
 
-        .dark-mode .container {
-            background: #1e1e1e;
+        .social-icon.twitter:hover {
+            background: #1DA1F2;
+            box-shadow: 0 0 15px #1DA1F2;
         }
 
-        .dark-mode footer {
+        .social-icon.github:hover {
             background: #333;
+            box-shadow: 0 0 15px #333;
         }
     </style>
 </head>
 <body>
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <div class="toggle-circle"></div>
-    </div>
-
     <div class="container">
         <h1>Frequently Asked Questions (FAQ)</h1>
 
-        <!-- FAQ Section -->
-        <div class="faq">
-            <h2>Who is Nabil Bin Billal?</h2>
-            <p>Nabil is a web developer, MERN stack specialist, and a scientific writer with achievements in content creation.</p>
+        <!-- Theme Toggle -->
+        <div class="theme-toggle">
+            <label>
+                <input type="checkbox" id="theme-switch">
+                <div class="slider"></div>
+            </label>
         </div>
+
+        <!-- FAQs -->
+        <div class="faq">
+            <h2>Who is Nabil Bin Billal? <i class="fas fa-chevron-down"></i></h2>
+            <p>Nabil Bin Billal is a talented web developer, content creator, and scientific writer...</p>
+        </div>
+
+        <!-- Repeat similar structure for all questions -->
 
         <!-- Social Icons -->
         <div class="social-icons">
             <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon github"><i class="fab fa-github"></i></a>
         </div>
     </div>
 
-    <footer>
-        © 2024 Nabil Bin Billal. All Rights Reserved.
-    </footer>
-
     <script>
-        const body = document.body;
+        const themeSwitch = document.getElementById('theme-switch');
+        themeSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark');
+        });
 
-        function toggleTheme() {
-            body.classList.toggle('dark-mode');
-        }
-
-        document.querySelectorAll('.faq h2').forEach(question => {
-            question.addEventListener('click', () => {
-                const faq = question.parentElement;
+        document.querySelectorAll('.faq h2').forEach(faqHeader => {
+            faqHeader.addEventListener('click', () => {
+                const faq = faqHeader.parentElement;
                 faq.classList.toggle('open');
             });
         });
