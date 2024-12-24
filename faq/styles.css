@@ -1,61 +1,53 @@
-/* General Styling */
+/* General Body Styling */
 body {
-    font-family: 'Fira Code', monospace;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
     margin: 0;
     padding: 0;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Light Theme Styling */
+/* Light Theme */
 body.light {
-    background-color: #fff; /* Light background */
-    color: #333; /* Dark text for contrast */
+    background-color: #fff;
+    color: #333;
 }
 
-body.light .container {
-    background: #fff; /* Light background for the container */
-    border: 1px solid #ddd; /* Lighter border */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+body.light .faq {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
 }
 
 body.light .faq h2 {
-    background: #f4f4f4; /* Light background for FAQ header */
-    color: #333; /* Dark text for FAQ header */
-}
-
-body.light .faq h2:hover {
-    background: #e0e0e0; /* Light hover effect */
+    background: #f0f0f0;
+    color: #333;
 }
 
 body.light .faq p {
-    background: #fafafa; /* Very light background for paragraphs */
-    color: #333; /* Dark text for readability */
+    background: #fff;
+    color: #333;
 }
 
-/* Dark Theme Styling */
+/* Dark Theme */
 body.dark {
-    background-color: #1a1a1a; /* Dark background */
-    color: #f4f4f4; /* Light text for contrast */
+    background-color: #333;
+    color: #fff;
 }
 
-body.dark .container {
-    background: #2b2b2b; /* Dark background for the container */
-    border: 1px solid #444; /* Darker border */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Strong shadow for dark theme */
+body.dark .faq {
+    background: #444;
+    border: 1px solid #555;
 }
 
 body.dark .faq h2 {
-    background: #333; /* Dark background for FAQ header */
-    color: #ff9e00; /* Accent color for the text */
-}
-
-body.dark .faq h2:hover {
-    background: #444; /* Dark hover effect */
+    background: #555;
+    color: #ff9e00;
 }
 
 body.dark .faq p {
-    background: #2b2b2b; /* Dark background for paragraphs */
-    color: #ccc; /* Light text for readability */
+    background: #2b2b2b;
+    color: #ccc;
 }
 
 /* FAQ Styling */
@@ -64,152 +56,120 @@ body.dark .faq p {
     border-radius: 8px;
     overflow: hidden;
     transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 0;
 }
 
 .faq h2 {
     margin: 0;
     padding: 15px 20px;
+    background: #333;
+    color: #ff9e00;
     font-size: 1.1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    transition: background 0.3s ease;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .faq p {
     margin: 0;
     padding: 15px 20px;
     display: none;
+    background: #2b2b2b;
+    color: #cfcfcf;
     font-size: 0.95em;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
-/* Social Icons */
+.faq.open p {
+    display: block;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+}
+
+/* Social Icons Styling */
 .social-icons {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Adjust to show icons in two rows */
     gap: 15px;
-    margin: 20px 0;
+    justify-items: center;
+    margin-top: 20px;
 }
 
 .social-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #2b2b3b;
-    color: #fff;
-    border-radius: 50%;
+    font-size: 30px;
     text-decoration: none;
-    font-size: 24px;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon i {
+    color: #333;
 }
 
 .social-icon:hover {
     transform: scale(1.2);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
-/* Specific Accent Colors */
-.social-icon.facebook:hover {
-    background-color: #4267B2;
-    box-shadow: 0 0 15px #4267B2;
-}
-
-.social-icon.linkedin:hover {
-    background-color: #0077B5;
-    box-shadow: 0 0 15px #0077B5;
-}
-
-.social-icon.instagram:hover {
-    background-color: #E1306C;
-    box-shadow: 0 0 15px #E1306C;
-}
-
-.social-icon.youtube:hover {
-    background-color: #FF0000;
-    box-shadow: 0 0 15px #FF0000;
-}
-
-.social-icon.twitter:hover {
-    background-color: #1DA1F2;
-    box-shadow: 0 0 15px #1DA1F2;
-}
-
-.social-icon.github:hover {
-    background-color: #171515;
-    box-shadow: 0 0 15px #171515;
-}
-
-.social-icon.portfolio:hover {
-    background-color: #00FFCC;
-    box-shadow: 0 0 15px #00FFCC;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.theme-toggle input {
-    display: none;
-}
-
-.slider {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background: #444;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5px;
-    box-sizing: border-box;
-}
-
-.slider .icon {
-    position: absolute;
-    font-size: 18px;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-.slider .sun {
-    left: 8px;
+.social-icon:hover i {
     color: #ff9e00;
 }
 
-.slider .moon {
-    right: 8px;
-    color: #fff;
-    opacity: 0;
-    transform: scale(0.8);
+/* Colorful Social Icons */
+.social-icon i {
+    transition: color 0.3s ease;
 }
 
-input:checked + .slider {
-    background: #ff9e00;
+.social-icon:hover i.fa-facebook-f {
+    color: #1877f2;
 }
 
-input:checked + .slider .sun {
-    opacity: 0;
-    transform: scale(0.8);
+.social-icon:hover i.fa-linkedin-in {
+    color: #0077b5;
 }
 
-input:checked + .slider .moon {
-    opacity: 1;
-    transform: scale(1);
+.social-icon:hover i.fa-instagram {
+    color: #e1306c;
+}
+
+.social-icon:hover i.fa-youtube {
+    color: #ff0000;
+}
+
+.social-icon:hover i.fa-twitter {
+    color: #1da1f2;
+}
+
+.social-icon:hover i.fa-github {
+    color: #333;
+}
+
+.social-icon:hover img.icon-threads {
+    filter: brightness(1.3);
 }
 
 /* Footer Styling */
 footer {
-    text-align: center;
-    padding: 15px 0;
-    background-color: #2b2b2b;
+    background-color: #333;
     color: #fff;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
 }
 
 footer a {
@@ -222,19 +182,34 @@ footer a:hover {
 }
 
 /* Back to Home Button */
-#back-to-home {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+.back-to-home {
+    display: inline-block;
+    margin-top: 20px;
     background-color: #ff9e00;
-    color: white;
     padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
     border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-#back-to-home:hover {
-    background-color: #e08900;
+.back-to-home:hover {
+    background-color: #e67e00;
+}
+
+/* Responsiveness: Mobile View */
+@media screen and (max-width: 600px) {
+    .social-icons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .faq h2 {
+        font-size: 1em;
+    }
+
+    .faq p {
+        font-size: 0.9em;
+    }
 }
