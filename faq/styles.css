@@ -210,6 +210,55 @@ body.dark .back-home {
     color: #fff;
 }
 
+/* Theme Toggle (Slider) */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.theme-toggle input {
+    display: none;
+}
+
+.theme-toggle .slider {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle .slider .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #fff;
+    transition: left 0.3s ease;
+}
+
+.theme-toggle .slider .sun {
+    left: 8px;
+}
+
+.theme-toggle .slider .moon {
+    left: 30px;
+}
+
+.theme-toggle input:checked + .slider {
+    background-color: #ff9e00;
+}
+
+.theme-toggle input:checked + .slider .sun {
+    left: 30px;
+}
+
+.theme-toggle input:checked + .slider .moon {
+    left: 8px;
+}
+
 /* Responsiveness: Mobile View */
 @media screen and (max-width: 600px) {
     .social-icons {
