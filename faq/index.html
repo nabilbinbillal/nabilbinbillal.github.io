@@ -701,7 +701,7 @@ input:checked + .slider .moon {
 
 
 <script>
-// Light/Dark Theme Toggle Script
+// Theme Toggle Script
 const themeSwitch = document.getElementById('theme-switch');
 
 // Apply saved theme on load
@@ -712,9 +712,10 @@ if (localStorage.getItem('theme') === 'dark') {
 
 // Toggle theme on checkbox change
 themeSwitch.addEventListener('change', () => {
-    document.body.classList.toggle('dark');
+    const isDark = themeSwitch.checked;
+    document.body.classList.toggle('dark', isDark);
     // Save theme preference
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
 // FAQ Toggle Script
