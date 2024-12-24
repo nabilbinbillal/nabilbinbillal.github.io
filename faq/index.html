@@ -361,70 +361,96 @@
             display: block;
         }
 
-        /* Light/Dark Theme Toggle */
-        .theme-toggle {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+     /* Light/Dark Theme Toggle */
+.theme-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
-        .theme-toggle input {
-            display: none;
-        }
+.theme-toggle input {
+    display: none;
+}
 
-        .slider {
-            position: relative;
-            width: 60px;
-            height: 30px;
-            background: #444;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+.slider {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: #444;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-        .slider:before {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background: #ff9e00;
-            border-radius: 50%;
-            top: 2.5px;
-            left: 2.5px;
-            transition: transform 0.3s, background 0.3s;
-        }
+.slider:before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ff9e00;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 2.5px;
+    transition: transform 0.3s, background 0.3s;
+}
 
-        input:checked + .slider {
-            background: #ff9e00;
-        }
+.slider .icon {
+    position: absolute;
+    top: 5px;
+    font-size: 20px;
+    color: white;
+    transition: opacity 0.3s;
+}
 
-        input:checked + .slider:before {
-            transform: translateX(30px);
-            background: #444;
-        }
+.slider .sun {
+    left: 5px;
+    opacity: 1;
+}
 
-        body.dark {
-            background-color: #e0e0e0;
-            color: #1a1a1a;
-        }
+.slider .moon {
+    right: 5px;
+    opacity: 0;
+}
 
-        body.dark .container {
-            background: #fff;
-        }
+input:checked + .slider {
+    background: #ff9e00;
+}
 
-        body.dark .faq h2 {
-            background: #f4f4f4;
-            color: #333;
-        }
+input:checked + .slider:before {
+    transform: translateX(30px);
+    background: #444;
+}
 
-        body.dark .faq h2:hover {
-            background: #ddd;
-        }
+input:checked + .slider .sun {
+    opacity: 0;
+}
 
-        body.dark .faq p {
-            background: #fafafa;
-            color: #444;
-        }
+input:checked + .slider .moon {
+    opacity: 1;
+}
+
+body.dark {
+    background-color: #e0e0e0;
+    color: #1a1a1a;
+}
+
+body.dark .container {
+    background: #fff;
+}
+
+body.dark .faq h2 {
+    background: #f4f4f4;
+    color: #333;
+}
+
+body.dark .faq h2:hover {
+    background: #ddd;
+}
+
+body.dark .faq p {
+    background: #fafafa;
+    color: #444;
+}
 
         /* Social Icons */
         .social-icons {
@@ -518,13 +544,22 @@
     <div class="container">
         <h1>Frequently Asked Questions (FAQ)</h1>
 
-        <!-- Theme Toggle -->
-        <div class="theme-toggle">
-            <label>
-                <input type="checkbox" id="theme-switch">
-                <div class="slider"></div>
-            </label>
+      <!-- Theme Toggle -->
+<div class="theme-toggle">
+    <label>
+        <input type="checkbox" id="theme-switch">
+        <div class="slider">
+            <span class="icon sun">&#9728;</span>
+            <span class="icon moon">&#9790;</span>
         </div>
+    </label>
+</div>
+
+
+
+
+
+
 
        <div class="container">
  
@@ -651,19 +686,34 @@
 </div>
 </div>
 
+<script>
+  // Initialize the theme based on localStorage or default to light
+const themeSwitch = document.getElementById('theme-switch');
 
-    <script>
-        const themeSwitch = document.getElementById('theme-switch');
-        themeSwitch.addEventListener('change', () => {
-            document.body.classList.toggle('dark');
-        });
+// Check if the theme is stored in localStorage
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    themeSwitch.checked = true;
+}
 
-        document.querySelectorAll('.faq h2').forEach(faqHeader => {
-            faqHeader.addEventListener('click', () => {
-                const faq = faqHeader.parentElement;
-                faq.classList.toggle('open');
-            });
-        });
-    </script>
+// Toggle theme on switch change
+themeSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('dark');
+    // Save the user's preference in localStorage
+    if (document.body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Handle FAQ toggle
+document.querySelectorAll('.faq h2').forEach(faqHeader => {
+    faqHeader.addEventListener('click', () => {
+        const faq = faqHeader.parentElement;
+        faq.classList.toggle('open');
+    });
+});
+<script>
 </body>
 </html>
