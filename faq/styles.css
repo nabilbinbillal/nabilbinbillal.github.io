@@ -77,21 +77,32 @@ body.dark .faq p {
 .theme-toggle {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
-.theme-toggle input {
-    display: none;
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .slider {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background: #444;
-    border-radius: 15px;
+    position: absolute;
     cursor: pointer;
-    transition: background 0.3s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,18 +115,19 @@ body.dark .faq p {
     transition: opacity 0.3s, transform 0.3s;
 }
 
-.slider .sun {
+.sun {
     color: #ff9e00;
+    opacity: 1;
 }
 
-.slider .moon {
+.moon {
     color: #fff;
     opacity: 0;
     transform: scale(0.8);
 }
 
 input:checked + .slider {
-    background: #ff9e00;
+    background-color: #ff9e00;
 }
 
 input:checked + .slider .sun {
@@ -131,13 +143,12 @@ input:checked + .slider .moon {
 /* Social Icons */
 .social-icons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
     margin: 20px 0;
-    flex-wrap: wrap;
 }
 
-/* Social Icon Styling */
 .social-icon {
     display: inline-flex;
     justify-content: center;
@@ -150,18 +161,22 @@ input:checked + .slider .moon {
     text-decoration: none;
     font-size: 24px;
     transition: all 0.3s ease-in-out;
-    position: relative;
 }
 
-/* Social Icon Hover Effects */
 .social-icon:hover {
     transform: scale(1.2);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
+/* Specific Accent Colors */
 .social-icon.facebook:hover {
     background-color: #4267B2;
     box-shadow: 0 0 15px #4267B2;
+}
+
+.social-icon.linkedin:hover {
+    background-color: #0077B5;
+    box-shadow: 0 0 15px #0077B5;
 }
 
 .social-icon.instagram:hover {
@@ -189,7 +204,7 @@ input:checked + .slider .moon {
     box-shadow: 0 0 15px #00FFCC;
 }
 
-.social-icon .threads-icon {
+.threads-icon {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -200,62 +215,34 @@ input:checked + .slider .moon {
     transform: scale(1.1);
 }
 
+/* Back to Home Button */
+.back-to-home {
+    display: inline-block;
+    background-color: #ff9e00;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.back-to-home:hover {
+    background-color: #e68900;
+    transform: scale(1.1);
+}
+
 /* Footer Styling */
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 50px;
-    padding: 20px;
-    background: #f4f4f4;
-    color: #000;
+    text-align: center;
+    margin: 40px 0;
 }
 
-footer.dark {
-    background-color: #2b2b2b;
-}
-
-footer a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Back to Home Button */
-footer .back-home {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #ff9e00; /* Solid background color */
-    color: #fff;
-    border: 2px solid #ff9e00; /* Matching border */
-    border-radius: 5px; /* Slight rounding of the corners */
-    text-decoration: none;
-    font-size: 1.3em;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-
-/* Hover Effects */
-footer .back-home:hover {
-    background: #ff6600; /* Hover background color */
-    color: #fff;
-    border-color: #ff6600; /* Border changes on hover */
-    transform: scale(1.05); /* Slightly enlarge the button */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-}
-
-/* Active (clicked) state */
-footer .back-home:active {
-    transform: scale(1.02); /* Slightly reduce size when clicked */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Strongest shadow when clicked */
-    background: #ff6600; /* Active background color */
-    border-color: #ff6600; /* Active border color */
-}
-
-/* Copyright Section */
 footer .copyright {
-    font-size: 0.9em;
-    color: #444;
+    font-size: 14px;
+    color: #888;
 }
 
 footer .copyright a {
@@ -269,6 +256,10 @@ footer .copyright a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
     .social-icons {
         gap: 10px;
     }
@@ -279,12 +270,8 @@ footer .copyright a:hover {
         font-size: 20px;
     }
 
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    footer .back-home {
-        margin-top: 20px;
+    .back-to-home {
+        font-size: 14px;
+        padding: 10px 18px;
     }
 }
