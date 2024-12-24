@@ -287,82 +287,82 @@
 
 
     <style>
-        /* General Styling */
-        body {
-            font-family: 'Fira Code', monospace;
-            margin: 0;
-            padding: 0;
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #2b2b2b;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        h1 {
-            text-align: center;
-            color: #ff9e00;
-            font-size: 2.2em;
-            margin-bottom: 30px;
-        }
-
-        /* FAQ Styling */
-        .faq {
-            margin-bottom: 15px;
-            border: 1px solid #444;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #333;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-								.faq a {
-												color: #E0D268;
-
+  /* General Styling */
+body {
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+    transition: background 0.3s, color 0.3s;
 }
 
-        .faq h2 {
-            margin: 0;
-            padding: 15px 20px;
-            background: #3a3a3a;
-            color: #ff9e00;
-            font-size: 1.1em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+body.dark {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
 
-        .faq h2:hover {
-            background: #444;
-        }
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
 
-        .faq.open h2 {
-            background: #555;
-        }
+body.dark .container {
+    background: #2b2b2b;
+}
 
-        .faq p {
-            margin: 0;
-            padding: 15px 20px;
-            display: none;
-            background: #2b2b2b;
-            color: #cfcfcf;
-            font-size: 0.95em;
-        }
+/* FAQ Styling */
+.faq {
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #f4f4f4;
+    transition: background 0.3s, box-shadow 0.3s;
+}
 
-        .faq.open p {
-            display: block;
-        }
+body.dark .faq {
+    background: #333;
+}
 
-     /* Light/Dark Theme Toggle */
+.faq h2 {
+    margin: 0;
+    padding: 15px 20px;
+    background: #e0e0e0;
+    color: #000;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+body.dark .faq h2 {
+    background: #3a3a3a;
+    color: #ff9e00;
+}
+
+/* FAQ Paragraph */
+.faq p {
+    margin: 0;
+    padding: 15px 20px;
+    display: none;
+    background: #fff;
+    color: #000;
+    font-size: 0.95em;
+}
+
+.faq.open p {
+    display: block;
+}
+
+body.dark .faq p {
+    background: #2b2b2b;
+    color: #cfcfcf;
+}
+
+/* Light/Dark Theme Toggle */
 .theme-toggle {
     display: flex;
     justify-content: center;
@@ -389,18 +389,15 @@
 }
 
 .slider .icon {
-    position: absolute;
     font-size: 18px;
     transition: opacity 0.3s, transform 0.3s;
 }
 
 .slider .sun {
-    left: 8px;
     color: #ff9e00;
 }
 
 .slider .moon {
-    right: 8px;
     color: #fff;
     opacity: 0;
     transform: scale(0.8);
@@ -420,37 +417,43 @@ input:checked + .slider .moon {
     transform: scale(1);
 }
 
-/* Light Theme Styling */
-body {
-    background-color: #fff;
-    color: #000;
-    transition: background 0.3s, color 0.3s;
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
 }
 
-body.dark {
-    background-color: #1a1a1a;
-    color: #f4f4f4;
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #2b2b3b;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.3s ease-in-out;
 }
 
-body.dark .container {
-    background: #fff;
+.social-icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
-body.dark .faq h2 {
-    background: #f4f4f4;
-    color: #333;
+.threads-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.3s;
 }
 
-body.dark .faq h2:hover {
-    background: #ddd;
-}
-
-body.dark .faq p {
-    background: #fafafa;
-    color: #444;
-}
-
-        /* Social Icons */
+.social-icon:hover .threads-icon {
+    transform: scale(1.1);
+}       /* Social Icons */
         .social-icons {
             display: flex;
             flex-wrap: wrap;
@@ -696,8 +699,9 @@ body.dark .faq p {
 </div>
 
 
+
 <script>
-  // Light/Dark Theme Toggle Script
+// Light/Dark Theme Toggle Script
 const themeSwitch = document.getElementById('theme-switch');
 
 // Apply saved theme on load
@@ -712,9 +716,15 @@ themeSwitch.addEventListener('change', () => {
     // Save theme preference
     localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
 });
+
+// FAQ Toggle Script
+document.querySelectorAll('.faq h2').forEach((faqHeader) => {
+    faqHeader.addEventListener('click', () => {
+        const faq = faqHeader.parentElement;
+        faq.classList.toggle('open');
+    });
+});
 <script>
-
-
 
 </body>
 </html>
