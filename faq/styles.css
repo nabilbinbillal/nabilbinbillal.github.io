@@ -34,6 +34,7 @@ body.dark .container {
     border-radius: 8px;
     background: #f4f4f4;
     transition: background 0.3s, box-shadow 0.3s;
+    word-wrap: break-word; /* Ensures text wraps within the FAQ boxes */
 }
 
 body.dark .faq {
@@ -70,6 +71,7 @@ body.dark .faq h2 {
     background: #fff;
     color: #000;
     font-size: 0.95em;
+    word-wrap: break-word; /* Ensures links inside FAQ text wrap */
 }
 
 .faq.open p {
@@ -79,6 +81,16 @@ body.dark .faq h2 {
 body.dark .faq p {
     background: #2b2b2b;
     color: #cfcfcf;
+}
+
+/* Links Styling */
+a {
+    color: #ff9e00; /* Set links to yellow in dark mode */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* Light/Dark Theme Toggle */
@@ -224,7 +236,7 @@ input:checked + .slider .moon {
 }
 
 /* Back to Home Button */
-.back-home {
+.back-to-home {
     display: inline-block;
     background-color: #ff9e00;
     color: white;
@@ -239,7 +251,7 @@ input:checked + .slider .moon {
     margin-bottom: 20px;
 }
 
-.back-home:hover {
+.back-to-home:hover {
     background-color: #e68900;
     transform: scale(1.1);
 }
@@ -280,7 +292,7 @@ footer .copyright a:hover {
         font-size: 20px;
     }
 
-    .back-home {
+    .back-to-home {
         font-size: 14px;
         padding: 10px 18px;
     }
