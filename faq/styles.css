@@ -116,48 +116,95 @@ body.dark .faq p {
 }
 
 .social-icon i {
-    color: #333;
+    color: inherit; /* Color will be inherited from the theme */
 }
 
 .social-icon:hover {
     transform: scale(1.2);
 }
 
-.social-icon:hover i {
-    color: #ff9e00;
-}
-
-/* Colorful Social Icons */
+/* Colorful Social Icons (default color) */
 .social-icon i {
     transition: color 0.3s ease;
 }
 
-.social-icon:hover i.fa-facebook-f {
+.social-icon i.fa-facebook-f {
     color: #1877f2;
 }
 
-.social-icon:hover i.fa-linkedin-in {
+.social-icon i.fa-linkedin-in {
     color: #0077b5;
 }
 
-.social-icon:hover i.fa-instagram {
+.social-icon i.fa-instagram {
     color: #e1306c;
 }
 
-.social-icon:hover i.fa-youtube {
+.social-icon i.fa-youtube {
     color: #ff0000;
 }
 
-.social-icon:hover i.fa-twitter {
+.social-icon i.fa-twitter {
     color: #1da1f2;
 }
 
-.social-icon:hover i.fa-github {
+.social-icon i.fa-github {
     color: #333;
 }
 
-.social-icon:hover img.icon-threads {
-    filter: brightness(1.3);
+.social-icon:hover i {
+    transform: scale(1.3); /* Increase icon size on hover */
+}
+
+/* Theme Toggle Styling (Slider) */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.theme-toggle input {
+    display: none;
+}
+
+.theme-toggle .slider {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: #ccc;
+    border-radius: 50px;
+    transition: background 0.3s ease;
+}
+
+.theme-toggle .slider .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    transition: opacity 0.3s ease;
+}
+
+.theme-toggle .slider .icon.sun {
+    left: 5px;
+    opacity: 1;
+}
+
+.theme-toggle .slider .icon.moon {
+    right: 5px;
+    opacity: 0;
+}
+
+.theme-toggle input:checked + .slider {
+    background: #ff9e00;
+}
+
+.theme-toggle input:checked + .slider .sun {
+    opacity: 0;
+}
+
+.theme-toggle input:checked + .slider .moon {
+    opacity: 1;
 }
 
 /* Footer Styling */
