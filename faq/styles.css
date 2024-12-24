@@ -40,6 +40,18 @@ body.dark .faq {
     background: #333;
 }
 
+body.dark .footer {
+    background: #333;
+}
+
+
+
+body.dark #footer {
+    background: #333;
+}
+
+
+
 .faq h2 {
     margin: 0;
     padding: 15px 20px;
