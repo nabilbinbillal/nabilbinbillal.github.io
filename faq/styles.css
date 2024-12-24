@@ -136,6 +136,14 @@ input:checked + .slider .moon {
     margin: 20px 0;
 }
 
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
 .social-icon {
     display: inline-flex;
     justify-content: center;
@@ -150,57 +158,54 @@ input:checked + .slider .moon {
     transition: all 0.3s ease-in-out;
 }
 
+.icon-threads {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the image is fully contained within the container */
+    border-radius: 50%;
+}
+
+/* Hover Effect for Social Icons */
 .social-icon:hover {
     transform: scale(1.2);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
-.threads-icon {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%; /* Optional: Makes the icon circular */
-    transition: transform 0.3s;
+/* Social Icon Colors on Click */
+.social-icon:active {
+    box-shadow: 0 0 20px;
+    transition: all 0.3s ease-in-out;
 }
 
-.social-icon:hover .threads-icon {
+/* Specific Social Icon Colors on Click */
+.social-icon.facebook:active {
+    box-shadow: 0 0 20px #4267B2; /* Facebook blue */
+}
+
+.social-icon.instagram:active {
+    box-shadow: 0 0 20px #E1306C; /* Instagram pink */
+}
+
+.social-icon.youtube:active {
+    box-shadow: 0 0 20px #FF0000; /* YouTube red */
+}
+
+.social-icon.twitter:active {
+    box-shadow: 0 0 20px #1DA1F2; /* Twitter blue */
+}
+
+.social-icon.github:active {
+    box-shadow: 0 0 20px #171515; /* GitHub black */
+}
+
+.social-icon.portfolio:active {
+    box-shadow: 0 0 20px #00FFCC; /* Portfolio teal */
+}
+
+/* Optional: Style the hover state */
+.social-icon:hover .icon-threads {
     transform: scale(1.1);
 }
-
-.social-icon.facebook:hover {
-    background-color: #4267B2;
-    box-shadow: 0 0 15px #4267B2;
-}
-
-.social-icon.linkedin:hover {
-    background-color: #0077B5;
-    box-shadow: 0 0 15px #0077B5;
-}
-
-.social-icon.instagram:hover {
-    background-color: #E1306C;
-    box-shadow: 0 0 15px #E1306C;
-}
-
-.social-icon.youtube:hover {
-    background-color: #FF0000;
-    box-shadow: 0 0 15px #FF0000;
-}
-
-.social-icon.twitter:hover {
-    background-color: #1DA1F2;
-    box-shadow: 0 0 15px #1DA1F2;
-}
-
-.social-icon.github:hover {
-    background-color: #171515;
-    box-shadow: 0 0 15px #171515;
-}
-
-.social-icon.portfolio:hover {
-    background-color: #00FFCC;
-    box-shadow: 0 0 15px #00FFCC;
-}
-
 @media (max-width: 768px) {
     h1 {
         font-size: 1.8em;
