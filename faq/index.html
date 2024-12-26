@@ -321,9 +321,19 @@
 <div class="search-widget">
     <input type="text" id="faq-search" placeholder="Search FAQs...">
     <button id="clear-search" style="display:none;">&times;</button> <!-- Clear Search "×" Icon -->
-    </div>
-
-
+    <p id="no-results" style="display:none; text-align:center; margin-top:10px;">
+        No results found. <br>
+        <a id="google-search" href="#" target="_blank" class="search-option">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:20px; vertical-align:middle;"> Search on Google
+        </a>
+        <a id="bing-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Bing_Logo.svg" alt="Bing" style="width:20px; vertical-align:middle;"> Search on Bing
+        </a>
+        <a id="duckduckgo-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+            <img src="https://www.vectorlogo.zone/logos/duckduckgo/duckduckgo-icon.svg" alt="DuckDuckGo" style="width:20px; vertical-align:middle;"> Search on DuckDuckGo
+        </a>
+    </p>
+</div>
 
 <!-- Styles -->
 <style>
@@ -425,7 +435,7 @@ searchInput.addEventListener('input', () => {
         const answer = faq.querySelector('p').textContent.toLowerCase();
 
         // Fuzzy matching logic with Levenshtein distance for better accuracy
-        if (question.includes(searchText) || answer.includes(searchText) || isFuzzyMatch(searchText, question) || isFuzzyMatch(searchText, answer)) {
+        if (question.includes(searchText) || answer.includes(searchText)) {
             faq.style.display = 'block';
             hasResults = true;
         } else {
@@ -457,46 +467,9 @@ clearSearchButton.addEventListener('click', () => {
     faqList.forEach(faq => faq.style.display = 'block'); // Show all FAQs
     clearSearchButton.style.display = 'none'; // Hide the clear search button
 });
-
-// Enhanced Fuzzy Matching Function (Levenshtein Distance + String Matching)
-function isFuzzyMatch(input, target) {
-    const threshold = 0.6; // Adjust threshold for better accuracy
-    const similarity = stringSimilarity(input, target);
-    return similarity >= threshold;
-}
-
-// String Similarity Function (Using Levenshtein Distance)
-function stringSimilarity(s1, s2) {
-    const longer = s1.length > s2.length ? s1 : s2;
-    const shorter = s1.length > s2.length ? s2 : s1;
-    const longerLength = longer.length;
-
-    if (longerLength === 0) return 1.0;
-
-    return (longerLength - editDistance(longer, shorter)) / longerLength;
-}
-
-// Levenshtein Distance Function (Calculates minimum edit distance)
-function editDistance(s1, s2) {
-    const costs = [];
-    for (let i = 0; i <= s1.length; i++) {
-        let lastValue = i;
-        for (let j = 0; j <= s2.length; j++) {
-            if (i === 0) costs[j] = j;
-            else if (j > 0) {
-                let newValue = costs[j - 1];
-                if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
-                    newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
-                }
-                costs[j - 1] = lastValue;
-                lastValue = newValue;
-            }
-        }
-        if (i > 0) costs[s2.length] = lastValue;
-    }
-    return costs[s2.length];
-}
 </script>
+
+
 
 
 
