@@ -454,16 +454,36 @@
 
 
 
+   <div id="search-engine-links" style="display:none; text-align:center; margin-top:10px;">
+        <p>Still looking? Search on:</p>
+        <a id="google-search" href="#" target="_blank" class="search-option">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:20px; vertical-align:middle;"> Google
+        </a>
+        <a id="bing-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Bing_Logo.svg" alt="Bing" style="width:20px; vertical-align:middle;"> Bing
+        </a>
+        <a id="duckduckgo-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+            <img src="https://www.vectorlogo.zone/logos/duckduckgo/duckduckgo-icon.svg" alt="DuckDuckGo" style="width:20px; vertical-align:middle;"> DuckDuckGo
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
 
 
 
 <script src="https://nabilbinbillal.github.io/faq/scripts.js"></script>
 
+
 <script>
 // Live Search with Enhanced Fuzzy Matching
 const searchInput = document.querySelector('#faq-search');
 const faqList = document.querySelectorAll('.faq');
-const noResultsMessage = document.querySelector('#no-results');
+const searchEngineLinks = document.querySelector('#search-engine-links');
 const googleSearchLink = document.querySelector('#google-search');
 const bingSearchLink = document.querySelector('#bing-search');
 const duckDuckGoSearchLink = document.querySelector('#duckduckgo-search');
@@ -476,7 +496,7 @@ searchInput.addEventListener('input', () => {
         const question = faq.querySelector('h2').textContent.toLowerCase();
         const answer = faq.querySelector('p').textContent.toLowerCase();
 
-        // Fuzzy matching logic with Levenshtein distance for better accuracy
+        // Fuzzy matching logic
         if (question.includes(searchText) || answer.includes(searchText) || isFuzzyMatch(searchText, question) || isFuzzyMatch(searchText, answer)) {
             faq.style.display = 'block';
             hasResults = true;
@@ -485,24 +505,25 @@ searchInput.addEventListener('input', () => {
         }
     });
 
-    if (!hasResults && searchText) {
-        noResultsMessage.style.display = 'block';
+    // Show search engine links after results
+    if (searchText) {
+        searchEngineLinks.style.display = 'block';
         googleSearchLink.href = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
         bingSearchLink.href = `https://www.bing.com/search?q=${encodeURIComponent(searchText)}`;
         duckDuckGoSearchLink.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchText)}`;
     } else {
-        noResultsMessage.style.display = 'none';
+        searchEngineLinks.style.display = 'none';
     }
 });
 
-// Enhanced Fuzzy Matching Function (Levenshtein Distance + String Matching)
+// Enhanced Fuzzy Matching Function
 function isFuzzyMatch(input, target) {
-    const threshold = 0.6; // Adjust threshold for better accuracy
+    const threshold = 0.6;
     const similarity = stringSimilarity(input, target);
     return similarity >= threshold;
 }
 
-// String Similarity Function (Using Levenshtein Distance)
+// String Similarity Function
 function stringSimilarity(s1, s2) {
     const longer = s1.length > s2.length ? s1 : s2;
     const shorter = s1.length > s2.length ? s2 : s1;
@@ -513,7 +534,7 @@ function stringSimilarity(s1, s2) {
     return (longerLength - editDistance(longer, shorter)) / longerLength;
 }
 
-// Levenshtein Distance Function (Calculates minimum edit distance)
+// Levenshtein Distance Function
 function editDistance(s1, s2) {
     const costs = [];
     for (let i = 0; i <= s1.length; i++) {
@@ -534,7 +555,6 @@ function editDistance(s1, s2) {
     return costs[s2.length];
 }
 </script>
-           
 
 <style>
 /* Search Widget Styling */
@@ -559,12 +579,12 @@ function editDistance(s1, s2) {
     box-shadow: 0 0 5px rgba(255, 158, 0, 0.5);
 }
 
-#no-results {
+#search-engine-links {
     color: #666;
     font-size: 14px;
 }
 
-#no-results a {
+#search-engine-links a {
     color: #ff9e00;
     text-decoration: none;
     font-weight: bold;
@@ -572,12 +592,12 @@ function editDistance(s1, s2) {
     margin: 5px 0;
 }
 
-#no-results a img {
+#search-engine-links a img {
     margin-right: 5px;
     vertical-align: middle;
 }
 
-#no-results a:hover {
+#search-engine-links a:hover {
     text-decoration: underline;
 }
 
