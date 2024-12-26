@@ -308,17 +308,110 @@
 </div>
 
 
-  <!-- Search Widget -->
+
+
+
+
+
+
+
+
+
+<!-- Search Widget -->
 <div class="search-widget">
-    <div style="text-align: center; margin-bottom: 10px;">
-        <input type="text" id="faq-search" placeholder="Search FAQs...">
-        <button id="clear-search" style="border: none; background: transparent; cursor: pointer; font-size: 16px; color: #ccc; display: none;">
-            ✕
-        </button>
-    </div>
-    
+    <input type="text" id="faq-search" placeholder="Search FAQs...">
+    <button id="clear-search" style="display:none;">&times;</button> <!-- Clear Search "×" Icon -->
+    <p id="no-results" style="display:none; text-align:center; margin-top:10px;">
+        No results found. <br>
+        <a id="google-search" href="#" target="_blank" class="search-option">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:20px; vertical-align:middle;"> Search on Google
+        </a>
+        <a id="bing-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Bing_Logo.svg" alt="Bing" style="width:20px; vertical-align:middle;"> Search on Bing
+        </a>
+        <a id="duckduckgo-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+            <img src="https://www.vectorlogo.zone/logos/duckduckgo/duckduckgo-icon.svg" alt="DuckDuckGo" style="width:20px; vertical-align:middle;"> Search on DuckDuckGo
+        </a>
+    </p>
+</div>
 
+<!-- Styles -->
+<style>
+/* Search Widget Styling */
+.search-widget {
+    margin-bottom: 20px;
+    text-align: center;
+}
 
+.search-widget input {
+    width: 90%;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.search-widget input:focus {
+    border-color: #ff9e00;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 158, 0, 0.5);
+}
+
+#clear-search {
+    padding: 5px 10px;
+    margin-top: 10px;
+    border: none;
+    background-color: transparent;
+    color: #ff9e00;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    display: none; /* Initially hidden */
+}
+
+#clear-search:hover {
+    background-color: #ff9e00;
+    color: white;
+    border-radius: 50%;
+}
+
+#no-results {
+    color: #666;
+    font-size: 14px;
+}
+
+#no-results a {
+    color: #ff9e00;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+#no-results a img {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#no-results a:hover {
+    text-decoration: underline;
+}
+
+body.dark .search-widget input {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark .search-widget input:focus {
+    border-color: #ff9e00;
+    box-shadow: 0 0 5px rgba(255, 158, 0, 0.8);
+}
+</style>
+
+<!-- Scripts -->
 <script>
 // Live Search with Enhanced Fuzzy Matching
 const searchInput = document.querySelector('#faq-search');
@@ -327,6 +420,7 @@ const noResultsMessage = document.querySelector('#no-results');
 const googleSearchLink = document.querySelector('#google-search');
 const bingSearchLink = document.querySelector('#bing-search');
 const duckDuckGoSearchLink = document.querySelector('#duckduckgo-search');
+const clearSearchButton = document.querySelector('#clear-search'); // Clear Search Button
 
 searchInput.addEventListener('input', () => {
     const searchText = searchInput.value.toLowerCase();
@@ -353,6 +447,21 @@ searchInput.addEventListener('input', () => {
     } else {
         noResultsMessage.style.display = 'none';
     }
+
+    // Show or hide the clear search button
+    if (searchText) {
+        clearSearchButton.style.display = 'inline-block';
+    } else {
+        clearSearchButton.style.display = 'none';
+    }
+});
+
+// Clear search functionality
+clearSearchButton.addEventListener('click', () => {
+    searchInput.value = ''; // Clear input field
+    noResultsMessage.style.display = 'none'; // Hide no results message
+    faqList.forEach(faq => faq.style.display = 'block'); // Show all FAQs
+    clearSearchButton.style.display = 'none'; // Hide the clear search button
 });
 
 // Enhanced Fuzzy Matching Function (Levenshtein Distance + String Matching)
@@ -395,62 +504,12 @@ function editDistance(s1, s2) {
 }
 </script>
 
-<style>
-/* Search Widget Styling */
-.search-widget {
-    margin-bottom: 20px;
-    text-align: center;
-}
 
-.search-widget input {
-    width: 90%;
-    max-width: 600px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border 0.3s ease;
-}
 
-.search-widget input:focus {
-    border-color: #ff9e00;
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 158, 0, 0.5);
-}
 
-#no-results {
-    color: #666;
-    font-size: 14px;
-}
 
-#no-results a {
-    color: #ff9e00;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin: 5px 0;
-}
 
-#no-results a img {
-    margin-right: 5px;
-    vertical-align: middle;
-}
 
-#no-results a:hover {
-    text-decoration: underline;
-}
-
-body.dark .search-widget input {
-    background-color: #2b2b2b;
-    color: #e0e0e0;
-    border-color: #444;
-}
-
-body.dark .search-widget input:focus {
-    border-color: #ff9e00;
-    box-shadow: 0 0 5px rgba(255, 158, 0, 0.8);
-}
-</style>
 
 
 
