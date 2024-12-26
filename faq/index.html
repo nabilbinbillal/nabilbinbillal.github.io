@@ -459,12 +459,8 @@
 
 <script src="https://nabilbinbillal.github.io/faq/scripts.js"></script>
 
-
-<!-- Include Fuse.js Library for Advanced Fuzzy Matching -->
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-
 <script>
-// Live Search with Enhanced Fuzzy Matching using Fuse.js
+// Live Search with Enhanced Fuzzy Matching
 const searchInput = document.querySelector('#faq-search');
 const faqList = document.querySelectorAll('.faq');
 const noResultsMessage = document.querySelector('#no-results');
@@ -472,41 +468,21 @@ const googleSearchLink = document.querySelector('#google-search');
 const bingSearchLink = document.querySelector('#bing-search');
 const duckDuckGoSearchLink = document.querySelector('#duckduckgo-search');
 
-// Data for Fuse.js (questions and answers)
-const faqData = Array.from(faqList).map(faq => {
-    return {
-        question: faq.querySelector('h2').textContent,
-        answer: faq.querySelector('p').textContent,
-        element: faq
-    };
-});
-
-// Set up Fuse.js options for enhanced fuzzy search
-const options = {
-    includeScore: true,
-    threshold: 0.3,  // Adjust the threshold for more accuracy (lower = stricter matching)
-    keys: ['question', 'answer'],
-    id: 'question'
-};
-
-const fuse = new Fuse(faqData, options);
-
-// Event listener for search input
 searchInput.addEventListener('input', () => {
     const searchText = searchInput.value.toLowerCase();
-    const results = fuse.search(searchText);
-
     let hasResults = false;
 
-    // Hide all FAQs initially
     faqList.forEach(faq => {
-        faq.style.display = 'none';
-    });
+        const question = faq.querySelector('h2').textContent.toLowerCase();
+        const answer = faq.querySelector('p').textContent.toLowerCase();
 
-    // Show matching results
-    results.forEach(result => {
-        result.item.element.style.display = 'block';
-        hasResults = true;
+        // Fuzzy matching logic with Levenshtein distance for better accuracy
+        if (question.includes(searchText) || answer.includes(searchText) || isFuzzyMatch(searchText, question) || isFuzzyMatch(searchText, answer)) {
+            faq.style.display = 'block';
+            hasResults = true;
+        } else {
+            faq.style.display = 'none';
+        }
     });
 
     if (!hasResults && searchText) {
@@ -518,6 +494,45 @@ searchInput.addEventListener('input', () => {
         noResultsMessage.style.display = 'none';
     }
 });
+
+// Enhanced Fuzzy Matching Function (Levenshtein Distance + String Matching)
+function isFuzzyMatch(input, target) {
+    const threshold = 0.6; // Adjust threshold for better accuracy
+    const similarity = stringSimilarity(input, target);
+    return similarity >= threshold;
+}
+
+// String Similarity Function (Using Levenshtein Distance)
+function stringSimilarity(s1, s2) {
+    const longer = s1.length > s2.length ? s1 : s2;
+    const shorter = s1.length > s2.length ? s2 : s1;
+    const longerLength = longer.length;
+
+    if (longerLength === 0) return 1.0;
+
+    return (longerLength - editDistance(longer, shorter)) / longerLength;
+}
+
+// Levenshtein Distance Function (Calculates minimum edit distance)
+function editDistance(s1, s2) {
+    const costs = [];
+    for (let i = 0; i <= s1.length; i++) {
+        let lastValue = i;
+        for (let j = 0; j <= s2.length; j++) {
+            if (i === 0) costs[j] = j;
+            else if (j > 0) {
+                let newValue = costs[j - 1];
+                if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
+                    newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                }
+                costs[j - 1] = lastValue;
+                lastValue = newValue;
+            }
+        }
+        if (i > 0) costs[s2.length] = lastValue;
+    }
+    return costs[s2.length];
+}
 </script>
            
 
