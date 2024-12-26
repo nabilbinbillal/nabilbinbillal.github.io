@@ -308,11 +308,22 @@
 </div>
 
 
-   <div class="search-widget">
+    <!-- Search Widget -->
+    <div class="search-widget">
         <input type="text" id="faq-search" placeholder="Search FAQs...">
-        <p id="no-results" style="display:none; text-align:center; margin-top:10px;">No results found. <a id="google-search" href="#" target="_blank">Search on Google</a></p>
+        <p id="no-results" style="display:none; text-align:center; margin-top:10px;">
+            No results found. <br>
+            <a id="google-search" href="#" target="_blank" class="search-option">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:20px; vertical-align:middle;"> Search on Google
+            </a>
+            <a id="bing-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Bing_Logo.svg" alt="Bing" style="width:20px; vertical-align:middle;"> Search on Bing
+            </a>
+            <a id="duckduckgo-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+                <img src="https://www.vectorlogo.zone/logos/duckduckgo/duckduckgo-icon.svg" alt="DuckDuckGo" style="width:20px; vertical-align:middle;"> Search on DuckDuckGo
+            </a>
+        </p>
     </div>
-
 
        <div class="container">
  
@@ -448,13 +459,14 @@
 
 <script src="https://nabilbinbillal.github.io/faq/scripts.js"></script>
 
-           
 <script>
 // Live Search
 const searchInput = document.querySelector('#faq-search');
 const faqList = document.querySelectorAll('.faq');
 const noResultsMessage = document.querySelector('#no-results');
 const googleSearchLink = document.querySelector('#google-search');
+const bingSearchLink = document.querySelector('#bing-search');
+const duckDuckGoSearchLink = document.querySelector('#duckduckgo-search');
 
 searchInput.addEventListener('input', () => {
     const searchText = searchInput.value.toLowerCase();
@@ -475,12 +487,13 @@ searchInput.addEventListener('input', () => {
     if (!hasResults && searchText) {
         noResultsMessage.style.display = 'block';
         googleSearchLink.href = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+        bingSearchLink.href = `https://www.bing.com/search?q=${encodeURIComponent(searchText)}`;
+        duckDuckGoSearchLink.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchText)}`;
     } else {
         noResultsMessage.style.display = 'none';
     }
 });
 </script>
-
 
 <style>
 /* Search Widget Styling */
@@ -514,6 +527,13 @@ searchInput.addEventListener('input', () => {
     color: #ff9e00;
     text-decoration: none;
     font-weight: bold;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+#no-results a img {
+    margin-right: 5px;
+    vertical-align: middle;
 }
 
 #no-results a:hover {
@@ -531,6 +551,7 @@ body.dark .search-widget input:focus {
     box-shadow: 0 0 5px rgba(255, 158, 0, 0.8);
 }
 </style>
+
 
 
 
