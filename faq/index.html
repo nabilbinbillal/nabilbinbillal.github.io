@@ -321,19 +321,9 @@
 <div class="search-widget">
     <input type="text" id="faq-search" placeholder="Search FAQs...">
     <button id="clear-search" style="display:none;">&times;</button> <!-- Clear Search "×" Icon -->
-    <p id="no-results" style="display:none; text-align:center; margin-top:10px;">
-        No results found. <br>
-        <a id="google-search" href="#" target="_blank" class="search-option">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:20px; vertical-align:middle;"> Search on Google
-        </a>
-        <a id="bing-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Bing_Logo.svg" alt="Bing" style="width:20px; vertical-align:middle;"> Search on Bing
-        </a>
-        <a id="duckduckgo-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
-            <img src="https://www.vectorlogo.zone/logos/duckduckgo/duckduckgo-icon.svg" alt="DuckDuckGo" style="width:20px; vertical-align:middle;"> Search on DuckDuckGo
-        </a>
-    </p>
-</div>
+    </div>
+
+
 
 <!-- Styles -->
 <style>
@@ -341,12 +331,14 @@
 .search-widget {
     margin-bottom: 20px;
     text-align: center;
+    position: relative;
 }
 
 .search-widget input {
     width: 90%;
     max-width: 600px;
     padding: 10px;
+    padding-right: 40px; /* Space for the clear icon */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -360,8 +352,10 @@
 }
 
 #clear-search {
-    padding: 5px 10px;
-    margin-top: 10px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     border: none;
     background-color: transparent;
     color: #ff9e00;
@@ -513,7 +507,6 @@ function editDistance(s1, s2) {
 
 
 
-
        <div class="container">
  
         <div class="faq">
@@ -610,6 +603,25 @@ function editDistance(s1, s2) {
             <h2>What is Nabil Bin Billal's portfolio website? <i class="fas fa-chevron-down"></i></h2>
             <p>Nabil Bin Billal's portfolio is available at <a href="https://nabilbinbillal.github.io" target="_blank">https://nabilbinbillal.github.io</a></p>
         </div>
+
+
+
+
+
+<div class="resultno">
+
+<p id="no-results" style="display:none; text-align:center; margin-top:10px;">
+        No results found. <br>
+        <a id="google-search" href="#" target="_blank" class="search-option">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:20px; vertical-align:middle;"> Search on Google
+        </a>
+        <a id="bing-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Bing_Logo.svg" alt="Bing" style="width:20px; vertical-align:middle;"> Search on Bing
+        </a>
+        <a id="duckduckgo-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
+            <img src="https://www.vectorlogo.zone/logos/duckduckgo/duckduckgo-icon.svg" alt="DuckDuckGo" style="width:20px; vertical-align:middle;"> Search on DuckDuckGo
+        </a>
+    </p></div>
 
 
 
