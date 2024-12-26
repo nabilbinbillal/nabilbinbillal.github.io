@@ -308,6 +308,13 @@
 </div>
 
 
+          <!-- Search Widget -->
+    <div class="search-widget">
+        <input type="text" id="faq-search" placeholder="Search FAQs...">
+    </div>
+
+
+
 
        <div class="container">
  
@@ -443,6 +450,65 @@
 
 <script src="https://nabilbinbillal.github.io/faq/scripts.js"></script>
 
+           
+<script>
+// Live Search
+const searchInput = document.querySelector('#faq-search');
+const faqList = document.querySelectorAll('.faq');
+
+searchInput.addEventListener('input', () => {
+    const searchText = searchInput.value.toLowerCase();
+
+    faqList.forEach(faq => {
+        const question = faq.querySelector('h2').textContent.toLowerCase();
+        const answer = faq.querySelector('p').textContent.toLowerCase();
+
+        if (question.includes(searchText) || answer.includes(searchText)) {
+            faq.style.display = 'block';
+        } else {
+            faq.style.display = 'none';
+        }
+    });
+});
+</script>
+
+
+
+           <style>
+/* Search Widget Styling */
+.search-widget {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-widget input {
+    width: 90%;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.search-widget input:focus {
+    border-color: #ff9e00;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 158, 0, 0.5);
+}
+
+body.dark .search-widget input {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark .search-widget input:focus {
+    border-color: #ff9e00;
+    box-shadow: 0 0 5px rgba(255, 158, 0, 0.8);
+}
+</style>
+
 
 <footer>
     <div class="footer-container">
@@ -452,6 +518,11 @@
         </p>
     </div>
 </footer>
+
+
+
+
+           
 
 </body>
 </html>
