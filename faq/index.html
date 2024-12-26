@@ -319,6 +319,82 @@
     
 
 
+<script>
+// Live Search with Enhanced Fuzzy Matching
+const searchInput = document.querySelector('#faq-search');
+const faqList = document.querySelectorAll('.faq');
+const noResultsMessage = document.querySelector('#no-results');
+const googleSearchLink = document.querySelector('#google-search');
+const bingSearchLink = document.querySelector('#bing-search');
+const duckDuckGoSearchLink = document.querySelector('#duckduckgo-search');
+
+searchInput.addEventListener('input', () => {
+    const searchText = searchInput.value.toLowerCase();
+    let hasResults = false;
+
+    faqList.forEach(faq => {
+        const question = faq.querySelector('h2').textContent.toLowerCase();
+        const answer = faq.querySelector('p').textContent.toLowerCase();
+
+        // Fuzzy matching logic with Levenshtein distance for better accuracy
+        if (question.includes(searchText) || answer.includes(searchText) || isFuzzyMatch(searchText, question) || isFuzzyMatch(searchText, answer)) {
+            faq.style.display = 'block';
+            hasResults = true;
+        } else {
+            faq.style.display = 'none';
+        }
+    });
+
+    if (!hasResults && searchText) {
+        noResultsMessage.style.display = 'block';
+        googleSearchLink.href = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+        bingSearchLink.href = `https://www.bing.com/search?q=${encodeURIComponent(searchText)}`;
+        duckDuckGoSearchLink.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchText)}`;
+    } else {
+        noResultsMessage.style.display = 'none';
+    }
+});
+
+// Enhanced Fuzzy Matching Function (Levenshtein Distance + String Matching)
+function isFuzzyMatch(input, target) {
+    const threshold = 0.6; // Adjust threshold for better accuracy
+    const similarity = stringSimilarity(input, target);
+    return similarity >= threshold;
+}
+
+// String Similarity Function (Using Levenshtein Distance)
+function stringSimilarity(s1, s2) {
+    const longer = s1.length > s2.length ? s1 : s2;
+    const shorter = s1.length > s2.length ? s2 : s1;
+    const longerLength = longer.length;
+
+    if (longerLength === 0) return 1.0;
+
+    return (longerLength - editDistance(longer, shorter)) / longerLength;
+}
+
+// Levenshtein Distance Function (Calculates minimum edit distance)
+function editDistance(s1, s2) {
+    const costs = [];
+    for (let i = 0; i <= s1.length; i++) {
+        let lastValue = i;
+        for (let j = 0; j <= s2.length; j++) {
+            if (i === 0) costs[j] = j;
+            else if (j > 0) {
+                let newValue = costs[j - 1];
+                if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
+                    newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                }
+                costs[j - 1] = lastValue;
+                lastValue = newValue;
+            }
+        }
+        if (i > 0) costs[s2.length] = lastValue;
+    }
+    return costs[s2.length];
+}
+</script>
+
 <style>
 /* Search Widget Styling */
 .search-widget {
@@ -327,7 +403,8 @@
 }
 
 .search-widget input {
-    width: 300px;
+    width: 90%;
+    max-width: 600px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -341,43 +418,25 @@
     box-shadow: 0 0 5px rgba(255, 158, 0, 0.5);
 }
 
-#clear-search {
-    font-size: 16px;
-    color: #666;
-    cursor: pointer;
-}
-
-#clear-search:hover {
-    color: #ff9e00;
-}
-
-#faq-results {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-
-
-#search-engine-links {
-    margin-top: 20px;
+#no-results {
     color: #666;
     font-size: 14px;
-    text-align: center;
 }
 
-#search-engine-links a {
+#no-results a {
     color: #ff9e00;
     text-decoration: none;
     font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+    display: inline-block;
+    margin: 5px 0;
 }
 
-#search-engine-links a:hover {
+#no-results a img {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#no-results a:hover {
     text-decoration: underline;
 }
 
@@ -391,58 +450,7 @@ body.dark .search-widget input:focus {
     border-color: #ff9e00;
     box-shadow: 0 0 5px rgba(255, 158, 0, 0.8);
 }
-
-<style>
-
-
-<script>
-// Live Search with Clear Button
-const searchInput = document.querySelector('#faq-search');
-const clearButton = document.querySelector('#clear-search');
-const faqList = document.querySelectorAll('.faq');
-const searchEngineLinks = document.querySelector('#search-engine-links');
-const googleSearchLink = document.querySelector('#google-search');
-const bingSearchLink = document.querySelector('#bing-search');
-const duckDuckGoSearchLink = document.querySelector('#duckduckgo-search');
-
-// Show or hide the clear button based on input
-searchInput.addEventListener('input', () => {
-    clearButton.style.display = searchInput.value ? 'block' : 'none';
-    performSearch();
-});
-
-// Clear the search input and reset the results
-clearButton.addEventListener('click', () => {
-    searchInput.value = '';
-    clearButton.style.display = 'none';
-    performSearch();
-});
-
-// Perform search function
-function performSearch() {
-    const searchText = searchInput.value.toLowerCase();
-    let hasResults = false;
-
-    faqList.forEach(faq => {
-        const question = faq.querySelector('h2').textContent.toLowerCase();
-        const answer = faq.querySelector('p').textContent.toLowerCase();
-
-        if (question.includes(searchText) || answer.includes(searchText)) {
-            faq.style.display = 'block';
-            hasResults = true;
-        } else {
-            faq.style.display = 'none';
-        }
-    });
-
-    // Show search engine links regardless of results
-    searchEngineLinks.style.display = searchText ? 'block' : 'none';
-    googleSearchLink.href = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
-    bingSearchLink.href = `https://www.bing.com/search?q=${encodeURIComponent(searchText)}`;
-    duckDuckGoSearchLink.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchText)}`;
-}
-</script>
-
+</style>
 
 
 
