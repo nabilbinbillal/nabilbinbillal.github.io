@@ -308,22 +308,150 @@
 </div>
 
 
-    <!-- Search Widget -->
-    <div class="search-widget">
+  <!-- Search Widget -->
+<div class="search-widget">
+    <div style="text-align: center; margin-bottom: 10px;">
         <input type="text" id="faq-search" placeholder="Search FAQs...">
-        <p id="no-results" style="display:none; text-align:center; margin-top:10px;">
-            No results found. <br>
-            <a id="google-search" href="#" target="_blank" class="search-option">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:20px; vertical-align:middle;"> Search on Google
-            </a>
-            <a id="bing-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Bing_Logo.svg" alt="Bing" style="width:20px; vertical-align:middle;"> Search on Bing
-            </a>
-            <a id="duckduckgo-search" href="#" target="_blank" class="search-option" style="margin-left:10px;">
-                <img src="https://www.vectorlogo.zone/logos/duckduckgo/duckduckgo-icon.svg" alt="DuckDuckGo" style="width:20px; vertical-align:middle;"> Search on DuckDuckGo
-            </a>
-        </p>
+        <button id="clear-search" style="border: none; background: transparent; cursor: pointer; font-size: 16px; color: #ccc; display: none;">
+            ✕
+        </button>
     </div>
+    
+
+
+<style>
+/* Search Widget Styling */
+.search-widget {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-widget input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.search-widget input:focus {
+    border-color: #ff9e00;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 158, 0, 0.5);
+}
+
+#clear-search {
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+}
+
+#clear-search:hover {
+    color: #ff9e00;
+}
+
+#faq-results {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.faq {
+    display: none; /* FAQs are hidden by default */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#search-engine-links {
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+}
+
+#search-engine-links a {
+    color: #ff9e00;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#search-engine-links a:hover {
+    text-decoration: underline;
+}
+
+body.dark .search-widget input {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark .search-widget input:focus {
+    border-color: #ff9e00;
+    box-shadow: 0 0 5px rgba(255, 158, 0, 0.8);
+}
+
+<style>
+
+
+<script>
+// Live Search with Clear Button
+const searchInput = document.querySelector('#faq-search');
+const clearButton = document.querySelector('#clear-search');
+const faqList = document.querySelectorAll('.faq');
+const searchEngineLinks = document.querySelector('#search-engine-links');
+const googleSearchLink = document.querySelector('#google-search');
+const bingSearchLink = document.querySelector('#bing-search');
+const duckDuckGoSearchLink = document.querySelector('#duckduckgo-search');
+
+// Show or hide the clear button based on input
+searchInput.addEventListener('input', () => {
+    clearButton.style.display = searchInput.value ? 'block' : 'none';
+    performSearch();
+});
+
+// Clear the search input and reset the results
+clearButton.addEventListener('click', () => {
+    searchInput.value = '';
+    clearButton.style.display = 'none';
+    performSearch();
+});
+
+// Perform search function
+function performSearch() {
+    const searchText = searchInput.value.toLowerCase();
+    let hasResults = false;
+
+    faqList.forEach(faq => {
+        const question = faq.querySelector('h2').textContent.toLowerCase();
+        const answer = faq.querySelector('p').textContent.toLowerCase();
+
+        if (question.includes(searchText) || answer.includes(searchText)) {
+            faq.style.display = 'block';
+            hasResults = true;
+        } else {
+            faq.style.display = 'none';
+        }
+    });
+
+    // Show search engine links regardless of results
+    searchEngineLinks.style.display = searchText ? 'block' : 'none';
+    googleSearchLink.href = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+    bingSearchLink.href = `https://www.bing.com/search?q=${encodeURIComponent(searchText)}`;
+    duckDuckGoSearchLink.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchText)}`;
+}
+</script>
+
+
+
+
 
        <div class="container">
  
