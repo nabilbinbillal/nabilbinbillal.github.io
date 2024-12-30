@@ -21,22 +21,25 @@
     <changefreq>monthly</changefreq>
   </url>
 
-
-
-    <url>
+  <url>
     <loc>https://nabilbinbillal.github.io/about-me</loc>
     <changefreq>monthly</changefreq>
   </url>
 
-     <url>
+  <url>
     <loc>https://nabilbinbillal.github.io/contact</loc>
     <changefreq>monthly</changefreq>
   </url>
 
-
-<url>
+  <url>
     <loc>https://nabilbinbillal.github.io/faq/</loc>
     <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Favicon URL -->
+  <url>
+    <loc>https://nabilbinbillal.github.io/favicon.ico</loc>
+    <changefreq>yearly</changefreq>
   </url>
 
 </urlset>
