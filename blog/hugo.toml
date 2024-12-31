@@ -1,0 +1,5 @@
+baseURL = "https://nabilbinbillal.github.io/blog/"
+languageCode = "en-us"
+title = "Nabil Bin Billal's Blog"
+theme = "github-style"
+
