@@ -1,0 +1,56 @@
+baseURL = "https://nabilbinbillal.github.io/"
+languageCode = "en-us"
+title = "Nabil Bin Billal's Blog"
+theme = "github-style"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  author = "Nabil Bin Billal"
+  description = "Exploring technology, science, and the world."
+  github = "nabilbinbillal"
+  facebook = "nabilbinbillal"
+  twitter = "nabilbinbillal"
+  linkedin = "nabilbinbillal"
+  instagram = "nabilbinbillal"
+  tumblr = "nabilbinbillal"
+  email = "nabilbinbillal@gmail.com"
+  url = "https://nabilbinbillal.github.io"
+  keywords = "blog, technology, science, environment"
+  rss = true
+  lastmod = true
+  userStatusEmoji = "😀"
+  favicon = "/favicon-16x16.png"
+  avatar = "/images/avatar.png"
+  headerIcon = "/images/github-mark-light-32px.png"
+  location = "Bangladesh"
+  enableGitalk = true
+  custom_css = ["css/custom.css"]
+  custom_js = ["js/custom.js"]
+
+  [params.gitalk]
+    clientID = "Your client ID"
+    clientSecret = "Your client secret"
+    repo = "repo"
+    owner = "nabilbinbillal"
+    admin = "nabilbinbillal"
+    id = "location.pathname"
+    labels = "gitalk"
+    perPage = 15
+    pagerDirection = "last"
+    createIssueManually = true
+    distractionFreeMode = false
+
+  [[params.links]]
+    title = "GitHub"
+    href = "https://github.com/nabilbinbillal"
+    icon = "https://github.com/favicon.ico"
+  [[params.links]]
+    title = "Twitter"
+    href = "https://twitter.com/nabilbinbillal"
+    icon = "https://twitter.com/favicon.ico"
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
+
+
