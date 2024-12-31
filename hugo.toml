@@ -22,9 +22,9 @@ pygmentsUseClasses = true
   rss = true
   lastmod = true
   userStatusEmoji = "😀"
-  favicon = "/images/github.png"
-  avatar = "/images/avatar.png"
-  headerIcon = "/images/GitHub-Mark-Light-32px.png"
+  favicon = "https://nabilbinbillal.github.io/jsm-logo.png"
+  avatar = "https://nabilbinbillal.github.io/jsm-logo.png"
+  headerIcon = "https://nabilbinbillal.github.io/favicon-32x32.png"
   location = "Bangladesh"
   enableGitalk = true
 
