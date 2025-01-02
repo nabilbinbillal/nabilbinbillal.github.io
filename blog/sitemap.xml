@@ -2,17 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blog/post/my-new-post/</loc>
-    <lastmod>2024-12-31T13:35:40+00:00</lastmod>
+    <loc>https://nabilbinbillal.github.io/blog/tags/blog/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2024-12-31T13:35:40+00:00</lastmod>
+    <loc>https://nabilbinbillal.github.io/blog/categories/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/post/</loc>
-    <lastmod>2024-12-31T13:35:40+00:00</lastmod>
+    <loc>https://nabilbinbillal.github.io/blog/categories/general/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/categories/</loc>
+    <loc>https://nabilbinbillal.github.io/blog/tags/introduction/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/tags/</loc>
+    <loc>https://nabilbinbillal.github.io/blog/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
+  </url><url>
+    <loc>https://nabilbinbillal.github.io/blog/post/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
+  </url><url>
+    <loc>https://nabilbinbillal.github.io/blog/tags/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
+  </url><url>
+    <loc>https://nabilbinbillal.github.io/blog/tags/technology/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
+  </url><url>
+    <loc>https://nabilbinbillal.github.io/blog/post/title_of_the_post/</loc>
+    <lastmod>2025-01-02T18:22:36+06:00</lastmod>
+  </url><url>
+    <loc>https://nabilbinbillal.github.io/blog/readme/</loc>
+    <lastmod>2025-01-02T18:15:55+06:00</lastmod>
   </url>
 </urlset>
