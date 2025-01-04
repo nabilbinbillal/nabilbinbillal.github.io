@@ -1,0 +1,6 @@
+[submodule "blog/themes/github-style"]
+	path = blog/themes/github-style
+	url = git@github.com:MeiK2333/github-style.git
+[submodule "themes/github-style"]
+	path = themes/github-style
+	url = git@github.com:MeiK2333/github-style.git
