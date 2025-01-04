@@ -34,6 +34,12 @@ owner = "nabilbinbillal"
 repo = "blog-gitalk"
 clientId = "Ov23limTMshyza16mj5X"
 clientSecret = "75147f81216885d138b0384ff27116af7af61e52"
+  id = "location.pathname"
+  labels = "gitalk"
+  perPage = 15
+  pagerDirection = "last"
+  createIssueManually = true
+  distractionFreeMode = false
 
 
 [[params.links]]
