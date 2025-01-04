@@ -30,6 +30,19 @@ publishDir = "blog"  # Set the output directory to /blog
   enableGitalk = true
 
 [params.gitalk]
+  clientID = "Ov23limTMshyza16mj5X"
+  clientSecret = "75147f81216885d138b0384ff27116af7af61e52"  # Replace with your actual client secret
+  repo = "blog-gitalk"
+  owner = "nabilbinbillal"
+  admin = "nabilbinbillal"
+  id = "location.pathname"
+  labels = "gitalk"
+  perPage = 15
+  pagerDirection = "last"
+  createIssueManually = true
+  distractionFreeMode = false
+
+[params.gitalk]
 owner = "nabilbinbillal"
 repo = "blog-gitalk"
 clientId = "Ov23limTMshyza16mj5X"
