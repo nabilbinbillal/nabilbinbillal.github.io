@@ -32,7 +32,7 @@ publishDir = "blog"  # Set the output directory to /blog
 [params.gitalk]
   clientID = "Iv23liyUlkxsrnnAAk6d"
   clientSecret = "627091c057dfa858b73e2c1c8c667f5b38e11e12"  # Replace with your actual client secret
-  repo = "nabilbinbillal.github.io"
+  repo = "blog-gitalk"
   owner = "nabilbinbillal"
   admin = "nabilbinbillal"
   id = "location.pathname"
