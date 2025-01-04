@@ -3,7 +3,7 @@ title: "Reflections on 2024 and Aspirations for 2025: A Journey of Growth and Se
 date: 2025-01-04
 description: "As 2024 comes to a close, I reflect on a year of growth, challenges, and accomplishments. Join me as I share my journey and aspirations for 2025."
 keywords: "Reflections, 2024, Aspirations, Growth, Self-Improvement, Personal Development"
-image: "/images/20242025.jpeg"
+image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNEx9O4s6TG59F-FRwGV-UTV7uI8RXsoU8K7m1Qh42PSmhZbAg25yp2Sg&s=10"
 author: "Nabil Bin Billal"
 ---
 
