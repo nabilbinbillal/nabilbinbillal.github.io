@@ -7,8 +7,6 @@ theme = "github-style"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 publishDir = "blog"  # Set the output directory to /blog
-enableRobotsTXT = true
-rss = true
 
 [params]
   author = "Nabil Bin Billal"
@@ -23,7 +21,6 @@ rss = true
   url = "https://nabilbinbillal.github.io/blog"
   keywords = "blog, technology, science, education, environment"
   rss = true
-  enableRobotsTXT = true
   lastmod = true
   userStatusEmoji = "😀"
   favicon = "https://nabilbinbillal.github.io/jsm-logo.png"
