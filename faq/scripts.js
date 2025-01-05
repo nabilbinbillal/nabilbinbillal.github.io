@@ -2,10 +2,17 @@
 const themeToggle = document.querySelector('#theme-toggle');
 const body = document.body;
 
-// Check saved theme in localStorage
-if (localStorage.getItem('theme') === 'dark') {
+// Detect system theme
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+// Check saved theme in localStorage or fallback to system theme
+const savedTheme = localStorage.getItem('theme') || systemTheme;
+if (savedTheme === 'dark') {
     body.classList.add('dark');
     themeToggle.checked = true;
+} else {
+    body.classList.remove('dark');
+    themeToggle.checked = false;
 }
 
 // Toggle theme
