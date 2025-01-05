@@ -3,9 +3,11 @@ title: "How to Improve Your Creative Writing Skills in English"
 date: 2025-01-04
 description: "Discover practical tips and techniques to enhance your creative writing skills in English. From reading widely to seeking feedback, learn how to develop your unique writing voice."
 keywords: "Creative Writing, Writing Tips, Improve Writing, English Skills, Storytelling"
-image: "https://media.licdn.com/dms/image/v2/D5622AQE3H5o1CF3wag/feedshare-shrink_800/B56ZQtiUg8HoAg-/0/1735930760150?e=1738800000&v=beta&t=4oLgKQk9qszUj8LNgCIGVAMHHJhHb5FqttW6ujeRZU0"
 author: "Nabil Bin Billal"
+image: "https://nabilbinbillal.github.io/static/images/how-to-improve-writing-skills.png"
 ---
+
+![Improve Writing skills](https://nabilbinbillal.github.io/static/images/how-to-improve-writing-skills.png)
 
 Creative writing allows you to express ideas, emotions, and stories in unique ways. If you’re looking to improve your creative writing skills in English, here are some practical tips to guide you:
 
