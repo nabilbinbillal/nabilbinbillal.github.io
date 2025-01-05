@@ -2,20 +2,39 @@
 const themeToggle = document.querySelector('#theme-toggle');
 const body = document.body;
 
-// Check saved theme in localStorage
-if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
-    themeToggle.checked = true;
-}
-
-// Toggle theme
-themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
+// Function to apply the theme
+function applyTheme(theme) {
+    if (theme === 'dark') {
         body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
+        themeToggle.checked = true;
     } else {
         body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
+        themeToggle.checked = false;
+    }
+}
+
+// Detect system theme
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Check saved theme in localStorage or fallback to system theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    applyTheme(savedTheme);
+} else {
+    applyTheme(systemTheme.matches ? 'dark' : 'light');
+}
+
+// Listen for manual theme toggle
+themeToggle.addEventListener('change', () => {
+    const newTheme = themeToggle.checked ? 'dark' : 'light';
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
+// Listen for system theme changes in real time
+systemTheme.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) { // Only auto-switch if no manual override
+        applyTheme(e.matches ? 'dark' : 'light');
     }
 });
 

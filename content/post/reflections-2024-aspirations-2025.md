@@ -7,7 +7,7 @@ author: "Nabil Bin Billal"
 image: "https://nabilbinbillal.github.io/static/images/20242025.png"
 ---
 
-![2024 to 2025](https://nabilbinbillal.github.io/static/images/20242025.png)
+![2024 to 2025](https://nabilbinbillal.github.io/static/images/20242025.jpeg)
 
 As 2024 draws to a close, I find myself reflecting on a year filled with both challenges and triumphs. It has been a year of immense personal growth, learning, and unforgettable memories. From academic achievements to professional milestones, 2024 has shaped me in ways I could never have imagined.
 
