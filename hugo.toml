@@ -10,6 +10,12 @@ publishDir = "blog"  # Set the output directory to /blog
 enableRobotsTXT = true
 rss = true
 
+
+[sitemap]
+  filename = "blog_sitemap.xml"
+
+
+
 [params]
   author = "Nabil Bin Billal"
   description = "Exploring technology, science, education, and the world."
