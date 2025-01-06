@@ -44,24 +44,6 @@ clientSecret = "75147f81216885d138b0384ff27116af7af61e52"
   createIssueManually = true
   distractionFreeMode = false
 
-[menus]
-  [[menus.main]]
-    name = 'Home'
-    url = 'https://nabilbinbillal.github.io/blog/'
-    weight = 10
-  [[menus.main]]
-    name = 'Science'
-    url = 'https://nabilbinbillal.github.io/tags/science'
-    weight = 20
-  [[menus.main]]
-    name = 'Technology'
-    url = 'https://nabilbinbillal.github.io/tags/technology'
-    weight = 30
-    [[menus.main]]
-    name = 'Environment'
-    url = 'https://nabilbinbillal.github.io/tags/environment'
-    weight = 30
-    
 
 [[params.links]]
   title = "GitHub"
@@ -74,8 +56,6 @@ clientSecret = "75147f81216885d138b0384ff27116af7af61e52"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
-  
-  
 
 [services]
   [services.googleAnalytics]
