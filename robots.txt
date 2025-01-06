@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: 
 Sitemap: https://nabilbinbillal.github.io/sitemap.xml
+Sitemap: https://nabilbinbillal.github.io/blog/sitemap.xml
