@@ -6,6 +6,8 @@ image: "https://nabilbinbillal.github.io/static/images/ai-in-health-care.jpg"
 tags: ["Artificial Intelligence", "Healthcare Innovation", "Medical AI", "Digital Health", "Future of Medicine", "HealthTech", "Accessible Healthcare", "AI For Good"]
 ---
 
+![AI in Healthcare](https://nabilbinbillal.github.io/static/images/ai-in-health-care.jpg)
+
 Artificial Intelligence (AI) is revolutionizing every industry, and healthcare is no exception. One of the most promising applications is using AI to assist in medical diagnoses and suggest treatments, making healthcare more accessible, affordable, and personalized.
 
 ## How AI Can Be Used in Medicine
@@ -39,4 +41,3 @@ AI has the potential to bridge gaps in global healthcare. From symptom checkers 
 
 What are your thoughts on AI in medicine? Could it revolutionize healthcare or is there still a long way to go? Share your insights in the comments!
 
-![AI in Healthcare](https://nabilbinbillal.github.io/static/images/ai-in-health-care.jpg)
