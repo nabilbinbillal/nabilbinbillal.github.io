@@ -325,12 +325,14 @@
     repo: 'blog-gitalk',
     owner: 'nabilbinbillal',
     admin: ['nabilbinbillal'],
-    id: eval("location.pathname"), 
-    distractionFreeMode: false 
+    id: location.pathname, 
+    labels: ['gitalk'],
+    perPage: 15,
+    pagerDirection: 'last',
+    createIssueManually: true,
+    distractionFreeMode: false
   });
-  (function() {
-    gitalk.render('gitalk-container');
-  })();
+  gitalk.render('gitalk-container');
 </script>
 
 </div>
