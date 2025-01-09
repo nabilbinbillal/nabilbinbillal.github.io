@@ -1,66 +1,82 @@
+// Toggle theme manually
 function switchTheme() {
-  const currentStyle = currentTheme();
-  if (currentStyle === 'light') {
-    setTheme('dark');
-    setIconTheme('dark');
-  } else {
-    setTheme('light');
-    setIconTheme('light');
-  }
+  const newTheme = currentTheme() === 'light' ? 'dark' : 'light';
+  applyTheme(newTheme, true);
 }
 
-function setTheme(style) {
-  // Remove the initial toggle class to avoid any styling issues
-  document.querySelectorAll('.isInitialToggle').forEach(elem => {
-    elem.classList.remove('isInitialToggle');
-  });
+// Apply the theme to the document
+function applyTheme(theme, saveToLocal = false) {
+  const root = document.documentElement;
 
-  // Set the theme on the document element
-  document.documentElement.setAttribute('data-color-mode', style);
+  // Update theme attribute
+  root.setAttribute('data-color-mode', theme);
 
-  // Store the theme in localStorage for persistence
-  localStorage.setItem('data-color-mode', style);
-}
+  // Update icons
+  updateIcons(theme);
 
-function setIconTheme(theme) {
-  const twitterIconElement = document.getElementById('twitter-icon');
-  const githubIconElement = document.getElementById('github-icon');
-
-  // Update Twitter icon based on the theme
-  if (twitterIconElement) {
-    twitterIconElement.setAttribute("fill", theme === 'light' ? "black" : "white");
+  // Save preference to localStorage if needed
+  if (saveToLocal) {
+    localStorage.setItem('data-color-mode', theme);
   }
 
-  // Update GitHub icon based on the theme
-  if (githubIconElement) {
+  // Apply smooth transition for user-friendly feedback
+  enableSmoothTransitions();
+}
+
+// Update icon styles based on the theme
+function updateIcons(theme) {
+  const twitterIcon = document.getElementById('twitter-icon');
+  const githubIcon = document.getElementById('github-icon');
+
+  if (twitterIcon) {
+    twitterIcon.setAttribute('fill', theme === 'light' ? '#000' : '#fff');
+  }
+
+  if (githubIcon) {
     if (theme === 'light') {
-      githubIconElement.removeAttribute('color');
-      githubIconElement.removeAttribute('class');
+      githubIcon.removeAttribute('color');
+      githubIcon.removeAttribute('class');
     } else {
-      githubIconElement.setAttribute('class', 'octicon');
-      githubIconElement.setAttribute('color', '#f0f6fc');
+      githubIcon.setAttribute('class', 'octicon');
+      githubIcon.setAttribute('color', '#f0f6fc');
     }
   }
 }
 
+// Get the current theme
 function currentTheme() {
-  // Check if a theme is stored in localStorage, otherwise fall back to system preference
-  const localStyle = localStorage.getItem('data-color-mode');
-  const systemStyle = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  return localStyle || systemStyle;
+  const storedTheme = localStorage.getItem('data-color-mode');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return storedTheme || systemTheme;
 }
 
-(() => {
-  // Initialize the theme based on the stored or system preference
-  setTheme(currentTheme());
-  setIconTheme(currentTheme());
-})();
-
-// Listen for changes in the system theme and update the page accordingly
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-  const newTheme = e.matches ? 'dark' : 'light';
+// Automatically apply the system theme if no user preference is set
+function applySystemTheme() {
   if (!localStorage.getItem('data-color-mode')) {
-    setTheme(newTheme);
-    setIconTheme(newTheme);
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    applyTheme(systemTheme);
   }
-});
+}
+
+// Add smooth transitions to theme changes
+function enableSmoothTransitions() {
+  const root = document.documentElement;
+  root.style.transition = 'background-color 0.4s ease, color 0.4s ease';
+  setTimeout(() => {
+    root.style.transition = ''; // Clear transition to avoid conflicts
+  }, 400);
+}
+
+// Initialize theme on page load
+(function initializeTheme() {
+  const theme = currentTheme();
+  applyTheme(theme);
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('data-color-mode')) {
+      const newTheme = e.matches ? 'dark' : 'light';
+      applyTheme(newTheme);
+    }
+  });
+})();
