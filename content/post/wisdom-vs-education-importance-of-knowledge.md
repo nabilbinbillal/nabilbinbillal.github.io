@@ -9,6 +9,8 @@ image: "https://nabilbinbillal.github.io/static/images/wisdom-vs-knowledge.jpg"
 draft: false
 ---
 
+![Wisdom vs Education: Why Gaining Knowledge is the Key to Success](https://nabilbinbillal.github.io/static/images/wisdom-vs-knowledge.jpg)
+
 In today’s fast-paced world, where academic degrees are often seen as the ultimate achievement, the deeper value of wisdom and lifelong learning is sometimes overlooked. While education provides the foundation of knowledge, wisdom shapes how we apply that knowledge in real life. This article explores the differences between wisdom and education and highlights why gaining knowledge is the bridge to success in both personal and professional life.
 
 ## What is Education?  
