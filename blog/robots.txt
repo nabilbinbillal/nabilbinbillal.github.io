@@ -1,5 +1,3 @@
 User-agent: *
 Disallow: 
 Sitemap: https://nabilbinbillal.github.io/blog/sitemap.xml
-https://nabilbinbillal.github.io/blog/blog_sitemap.xml
-
