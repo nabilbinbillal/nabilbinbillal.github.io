@@ -42,9 +42,12 @@ systemTheme.addEventListener('change', (e) => {
 const faqs = document.querySelectorAll('.faq');
 
 faqs.forEach(faq => {
-    faq.querySelector('h2').addEventListener('click', () => {
-        faq.classList.toggle('open');
-    });
+    const faqHeader = faq.querySelector('h2'); // Ensure `h2` exists
+    if (faqHeader) {
+        faqHeader.addEventListener('click', () => {
+            faq.classList.toggle('open');
+        });
+    }
 });
 
 // Social Icons Glow Effect
@@ -61,6 +64,9 @@ socialIcons.forEach(icon => {
 });
 
 // Back to Home Button
-document.querySelector('.back-home').addEventListener('click', () => {
-    window.location.href = 'https://nabilbinbillal.github.io';
-});
+const backHomeButton = document.querySelector('.back-home');
+if (backHomeButton) {
+    backHomeButton.addEventListener('click', () => {
+        window.location.href = 'https://nabilbinbillal.github.io';
+    });
+}
