@@ -46,6 +46,12 @@ faqs.forEach(faq => {
     if (faqHeader) {
         faqHeader.addEventListener('click', () => {
             faq.classList.toggle('open');
+            const faqContent = faq.querySelector('p');
+            if (faq.classList.contains('open')) {
+                faqContent.style.maxHeight = faqContent.scrollHeight + "px"; // Expand content
+            } else {
+                faqContent.style.maxHeight = "0"; // Collapse content
+            }
         });
     }
 });
@@ -69,4 +75,4 @@ if (backHomeButton) {
     backHomeButton.addEventListener('click', () => {
         window.location.href = 'https://nabilbinbillal.github.io';
     });
-}
+});
