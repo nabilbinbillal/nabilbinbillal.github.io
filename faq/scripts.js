@@ -43,14 +43,21 @@ const faqs = document.querySelectorAll('.faq');
 
 faqs.forEach(faq => {
     const faqHeader = faq.querySelector('h2'); // Ensure `h2` exists
-    if (faqHeader) {
+    const icon = faq.querySelector('i'); // Font Awesome icon
+    
+    if (faqHeader && icon) {
         faqHeader.addEventListener('click', () => {
             faq.classList.toggle('open');
             const faqContent = faq.querySelector('p');
+            
             if (faq.classList.contains('open')) {
                 faqContent.style.maxHeight = faqContent.scrollHeight + "px"; // Expand content
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up'); // Change icon to 'up' when open
             } else {
                 faqContent.style.maxHeight = "0"; // Collapse content
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down'); // Change icon to 'down' when closed
             }
         });
     }
