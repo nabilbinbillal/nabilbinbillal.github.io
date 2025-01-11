@@ -35,17 +35,10 @@ body.dark .container {
     background: #f4f4f4;
     transition: background 0.3s, box-shadow 0.3s;
     word-wrap: break-word; /* Ensures text wraps within the FAQ boxes */
+    overflow: hidden; /* Prevents content from overflowing when toggled */
 }
 
 body.dark .faq {
-    background: #333;
-}
-
-body.dark .footer {
-    background: #333;
-}
-
-body.dark #footer {
     background: #333;
 }
 
@@ -72,10 +65,15 @@ body.dark .faq h2 {
     color: #000;
     font-size: 0.95em;
     word-wrap: break-word; /* Ensures links inside FAQ text wrap */
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition */
 }
 
 .faq.open p {
     display: block;
+    max-height: 1000px; /* Allow it to expand */
+    padding: 15px 20px; /* Reset padding when open */
 }
 
 body.dark .faq p {
