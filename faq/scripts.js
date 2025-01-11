@@ -44,11 +44,12 @@ const faqs = document.querySelectorAll('.faq');
 faqs.forEach(faq => {
     const faqHeader = faq.querySelector('h2'); // Ensure `h2` exists
     const icon = faq.querySelector('i'); // Font Awesome icon
+    const faqContent = faq.querySelector('p'); // The content of the FAQ
     
-    if (faqHeader && icon) {
+    if (faqHeader && icon && faqContent) {
         faqHeader.addEventListener('click', () => {
+            // Toggle the 'open' class on the FAQ
             faq.classList.toggle('open');
-            const faqContent = faq.querySelector('p');
             
             if (faq.classList.contains('open')) {
                 faqContent.style.maxHeight = faqContent.scrollHeight + "px"; // Expand content
