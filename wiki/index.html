@@ -3,40 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nabil Bin Billal's Biography - Bangladeshi web developer, content writer, and science advocate.">
-    <title>Nabil Bin Billal - NabilPedia</title>
+    <meta name="description" content="Bangladeshi web developer, content writer, and science advocate. Owner of Bidibo's Science Hub.">
+    <meta name="keywords" content="Nabil Bin Billal, Web Developer, Content Writer, Science Advocate, Bangladesh">
+    <meta name="author" content="Nabil Bin Billal">
+    <title>NabilPedia - Biography</title>
+
+    <!-- Premium Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
     <style>
-        /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #f4f4f4;
             color: #222;
-            line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
         }
         .container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: auto;
             background: #fff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-        h1, h2 {
+
+        .header {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: bold;
+            padding: 20px 0;
             color: #2a4d7c;
         }
+
         a {
             color: #0645ad;
             text-decoration: none;
-            font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
         }
 
-        /* Infobox Styles */
         .infobox {
             float: right;
             width: 280px;
@@ -65,7 +73,20 @@
             font-weight: bold;
         }
 
-        /* Dark Mode */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            background: #222;
+            color: #ccc;
+            margin-top: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        .footer a {
+            color: #8ab4f8;
+            font-weight: bold;
+        }
+
         .dark-mode {
             background-color: #222;
             color: #fff;
@@ -81,29 +102,6 @@
             color: #8ab4f8;
         }
 
-        /* Toggle & Translate Buttons */
-        .buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .btn {
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            border-radius: 5px;
-        }
-        .dark-btn {
-            background: #222;
-            color: #fff;
-        }
-        .translate-btn {
-            background: #2a4d7c;
-            color: #fff;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .infobox {
                 float: none;
@@ -115,39 +113,28 @@
 </head>
 <body>
     <div class="container">
-        <h1>Nabil Bin Billal's Biography</h1>
+        <div class="header">NabilPedia</div>
 
-        <!-- Toggle Dark Mode & Translate Button -->
-        <div class="buttons">
-            <button class="btn dark-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-            <div id="google_translate_element"></div>
-        </div>
+        <button onclick="toggleDarkMode()" style="float:right; margin-bottom:10px;">Toggle Dark Mode</button>
 
-        <!-- Infobox -->
+        <h1>Nabil Bin Billal - Biography</h1>
+
         <div class="infobox">
             <img src="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg" alt="Nabil Bin Billal">
             <table>
-                <tr><th>Born</th><td>January 1, 2008 (age 17)</td></tr>
+                <tr><th>Born</th><td>January 1, 2008 (Age: <span id="age"></span>)</td></tr>
                 <tr><th>Birthplace</th><td>Brahmanbaria, Bangladesh</td></tr>
                 <tr><th>Nationality</th><td>Bangladeshi</td></tr>
                 <tr><th>Occupation</th><td>Web Developer, Content Writer, Science Advocate</td></tr>
-                <tr><th>Years Active</th><td>2020–present</td></tr>
-                <tr><th>Height</th><td>1.91m (6 ft 3 in)</td></tr>
-                <tr><th>Weight</th><td>90kg (198 lbs.)</td></tr>
-                <tr><th>Hair Color</th><td>Black</td></tr>
-                <tr><th>Eye Color</th><td>Brown</td></tr>
-                <tr><th>Parents</th><td>Billal Hossain & MST. Sajeda Akter</td></tr>
-                <tr><th>Home Town</th><td>Brahmanbaria</td></tr>
-                <tr><th>Website</th><td><a href="https://nabilbinbillal.github.io">Personal Portfolio</a></td></tr>
+                <tr><th>Website</th><td><a href="https://nabilbinbillal.github.io">Portfolio</a></td></tr>
             </table>
         </div>
 
-        <!-- Biography Content -->
         <h2>Early Life and Education</h2>
-        <p>Nabil is currently studying in the Science group at <a href="https://www.brahmanbaria.gov.bd/">Brahmanbaria Govt. College</a>. He has achieved a golden A+ and received the Talentpool Scholarship.</p>
+        <p>Nabil is currently studying in the Science group at <strong>Brahmanbaria Govt. College</strong>. He has achieved a golden A+ and received the Talentpool Scholarship.</p>
 
         <h2>Career</h2>
-        <p>He has worked on projects such as:</p>
+        <p>Nabil has worked on several projects, including:</p>
         <ul>
             <li><a href="https://www.notunprotidin.xyz/">Notun Protidin</a></li>
             <li><a href="https://www.bidibo.xyz/">Bidibo News</a></li>
@@ -156,41 +143,49 @@
 
         <h2>Achievements</h2>
         <ul>
-            <li>Winner of the National Math Olympiad</li>
-            <li>First place at the National Science Fair 2025</li>
+            <li>Winner of the <strong>National Math Olympiad</strong> (<a href="https://online.matholympiad.org.bd/profile/606972">Reference</a>)</li>
+            <li>First place at the <strong>National Science Fair 2025</strong> (<a href="https://www.linkedin.com/posts/nabilbinbillal_proudmoment-sciencefair">Reference</a>)</li>
         </ul>
 
         <h2>Community Involvement</h2>
-        <p>Moderator in science communities:</p>
+        <p>Nabil is a moderator for large science communities:</p>
         <ul>
             <li><a href="https://www.facebook.com/groups/777602136864885">কি...বিজ্ঞান খুঁজছেন?</a></li>
             <li><a href="https://www.facebook.com/groups/1092290431877571">বিজ্ঞান খুঁজে লাভ নাই</a></li>
         </ul>
-
-        <!-- External Links -->
+        
         <h2>External Links</h2>
         <ul>
             <li><a href="https://www.facebook.com/nabilbinbillal">Facebook Profile</a></li>
             <li><a href="https://www.linkedin.com/in/nabilbinbillal">LinkedIn Profile</a></li>
             <li><a href="https://www.youtube.com/@NabilBinBillal">YouTube Channel</a></li>
-            <li><a href="https://x.com/nabilbinbillal">Twitter/X Profile</a></li>
-            <li><a href="https://www.instagram.com/nabilbinbillal/">Instagram Profile</a></li>
             <li><a href="https://github.com/nabilbinbillal">GitHub Profile</a></li>
-            <li><a href="https://tiktok.com/@nabilbinbillal">TikTok Profile</a></li>
-            <li><a href="https://www.threads.net/@nabilbinbillal">Threads Profile</a></li>
+            <li><a href="https://nabilbinbillal.github.io/">Personal Portfolio</a></li>
         </ul>
     </div>
 
-    <!-- Dark Mode & Google Translate Script -->
+    <div class="footer">
+        &copy; <span id="currentYear"></span> NabilPedia <br>
+        Visit <a href="https://nabilbinbillal.github.io">Nabil Bin Billal's Portfolio</a>
+    </div>
+
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
+            localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
         }
 
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        if (localStorage.getItem("darkMode") === "true") {
+            document.body.classList.add("dark-mode");
         }
+
+        document.getElementById("currentYear").innerText = new Date().getFullYear();
+
+        function calculateAge() {
+            const birthYear = 2008;
+            document.getElementById("age").innerText = new Date().getFullYear() - birthYear;
+        }
+        calculateAge();
     </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
