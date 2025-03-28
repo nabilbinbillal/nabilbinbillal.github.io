@@ -8,7 +8,7 @@
     <meta name="author" content="Nabil Bin Billal">
     <title>Nabil Bin Billal's Biography - NabilPedia</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <style>
         * {
@@ -19,6 +19,7 @@
         }
 
         body {
+         padding-top: 70px; /* Adjust based on header height */
             background-color: #f4f4f4;
             color: #222;
             line-height: 1.6;
@@ -95,12 +96,16 @@
             border-radius: 0 0 8px 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            transition: max-height 0.3s ease-in-out;
             overflow: hidden;
+               opacity: 0;
+    max-height: 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
         }
 
         .dropdown.active {
             display: flex; /* Show dropdown when active */
+            
+                max-height: 300px; /* Adjust based on content */
         }
 
         .dropdown li {
@@ -122,6 +127,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             position: relative;
+            min-height: 400px; /* Adjust based on content */
         }
 
         .infobox {
@@ -136,9 +142,11 @@
         }
 
         .infobox img {
-            width: 100%;
             border-radius: 8px;
             margin-bottom: 10px;
+            width: 280px; /* Match the .infobox width */
+            height: auto; /* Maintain aspect ratio */
+            min-height: 200px; /* Prevent empty space before loading */
         }
 
         .infobox table {
@@ -285,7 +293,10 @@
     Nabil Bin Billal's Biography
 </h1>
         <div class="infobox">
-            <img src="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg" alt="Nabil Bin Billal">
+            <img src="http://nabilbinbillal.github.io/wiki/Nabil-Bin-Billal.webp" 
+     alt="Nabil Bin Billal"
+     width="280" height="350">
+
             <table>
                 <tr><th>Name</th><td>Nabil Bin Billal</td></tr>
                 <tr><th>Born</th><td>January 1, 2008 (Age: <span id="age"></span>)</td></tr>
