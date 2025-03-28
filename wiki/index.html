@@ -9,40 +9,68 @@
     <title>NabilPedia - Biography</title>
 
     <!-- Premium Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
             background-color: #f4f4f4;
             color: #222;
         }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2a4d7c;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8ab4f8;
+        }
+
         .container {
             max-width: 900px;
-            margin: auto;
+            margin: 80px auto 20px;
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-        }
-
-        .header {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: bold;
-            padding: 20px 0;
-            color: #2a4d7c;
-        }
-
-        a {
-            color: #0645ad;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
         }
 
         .infobox {
@@ -54,23 +82,42 @@
             text-align: center;
             border-radius: 8px;
         }
+
         .infobox img {
             width: 100%;
             border-radius: 8px;
         }
+
         .infobox table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
+
         .infobox th, .infobox td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
+
         .infobox th {
-            background-color: #f2f2f2;
+            background-color: #ddd;
             font-weight: bold;
+        }
+
+        .toggle-button {
+            background: #222;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .toggle-button:hover {
+            background: #444;
         }
 
         .footer {
@@ -82,22 +129,31 @@
             margin-top: 20px;
             border-radius: 0 0 8px 8px;
         }
+
         .footer a {
             color: #8ab4f8;
             font-weight: bold;
         }
 
+        /* Dark Mode Styles */
         .dark-mode {
             background-color: #222;
             color: #fff;
         }
+
         .dark-mode .container {
             background: #333;
         }
+
         .dark-mode .infobox {
             background: #444;
             color: #ddd;
         }
+
+        .dark-mode .infobox th {
+            background-color: #555;
+        }
+
         .dark-mode a {
             color: #8ab4f8;
         }
@@ -108,16 +164,32 @@
                 width: 100%;
                 margin-bottom: 20px;
             }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: right;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
 <body>
+    <header class="header">
+        <h1>NabilPedia</h1>
+        <ul class="nav-links">
+            <li><a href="#biography">Biography</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </header>
+
     <div class="container">
-        <div class="header">NabilPedia</div>
-
-        <button onclick="toggleDarkMode()" style="float:right; margin-bottom:10px;">Toggle Dark Mode</button>
-
-        <h1>Nabil Bin Billal - Biography</h1>
+        <h1 id="biography">Nabil Bin Billal - Biography</h1>
 
         <div class="infobox">
             <img src="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg" alt="Nabil Bin Billal">
@@ -125,42 +197,28 @@
                 <tr><th>Born</th><td>January 1, 2008 (Age: <span id="age"></span>)</td></tr>
                 <tr><th>Birthplace</th><td>Brahmanbaria, Bangladesh</td></tr>
                 <tr><th>Nationality</th><td>Bangladeshi</td></tr>
-                <tr><th>Occupation</th><td>Web Developer, Content Writer, Science Advocate</td></tr>
+                <tr><th>Occupation</th><td>Web Developer, Content Writer</td></tr>
                 <tr><th>Website</th><td><a href="https://nabilbinbillal.github.io">Portfolio</a></td></tr>
             </table>
         </div>
 
-        <h2>Early Life and Education</h2>
-        <p>Nabil is currently studying in the Science group at <strong>Brahmanbaria Govt. College</strong>. He has achieved a golden A+ and received the Talentpool Scholarship.</p>
-
-        <h2>Career</h2>
+        <h2 id="career">Career</h2>
         <p>Nabil has worked on several projects, including:</p>
         <ul>
             <li><a href="https://www.notunprotidin.xyz/">Notun Protidin</a></li>
             <li><a href="https://www.bidibo.xyz/">Bidibo News</a></li>
-            <li><a href="https://science.bidibo.xyz/">Bidibo's Science Hub</a></li>
         </ul>
 
-        <h2>Achievements</h2>
+        <h2 id="projects">Projects</h2>
         <ul>
-            <li>Winner of the <strong>National Math Olympiad</strong> (<a href="https://online.matholympiad.org.bd/profile/606972">Reference</a>)</li>
-            <li>First place at the <strong>National Science Fair 2025</strong> (<a href="https://www.linkedin.com/posts/nabilbinbillal_proudmoment-sciencefair">Reference</a>)</li>
+            <li>National Math Olympiad (<a href="https://online.matholympiad.org.bd/profile/606972">Reference</a>)</li>
         </ul>
 
-        <h2>Community Involvement</h2>
-        <p>Nabil is a moderator for large science communities:</p>
+        <h2 id="contact">Contact</h2>
         <ul>
-            <li><a href="https://www.facebook.com/groups/777602136864885">কি...বিজ্ঞান খুঁজছেন?</a></li>
-            <li><a href="https://www.facebook.com/groups/1092290431877571">বিজ্ঞান খুঁজে লাভ নাই</a></li>
-        </ul>
-        
-        <h2>External Links</h2>
-        <ul>
-            <li><a href="https://www.facebook.com/nabilbinbillal">Facebook Profile</a></li>
-            <li><a href="https://www.linkedin.com/in/nabilbinbillal">LinkedIn Profile</a></li>
-            <li><a href="https://www.youtube.com/@NabilBinBillal">YouTube Channel</a></li>
-            <li><a href="https://github.com/nabilbinbillal">GitHub Profile</a></li>
-            <li><a href="https://nabilbinbillal.github.io/">Personal Portfolio</a></li>
+            <li><a href="https://www.facebook.com/nabilbinbillal">Facebook</a></li>
+            <li><a href="https://www.linkedin.com/in/nabilbinbillal">LinkedIn</a></li>
+            <li><a href="https://github.com/nabilbinbillal">GitHub</a></li>
         </ul>
     </div>
 
@@ -180,12 +238,7 @@
         }
 
         document.getElementById("currentYear").innerText = new Date().getFullYear();
-
-        function calculateAge() {
-            const birthYear = 2008;
-            document.getElementById("age").innerText = new Date().getFullYear() - birthYear;
-        }
-        calculateAge();
+        document.getElementById("age").innerText = new Date().getFullYear() - 2008;
     </script>
 </body>
 </html>
