@@ -8,7 +8,7 @@
     <meta name="author" content="Nabil Bin Billal">
     <title>Nabil Bin Billal's Biography - NabilPedia</title>
 
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <style>
         * {
@@ -16,10 +16,11 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-         padding-top: 70px; /* Adjust based on header height */
+            padding-top: 70px; /* Adjust based on header height */
             background-color: #f4f4f4;
             color: #222;
             line-height: 1.6;
@@ -41,17 +42,18 @@
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem; /* Responsive font size */
-            margin-left: 10px; /* Add some margin to the left */
+            font-size: 1.8rem;
+            margin-left: 10px;
         }
 
         .menu-button {
             background: none;
             border: none;
             color: #fff;
-            font-size: 1.5rem; /* Responsive font size */
+            font-size: 1.5rem;
             cursor: pointer;
             transition: color 0.3s;
+            display: none;
         }
 
         .menu-button:hover {
@@ -61,7 +63,7 @@
         nav {
             display: flex;
             align-items: center;
-            position: relative; /* For dropdown positioning */
+            position: relative;
         }
 
         .nav-links {
@@ -86,10 +88,8 @@
         }
 
         .dropdown {
-            display: none; /* Hide dropdown by default */
-            flex-direction: column;
             position: absolute;
-            top: 60px; /* Adjust based on header height */
+            top: 100%;
             left: 0;
             background: #2a4d7c;
             width: 100%;
@@ -97,20 +97,19 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             overflow: hidden;
-               opacity: 0;
-    max-height: 0;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
         }
 
         .dropdown.active {
-            display: flex; /* Show dropdown when active */
-            
-                max-height: 300px; /* Adjust based on content */
+            max-height: 500px;
+            opacity: 1;
         }
 
         .dropdown li {
             text-align: center;
-            margin: 10px 0;
+            padding: 10px 0;
         }
 
         .dropdown li a {
@@ -127,7 +126,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             position: relative;
-            min-height: 400px; /* Adjust based on content */
+            min-height: 400px;
         }
 
         .infobox {
@@ -144,9 +143,9 @@
         .infobox img {
             border-radius: 8px;
             margin-bottom: 10px;
-            width: 280px; /* Match the .infobox width */
-            height: auto; /* Maintain aspect ratio */
-            min-height: 200px; /* Prevent empty space before loading */
+            width: 280px;
+            height: auto;
+            min-height: 200px;
         }
 
         .infobox table {
@@ -167,18 +166,19 @@
         }
 
         h1 {
-            font-size: 2rem; /* Responsive font size */
+            font-size: 2rem;
         }
 
         h2 {
             margin-top: 30px;
             margin-bottom: 15px;
-            font-size: 1.8rem; /* Responsive font size */
+            font-size: 1.8rem;
             color: #2a4d7c;
+            scroll-margin-top: 100px;
         }
 
         h2.dark-mode {
-            color: #fff; /* White color for dark mode */
+            color: #fff;
         }
 
         p, ul {
@@ -194,6 +194,7 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background 0.3s;
+            margin-left: 15px;
         }
 
         .toggle-button:hover {
@@ -239,55 +240,60 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Hide links on mobile */
-            }
-
-            .dropdown {
-                display: none; /* Show dropdown on mobile */
+                display: none;
             }
 
             .menu-button {
-                display: block; /* Show hamburger icon on mobile */
+                display: block;
             }
 
             header h1 {
-                font-size: 1.5rem; /* Smaller font size for mobile */
+                font-size: 1.5rem;
             }
 
             h2 {
-                font-size: 1.5rem; /* Smaller font size for mobile */
+                font-size: 1.5rem;
             }
 
             .infobox {
-                float: none; /* Center infobox on mobile */
-                margin: 20px auto; /* Center with margin */
-                width: 90%; /* Responsive width */
+                float: none;
+                margin: 20px auto;
+                width: 90%;
+            }
+
+            .toggle-button {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-<script>
-    function toggleMenu() {
-        var dropdown = document.getElementById("dropdownMenu");
-        dropdown.classList.toggle("active");
-    }
-</script>
     <header>
         <button class="menu-button" onclick="toggleMenu()">☰</button>
         <a href="https://nabilbinbillal.github.io/wiki/" style="text-decoration: none; color: white;">
             <h1>NabilPedia</h1>
         </a>
         <nav>
+            <ul class="nav-links">
+                <li><a href="#biography">Biography</a></li>
+                <li><a href="#early-life">Early Life</a></li>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#community-involvement">Community Involvement</a></li>
+                <li><a href="#personal-details">Personal Details</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
             <div class="dropdown" id="dropdownMenu">
                 <ul>
-                    <li><a href="#biography">Biography</a></li>
-                    <li><a href="#early-life">Early Life</a></li>
-                    <li><a href="#career">Career</a></li>
-                    <li><a href="#achievements">Achievements</a></li>
-                    <li><a href="#community-involvement">Community Involvement</a></li>
-                    <li><a href="#personal-details">Personal Details</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#biography" onclick="toggleMenu()">Biography</a></li>
+                    <li><a href="#early-life" onclick="toggleMenu()">Early Life</a></li>
+                    <li><a href="#career" onclick="toggleMenu()">Career</a></li>
+                    <li><a href="#achievements" onclick="toggleMenu()">Achievements</a></li>
+                    <li><a href="#community-involvement" onclick="toggleMenu()">Community Involvement</a></li>
+                    <li><a href="#personal-details" onclick="toggleMenu()">Personal Details</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
                 </ul>
             </div>
             <button class="toggle-button" onclick="toggleDarkMode()">Toggle Theme</button>
@@ -295,24 +301,21 @@
     </header>
 
     <div class="container">
-    <h1 id="biography" style="font-size: 2rem; color: #fff; margin-bottom: 20px; text-align: center; background-color: #2a4d7c; padding: 10px 20px; border-radius: 8px; display: inline-block;">
-    Nabil Bin Billal's Biography
-</h1>
+        <h1 id="biography" style="font-size: 2rem; color: #fff; margin-bottom: 20px; text-align: center; background-color: #2a4d7c; padding: 10px 20px; border-radius: 8px; display: inline-block;">
+            Nabil Bin Billal's Biography
+        </h1>
         <div class="infobox">
-     <head>
-  <link rel="preload" as="image" href="https://nabilbinbillal.github.io/wiki/Nabil-Bin-Billal.webp" type="image/webp">
-</head>
-<body>
-<img 
-  src="https://nabilbinbillal.github.io/wiki/Nabil-Bin-Billal.webp" 
-  alt="Nabil Bin Billal" 
-  width="280" 
-  height="350" 
-  srcset="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg 1x, https://nabilbinbillal.github.io/wiki/Nabil-Bin-Billal.webp 2x">
-
-</body>
-
-
+            <head>
+                <link rel="preload" as="image" href="https://nabilbinbillal.github.io/wiki/Nabil-Bin-Billal.webp" type="image/webp">
+            </head>
+            <body>
+                <img 
+                    src="https://nabilbinbillal.github.io/wiki/Nabil-Bin-Billal.webp" 
+                    alt="Nabil Bin Billal" 
+                    width="280" 
+                    height="350" 
+                    srcset="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg 1x, https://nabilbinbillal.github.io/wiki/Nabil-Bin-Billal.webp 2x">
+            </body>
 
             <table>
                 <tr><th>Name</th><td>Nabil Bin Billal</td></tr>
@@ -381,17 +384,33 @@
             <li><a href="https://nabilbinbillal.github.io/">Personal Portfolio</a></li>
             <li><a href="https://nabilbinbillal.github.io/faq/">Nabil Bin Billal FAQ Page</a></li>
             <li><a href="https://aboutnabil.pages.dev/">About Nabil Bin Billal Page</a></li>
- <li><a href="https://wikigenius.org/wiki/Nabil_Bin_Billal">Nabil Bin Billal's Biography - wikigenius Page</a></li>
-<li><a href="https://en.everybodywiki.com/Nabil_Bin_Billal">Nabil Bin Billal's Biography - EverybodyWiki Page</a></li>
+            <li><a href="https://wikigenius.org/wiki/Nabil_Bin_Billal">Nabil Bin Billal's Biography - wikigenius Page</a></li>
+            <li><a href="https://en.everybodywiki.com/Nabil_Bin_Billal">Nabil Bin Billal's Biography - EverybodyWiki Page</a></li>
         </ul>
     </div>
 
     <footer>
-        &copy; <span id="currentYear"></span> <a href="https://nabilbinbillal.github.io/wiki/>NabilPedia</a> <br>
+        &copy; <span id="currentYear"></span> <a href="https://nabilbinbillal.github.io/wiki/">NabilPedia</a> <br>
         Visit <a href="https://nabilbinbillal.github.io">Nabil Bin Billal's Portfolio</a>
     </footer>
 
     <script>
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
             const headings = document.querySelectorAll('h2');
@@ -403,23 +422,29 @@
 
         function toggleMenu() {
             const dropdownMenu = document.getElementById('dropdownMenu');
-            dropdownMenu.classList.toggle('active');  // Toggle dropdown menu
+            dropdownMenu.classList.toggle('active');
         }
 
         // Close dropdown when clicking outside
-        window.onclick = function(event) {
-            if (!event.target.matches('.menu-button') && !event.target.matches('.nav-links a')) {
-                const dropdownMenu = document.getElementById('dropdownMenu');
-                if (dropdownMenu.classList.contains('active')) {
-                    dropdownMenu.classList.remove('active');
-                }
+        document.addEventListener('click', function(event) {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (!event.target.matches('.menu-button') && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('active');
             }
-        };
+        });
 
+        // Initialize dark mode if previously set
         if (localStorage.getItem("darkMode") === "true") {
             document.body.classList.add("dark-mode");
+            const headings = document.querySelectorAll('h2');
+            headings.forEach(h2 => {
+                h2.classList.add('dark-mode');
+            });
         }
 
+        // Set current year and age
         document.getElementById("currentYear").innerText = new Date().getFullYear();
         document.getElementById("age").innerText = new Date().getFullYear() - 2008;
     </script>
