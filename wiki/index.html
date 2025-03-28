@@ -24,7 +24,7 @@
             line-height: 1.6;
         }
 
-        .header {
+        header {
             position: fixed;
             top: 0;
             width: 100%;
@@ -38,15 +38,21 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .header h1 {
+        header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 26px;
             font-weight: bold;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-links {
             list-style: none;
             display: flex;
+            margin-left: 20px;
         }
 
         .nav-links li {
@@ -57,7 +63,7 @@
             text-decoration: none;
             color: #fff;
             font-weight: 600;
-            transition: 0.3s;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
@@ -71,6 +77,8 @@
             font-weight: bold;
             cursor: pointer;
             border-radius: 5px;
+            border: none;
+            transition: background 0.3s;
         }
 
         .menu-button:hover {
@@ -140,14 +148,14 @@
             cursor: pointer;
             border-radius: 5px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: background 0.3s;
         }
 
         .toggle-button:hover {
             background: #444;
         }
 
-        .footer {
+        footer {
             text-align: center;
             padding: 15px;
             font-size: 14px;
@@ -157,7 +165,7 @@
             border-radius: 0 0 8px 8px;
         }
 
-        .footer a {
+        footer a {
             color: #8ab4f8;
             font-weight: bold;
         }
@@ -221,19 +229,21 @@
     </style>
 </head>
 <body>
-    <header class="header">
+    <header>
         <button class="menu-button" onclick="toggleMenu()">☰</button>
         <h1>NabilPedia</h1>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#biography">Biography</a></li>
-            <li><a href="#early-life">Early Life</a></li>
-            <li><a href="#career">Career</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#community-involvement">Community Involvement</a></li>
-            <li><a href="#personal-details">Personal Details</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#biography">Biography</a></li>
+                <li><a href="#early-life">Early Life</a></li>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#community-involvement">Community Involvement</a></li>
+                <li><a href="#personal-details">Personal Details</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        </nav>
     </header>
 
     <div class="container">
@@ -311,10 +321,10 @@
         </ul>
     </div>
 
-    <div class="footer">
+    <footer>
         &copy; <span id="currentYear"></span> NabilPedia <br>
         Visit <a href="https://nabilbinbillal.github.io">Nabil Bin Billal's Portfolio</a>
-    </div>
+    </footer>
 
     <script>
         function toggleDarkMode() {
