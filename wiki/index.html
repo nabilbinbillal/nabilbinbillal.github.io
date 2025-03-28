@@ -1,102 +1,182 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nabil Bin Billal's Biography - NabilPedia. A Bangladeshi web developer, content writer, and science advocate known for MERN stack, WordPress development, and science communication.">
+    <meta name="description" content="Nabil Bin Billal's Wikipedia-style biography. A Bangladeshi web developer, content writer, and science advocate known for MERN stack, WordPress development, and science communication.">
     <meta name="keywords" content="Nabil Bin Billal, web developer, content writer, science advocate, Bangladesh, MERN stack, WordPress, Bidibo's Science Hub">
     <meta name="author" content="Nabil Bin Billal">
-    <title>Nabil Bin Billal's Biography - NabilPedia</title>
+    <meta property="og:title" content="Nabil Bin Billal - Wikipedia Style Biography">
+    <meta property="og:description" content="Learn about Nabil Bin Billal, a Bangladeshi web developer, content writer, and science advocate.">
+    <meta property="og:image" content="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg">
+    <meta property="og:url" content="https://nabilbinbillal.github.io">
+    <title>Nabil Bin Billal - Wikipedia Style</title>
     <style>
+        /* General Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Georgia', serif;
             margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #222;
+            line-height: 1.6;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-        .header {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
+        h1, h2 {
+            color: #2a4d7c;
         }
-        .infobox {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #eee;
+        a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            width: 220px;
+            height: 100%;
+            background: #f0f0f0;
             padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        /* Main Content */
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+
+        /* Infobox */
+        .infobox {
+            float: right;
+            width: 250px;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
         }
         .infobox img {
-            width: 150px;
-            height: auto;
+            width: 100%;
             border-radius: 8px;
         }
-        .toggle-btn {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            border: none;
-            background: #333;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
+        .infobox p {
+            margin: 5px 0;
         }
+
+        /* Dark Mode */
         .dark-mode {
-            background-color: #333;
+            background-color: #222;
             color: #fff;
         }
         .dark-mode .container {
+            background: #333;
+        }
+        .dark-mode .sidebar {
             background: #444;
+            color: #ddd;
+        }
+        .dark-mode a {
+            color: #8ab4f8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+            }
+            .content {
+                margin-left: 0;
+            }
+            .infobox {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">Nabil Bin Billal</div>
-        <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <div class="sidebar">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#early-life">Early Life</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#community">Community Involvement</a></li>
+            <li><a href="#external-links">External Links</a></li>
+        </ul>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+
+    <div class="content">
+        <h1>Nabil Bin Billal</h1>
         <div class="infobox">
             <img src="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg" alt="Nabil Bin Billal">
             <p><strong>Born:</strong> January 1, 2008, Brahmanbaria, Bangladesh</p>
             <p><strong>Nationality:</strong> Bangladeshi</p>
             <p><strong>Occupation:</strong> Web Developer, Content Writer, Science Advocate</p>
-            <p><strong>Known for:</strong> Owner of Bidibo's Science Hub, Bidibo News, Notun Protidin</p>
+            <p><strong>Known for:</strong> Owner of Bidibo's Science Hub, Notun Protidin</p>
         </div>
-        <h2>Early Life and Education</h2>
+
+        <h2 id="early-life">Early Life and Education</h2>
         <p>Nabil is currently studying Science at Brahmanbaria Govt. College. He has achieved a golden A+ and received the Talentpool Scholarship.</p>
-        <h2>Career</h2>
-        <p>Nabil has worked on several projects like Notun Protidin, Bidibo News, and Bidibo's Science Hub.</p>
-        <h2>Achievements</h2>
+
+        <h2 id="career">Career</h2>
+        <p>He has worked on several projects, including <a href="https://www.notunprotidin.xyz/">Notun Protidin</a> and <a href="https://www.bidibo.xyz/">Bidibo News</a>.</p>
+
+        <h2 id="achievements">Achievements</h2>
         <ul>
             <li>Winner of the National Math Olympiad</li>
             <li>National Science Olympiad 2025 Winner</li>
             <li>First place at the National Science Fair 2025</li>
         </ul>
-        <h2>Community Involvement</h2>
-        <p>Moderator in science communities and an active member of 3ZERO Club.</p>
-        <h2>External Links</h2>
-        <p><a href="https://nabilbinbillal.github.io">Personal Portfolio</a></p>
+
+        <h2 id="community">Community Involvement</h2>
+        <p>Moderator in science communities and an active member of the 3ZERO Club.</p>
+
+        <h2 id="external-links">External Links</h2>
+        <p>
+            <a href="https://nabilbinbillal.github.io">Personal Portfolio</a> |
+            <a href="https://www.linkedin.com/in/nabilbinbillal">LinkedIn</a> |
+            <a href="https://github.com/nabilbinbillal">GitHub</a>
+        </p>
     </div>
+
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
+
+        // Smooth Scroll for Sidebar Links
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
-    <div id="google_translate_element"></div>
 </body>
 </html>
