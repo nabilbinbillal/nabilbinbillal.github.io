@@ -1,1 +1,102 @@
-html=
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nabil Bin Billal's Biography - NabilPedia. A Bangladeshi web developer, content writer, and science advocate known for MERN stack, WordPress development, and science communication.">
+    <meta name="keywords" content="Nabil Bin Billal, web developer, content writer, science advocate, Bangladesh, MERN stack, WordPress, Bidibo's Science Hub">
+    <meta name="author" content="Nabil Bin Billal">
+    <title>Nabil Bin Billal's Biography - NabilPedia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .infobox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .infobox img {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .toggle-btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            border: none;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode .container {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Nabil Bin Billal</div>
+        <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <div class="infobox">
+            <img src="https://wikigenius.org/wiki/File:Nabil-Bin-Billal.jpg" alt="Nabil Bin Billal">
+            <p><strong>Born:</strong> January 1, 2008, Brahmanbaria, Bangladesh</p>
+            <p><strong>Nationality:</strong> Bangladeshi</p>
+            <p><strong>Occupation:</strong> Web Developer, Content Writer, Science Advocate</p>
+            <p><strong>Known for:</strong> Owner of Bidibo's Science Hub, Bidibo News, Notun Protidin</p>
+        </div>
+        <h2>Early Life and Education</h2>
+        <p>Nabil is currently studying Science at Brahmanbaria Govt. College. He has achieved a golden A+ and received the Talentpool Scholarship.</p>
+        <h2>Career</h2>
+        <p>Nabil has worked on several projects like Notun Protidin, Bidibo News, and Bidibo's Science Hub.</p>
+        <h2>Achievements</h2>
+        <ul>
+            <li>Winner of the National Math Olympiad</li>
+            <li>National Science Olympiad 2025 Winner</li>
+            <li>First place at the National Science Fair 2025</li>
+        </ul>
+        <h2>Community Involvement</h2>
+        <p>Moderator in science communities and an active member of 3ZERO Club.</p>
+        <h2>External Links</h2>
+        <p><a href="https://nabilbinbillal.github.io">Personal Portfolio</a></p>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <div id="google_translate_element"></div>
+</body>
+</html>
