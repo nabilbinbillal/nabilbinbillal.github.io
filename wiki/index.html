@@ -3,16 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nabil Bin Billal's Wikipedia-style biography. A Bangladeshi web developer, content writer, and science advocate known for MERN stack, WordPress development, and science communication.">
-    <meta name="keywords" content="Nabil Bin Billal, web developer, content writer, science advocate, Bangladesh, MERN stack, WordPress, Bidibo's Science Hub">
-    <meta name="author" content="Nabil Bin Billal">
-    <meta property="og:title" content="Nabil Bin Billal - Wikipedia Style Biography">
-    <meta property="og:description" content="Learn about Nabil Bin Billal, a Bangladeshi web developer, content writer, and science advocate.">
-    <meta property="og:image" content="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg">
-    <meta property="og:url" content="https://nabilbinbillal.github.io">
+    <meta name="description" content="Nabil Bin Billal - Wikipedia-style biography. Bangladeshi web developer, content writer, and science advocate.">
     <title>Nabil Bin Billal - Wikipedia Style</title>
     <style>
-        /* General Styling */
         body {
             font-family: 'Georgia', serif;
             margin: 0;
@@ -40,34 +33,9 @@
             text-decoration: underline;
         }
 
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            width: 220px;
-            height: 100%;
-            background: #f0f0f0;
-            padding: 15px;
-            overflow-y: auto;
-            border-right: 1px solid #ddd;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin: 10px 0;
-        }
-
-        /* Main Content */
-        .content {
-            margin-left: 240px;
-            padding: 20px;
-        }
-
-        /* Infobox */
         .infobox {
             float: right;
-            width: 250px;
+            width: 280px;
             background: #f9f9f9;
             padding: 10px;
             border: 1px solid #ddd;
@@ -77,11 +45,21 @@
             width: 100%;
             border-radius: 8px;
         }
-        .infobox p {
-            margin: 5px 0;
+        .infobox table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .infobox th, .infobox td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .infobox th {
+            background-color: #f2f2f2;
+            font-weight: bold;
         }
 
-        /* Dark Mode */
         .dark-mode {
             background-color: #222;
             color: #fff;
@@ -89,7 +67,7 @@
         .dark-mode .container {
             background: #333;
         }
-        .dark-mode .sidebar {
+        .dark-mode .infobox {
             background: #444;
             color: #ddd;
         }
@@ -97,17 +75,7 @@
             color: #8ab4f8;
         }
         
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                border-right: none;
-            }
-            .content {
-                margin-left: 0;
-            }
             .infobox {
                 float: none;
                 width: 100%;
@@ -117,66 +85,102 @@
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#early-life">Early Life</a></li>
-            <li><a href="#career">Career</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#community">Community Involvement</a></li>
-            <li><a href="#external-links">External Links</a></li>
-        </ul>
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    </div>
-
-    <div class="content">
+    <div class="container">
         <h1>Nabil Bin Billal</h1>
+
         <div class="infobox">
             <img src="https://static.wikitide.net/wikigeniuswiki/9/99/Nabil-Bin-Billal.jpg" alt="Nabil Bin Billal">
-            <p><strong>Born:</strong> January 1, 2008, Brahmanbaria, Bangladesh</p>
-            <p><strong>Nationality:</strong> Bangladeshi</p>
-            <p><strong>Occupation:</strong> Web Developer, Content Writer, Science Advocate</p>
-            <p><strong>Known for:</strong> Owner of Bidibo's Science Hub, Notun Protidin</p>
+            <table>
+                <tr>
+                    <th>Born</th>
+                    <td>January 1, 2008 (age 17)</td>
+                </tr>
+                <tr>
+                    <th>Birthplace</th>
+                    <td>Brahmanbaria, Bangladesh</td>
+                </tr>
+                <tr>
+                    <th>Nationality</th>
+                    <td>Bangladeshi</td>
+                </tr>
+                <tr>
+                    <th>Occupation</th>
+                    <td>Web Developer, Content Writer, Science Advocate</td>
+                </tr>
+                <tr>
+                    <th>Years Active</th>
+                    <td>2020–present</td>
+                </tr>
+                <tr>
+                    <th>Height</th>
+                    <td>1.91m (6 ft 3 in)</td>
+                </tr>
+                <tr>
+                    <th>Weight</th>
+                    <td>90kg (198 lbs.)</td>
+                </tr>
+                <tr>
+                    <th>Hair Color</th>
+                    <td>Black</td>
+                </tr>
+                <tr>
+                    <th>Eye Color</th>
+                    <td>Brown</td>
+                </tr>
+                <tr>
+                    <th>Parents</th>
+                    <td>Billal Hossain & MST. Sajeda Akter</td>
+                </tr>
+                <tr>
+                    <th>Home Town</th>
+                    <td>Brahmanbaria</td>
+                </tr>
+                <tr>
+                    <th>Website</th>
+                    <td><a href="https://nabilbinbillal.github.io">Personal Portfolio</a></td>
+                </tr>
+            </table>
         </div>
 
-        <h2 id="early-life">Early Life and Education</h2>
-        <p>Nabil is currently studying Science at Brahmanbaria Govt. College. He has achieved a golden A+ and received the Talentpool Scholarship.</p>
+        <h2>Early Life and Education</h2>
+        <p>Nabil is currently studying in the Science group at <a href="https://www.brahmanbaria.gov.bd/">Brahmanbaria Govt. College</a>. He has achieved a golden A+ and received the Talentpool Scholarship.</p>
 
-        <h2 id="career">Career</h2>
-        <p>He has worked on several projects, including <a href="https://www.notunprotidin.xyz/">Notun Protidin</a> and <a href="https://www.bidibo.xyz/">Bidibo News</a>.</p>
+        <h2>Career</h2>
+        <p>He has worked on projects such as:</p>
+        <ul>
+            <li><a href="https://www.notunprotidin.xyz/">Notun Protidin</a></li>
+            <li><a href="https://www.bidibo.xyz/">Bidibo News</a></li>
+            <li><a href="https://science.bidibo.xyz/">Bidibo's Science Hub</a></li>
+        </ul>
 
-        <h2 id="achievements">Achievements</h2>
+        <h2>Achievements</h2>
         <ul>
             <li>Winner of the National Math Olympiad</li>
-            <li>National Science Olympiad 2025 Winner</li>
             <li>First place at the National Science Fair 2025</li>
         </ul>
 
-        <h2 id="community">Community Involvement</h2>
-        <p>Moderator in science communities and an active member of the 3ZERO Club.</p>
+        <h2>Community Involvement</h2>
+        <p>Moderator in science communities:</p>
+        <ul>
+            <li><a href="https://www.facebook.com/groups/777602136864885">কি...বিজ্ঞান খুঁজছেন?</a></li>
+            <li><a href="https://www.facebook.com/groups/1092290431877571">বিজ্ঞান খুঁজে লাভ নাই</a></li>
+        </ul>
 
-        <h2 id="external-links">External Links</h2>
+        <h2>External Links</h2>
         <p>
-            <a href="https://nabilbinbillal.github.io">Personal Portfolio</a> |
             <a href="https://www.linkedin.com/in/nabilbinbillal">LinkedIn</a> |
-            <a href="https://github.com/nabilbinbillal">GitHub</a>
+            <a href="https://github.com/nabilbinbillal">GitHub</a> |
+            <a href="https://www.youtube.com/@NabilBinBillal">YouTube</a> |
+            <a href="https://www.instagram.com/nabilbinbillal/">Instagram</a>
         </p>
+
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </div>
 
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
-
-        // Smooth Scroll for Sidebar Links
-        document.querySelectorAll('.sidebar a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
     </script>
 </body>
 </html>
