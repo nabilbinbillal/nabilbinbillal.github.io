@@ -41,6 +41,7 @@
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem; /* Responsive font size */
+            margin-left: 10px; /* Add some margin to the left */
         }
 
         .menu-button {
@@ -84,7 +85,7 @@
         }
 
         .dropdown {
-            display: none;
+            display: none; /* Hide dropdown by default */
             flex-direction: column;
             position: absolute;
             top: 60px; /* Adjust based on header height */
@@ -259,10 +260,10 @@
 </head>
 <body>
     <header>
+        <button class="menu-button" onclick="toggleMenu()">☰</button>
         <a href="https://nabilbinbillal.github.io/wiki/" style="text-decoration: none; color: white;">
             <h1>NabilPedia</h1>
         </a>
-        <button class="menu-button" onclick="toggleMenu()">☰</button>
         <nav>
             <div class="dropdown" id="dropdownMenu">
                 <ul>
@@ -275,7 +276,7 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <button class="toggle-button" onclick="toggleDarkMode()">Toggle Theme</button>
+            <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
         </nav>
     </header>
 
