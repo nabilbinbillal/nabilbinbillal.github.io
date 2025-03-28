@@ -99,8 +99,7 @@
         }
 
         .dropdown.active {
-            display: flex;
-            max-height: 300px; /* Adjust as needed */
+            display: flex; /* Show dropdown when active */
         }
 
         .dropdown li {
@@ -263,14 +262,8 @@
         <button class="menu-button" onclick="toggleMenu()">☰</button>
         <h1>NabilPedia</h1>
         <nav>
-   <div class="dropdown" id="dropdownMenu">
-                <li><a href="#biography">Biography</a></li>
-                <li><a href="#early-life">Early Life</a></li>
-                <li><a href="#career">Career</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#community-involvement">Community Involvement</a></li>
-                <li><a href="#personal-details">Personal Details</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <div class="dropdown" id="dropdownMenu">
+                <ul>
                     <li><a href="#biography">Biography</a></li>
                     <li><a href="#early-life">Early Life</a></li>
                     <li><a href="#career">Career</a></li>
