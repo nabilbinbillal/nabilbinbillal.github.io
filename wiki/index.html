@@ -64,6 +64,20 @@
             color: #8ab4f8;
         }
 
+        /* Navbar Button */
+        .menu-button {
+            background: #222;
+            color: #fff;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .menu-button:hover {
+            background: #444;
+        }
+
         .container {
             max-width: 900px;
             margin: 80px auto 20px;
@@ -173,13 +187,36 @@
             .nav-links li {
                 margin: 5px 0;
             }
+
+            .menu-button {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: block;
+                background: #2a4d7c;
+                padding: 10px;
+                border-radius: 8px;
+                margin-top: 10px;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <h1>NabilPedia</h1>
-        <ul class="nav-links">
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#biography">Biography</a></li>
             <li><a href="#career">Career</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -231,6 +268,11 @@
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
             localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
         }
 
         if (localStorage.getItem("darkMode") === "true") {
