@@ -9,14 +9,14 @@
     <title>Nabil Bin Billal's Biography - NabilPedia</title>
 
     <!-- Premium Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Times+New+Roman:wght@400&display=swap" rel="stylesheet">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Times New Roman', serif;
         }
 
         body {
@@ -214,16 +214,15 @@
 </head>
 <body>
     <header class="header">
-       
         <button class="menu-button" onclick="toggleMenu()">☰</button>
- <h1>NabilPedia</h1>
+        <h1>NabilPedia</h1>
         <ul class="nav-links" id="navLinks">
             <li><a href="#biography">Biography</a></li>
             <li><a href="#career">Career</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <button class="toggle-button" id="toggleButton" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </header>
 
     <div class="container">
@@ -268,6 +267,12 @@
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
+            const button = document.getElementById("toggleButton");
+            if (document.body.classList.contains("dark-mode")) {
+                button.textContent = "Toggle Light Mode";
+            } else {
+                button.textContent = "Toggle Dark Mode";
+            }
             localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
         }
 
@@ -278,6 +283,7 @@
 
         if (localStorage.getItem("darkMode") === "true") {
             document.body.classList.add("dark-mode");
+            document.getElementById("toggleButton").textContent = "Toggle Light Mode";
         }
 
         document.getElementById("currentYear").innerText = new Date().getFullYear();
