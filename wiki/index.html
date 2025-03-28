@@ -169,46 +169,38 @@
             color: #8ab4f8;
         }
 
-        .nav-links.hide {
+        /* Dropdown Menu */
+        .nav-links {
             display: none;
+            flex-direction: column;
+            width: 100%;
         }
 
-        @media (max-width: 768px) {
-            .infobox {
-                float: none;
-                width: 100%;
-                margin-bottom: 20px;
-            }
+        .nav-links.active {
+            display: flex;
+            background-color: #2a4d7c;
+            padding: 10px 0;
+            border-radius: 8px;
+        }
 
+        .nav-links li {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 10px;
+        }
+
+        @media (min-width: 769px) {
             .nav-links {
-                flex-direction: column;
-                text-align: right;
-            }
-
-            .nav-links li {
-                margin: 5px 0;
+                display: flex;
+                flex-direction: row;
             }
 
             .menu-button {
-                display: block;
-                margin: 10px 0;
-            }
-
-            .nav-links {
                 display: none;
-            }
-
-            .nav-links.active {
-                display: block;
-                background: #2a4d7c;
-                padding: 10px;
-                border-radius: 8px;
-                margin-top: 10px;
-            }
-
-            .nav-links li {
-                margin: 10px 0;
-                text-align: center;
             }
         }
     </style>
@@ -273,8 +265,7 @@
 
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');  // Show/hide the navigation links
-            navLinks.classList.toggle('hide');  // Hide the navigation links in a clean way
+            navLinks.classList.toggle('active');  // Toggle dropdown menu
         }
 
         if (localStorage.getItem("darkMode") === "true") {
