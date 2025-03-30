@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="bn">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,13 +71,16 @@
         h1, h2 {
             color: #d81b60;
         }
+        .qr-code {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 id="greeting">ঈদ মোবারক! 🌙</h1>
         <p id="subtext">ইদের চাঁদ আকাশে, সালামি পাঠান বিকাশে</p>
-        <img class="profile-img" src="https://nabilbinbillal.github.io/IMG_20241213_180035_223.webp" alt="Nabil Bin Billal">
+        <img class="profile-img" src="https://nabilbinbillal.github.io/IMG_20250330_183540.jpg" alt="Nabil Bin Billal">
         <h2>Nabil Bin Billal</h2>
         <p id="dua">"তাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম"</p>
         <div class="payment-info">
@@ -85,6 +89,10 @@
                 <p id="bkash-number">01752908126</p>
             </div>
             <p class="copy-text" id="copy-text" onclick="copyToClipboard('01752908126')">Tap to Copy</p>
+        </div>
+        <div class="qr-code">
+            <p>Scan the QR code to send salami:</p>
+            <img src="https://nabilbinbillal.github.io/send-salami/qr.png" alt="QR Code for bKash" width="200">
         </div>
         <p class="lang-switch" onclick="toggleLanguage()">Switch to English</p>
     </div>
