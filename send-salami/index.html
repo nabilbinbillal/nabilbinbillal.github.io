@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Send Salami via bKash to Nabil Bin Billal. ঈদের সালামি সহজে পাঠান।">
+    <meta name="keywords" content="Salami, bKash, Eid, Nabil Bin Billal, ঈদ সালামি, বিকাশ">
+    <meta name="author" content="Nabil Bin Billal">
+    <title>ঈদ মোবারক! | Send Salami Easily</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap');
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffebee, #ffe0b2);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .profile-img {
+            border-radius: 50%;
+            width: 120px;
+            margin: 10px 0;
+            border: 4px solid #ff4081;
+        }
+        .payment-info {
+            margin: 20px 0;
+        }
+        .payment-method {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d81b60;
+            margin-bottom: 5px;
+        }
+        .payment-number-container {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #d81b60;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .payment-number-container:hover {
+            background: #d81b60;
+            color: white;
+        }
+        .copy-text {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .copy-text:hover {
+            color: #d81b60;
+        }
+        .lang-switch {
+            margin-top: 15px;
+            cursor: pointer;
+            color: #ff4081;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        h1, h2 {
+            color: #d81b60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="greeting">ঈদ মোবারক! 🌙</h1>
+        <p id="subtext">ইদের চাঁদ আকাশে, সালামি পাঠান বিকাশে</p>
+        <img class="profile-img" src="https://nabilbinbillal.github.io/IMG_20241213_180035_223.webp" alt="Nabil Bin Billal">
+        <h2>Nabil Bin Billal</h2>
+        <p id="dua">"তাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম"</p>
+        <div class="payment-info">
+            <p class="payment-method">bKash (Personal)</p>
+            <div class="payment-number-container" onclick="copyToClipboard('01752908126')">
+                <p id="bkash-number">01752908126</p>
+            </div>
+            <p class="copy-text" id="copy-text" onclick="copyToClipboard('01752908126')">Tap to Copy</p>
+        </div>
+        <p class="lang-switch" onclick="toggleLanguage()">Switch to English</p>
+    </div>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                document.getElementById('copy-text').innerText = 'Copied!';
+                setTimeout(() => {
+                    document.getElementById('copy-text').innerText = 'Tap to Copy';
+                }, 2000);
+            });
+        }
+        let isBangla = true;
+        function toggleLanguage() {
+            isBangla = !isBangla;
+            document.getElementById("greeting").innerText = isBangla ? "ঈদ মোবারক! 🌙" : "Eid Mubarak! 🌙";
+            document.getElementById("subtext").innerText = isBangla ? "ইদের চাঁদ আকাশে, সালামি পাঠান বিকাশে" : "Eid Moon in the Sky, Send Salami via bKash";
+            document.getElementById("dua").innerText = isBangla ? "\"তাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম\"" : "\"Taqabbalallahu minna wa minkum\"";
+            document.querySelector(".lang-switch").innerText = isBangla ? "Switch to English" : "বাংলায় পরিবর্তন করুন";
+        }
+    </script>
+</body>
+</html>
