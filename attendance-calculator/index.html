@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.container {
+  max-width: 500px;
+  background: white;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+label, input, button {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.6rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.result {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.success { color: green; }
+.fail { color: red; }
+
+.language-switcher {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media(max-width: 600px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header id="title">হাজিরা ক্যালকুলেটর</header>
+  <div class="container">
+    <label id="label" for="percent">আপনার বর্তমান উপস্থিতির শতাংশ লিখুন:</label>
+    <input type="number" id="percent" min="0" max="100" placeholder="উদাহরণঃ 45">
+    <button onclick="calculate()" id="btn">হিসাব করুন</button>
+    <div class="result" id="result"></div><div class="language-switcher">
+  <button onclick="toggleLanguage()">Change to English</button>
+</div>
+
+  </div>  <footer>
+    Website Developed by <a href="https://nabilbinbillal.github.io" target="_blank">Nabil Bin Billal</a>
+  </footer>  <script>
+    let isBangla = true;
+
+    function getWorkingDays(from, to) {
+      let count = 0;
+      for (let d = new Date(from); d <= to; d.setDate(d.getDate() + 1)) {
+        if (d.getDay() !== 5 && d.getDay() !== 6) count++; // Fri=5, Sat=6
+      }
+      return count;
+    }
+
+    function calculate() {
+      const percent = parseFloat(document.getElementById("percent").value);
+      const heldClasses = 105;
+      const start = new Date("2025-04-11");
+      const end = new Date("2025-05-14");
+      const workingDaysLeft = getWorkingDays(start, end);
+
+      const attended = (percent / 100) * heldClasses;
+      const finalPercentage = ((attended + workingDaysLeft) / (heldClasses + workingDaysLeft)) * 100;
+
+      const resultDiv = document.getElementById("result");
+      const rounded = finalPercentage.toFixed(2);
+
+      if (finalPercentage >= 60) {
+        resultDiv.innerHTML = isBangla
+          ? `আপনি যদি সব বাকি ক্লাস করেন, তাহলে আপনার উপস্থিতি হবে ${rounded}%। <span class='success'>অভিনন্দন! আপনি পরীক্ষার জন্য যোগ্য হবেন।</span>`
+          : `If you attend all remaining classes, your attendance will be ${rounded}%. <span class='success'>Congratulations! You will be eligible for the exam.</span>`;
+      } else {
+        resultDiv.innerHTML = isBangla
+          ? `আপনি যদি সব বাকি ক্লাস করেন, তাহলে আপনার উপস্থিতি হবে ${rounded}%। <span class='fail'>ভবিষ্যতের জন্য শুভকামনা!</span>`
+          : `If you attend all remaining classes, your attendance will be ${rounded}%. <span class='fail'>Best of luck for later!</span>`;
+      }
+    }
+
+    function toggleLanguage() {
+      isBangla = !isBangla;
+
+      document.getElementById("title").innerText = isBangla ? "হাজিরা ক্যালকুলেটর" : "Attendance Calculator";
+      document.getElementById("label").innerText = isBangla ? "আপনার বর্তমান উপস্থিতির শতাংশ লিখুন:" : "Enter your current attendance percentage:";
+      document.getElementById("btn").innerText = isBangla ? "হিসাব করুন" : "Calculate";
+      document.querySelector(".language-switcher button").innerText = isBangla ? "Change to English" : "বাংলায় পরিবর্তন করুন";
+      document.getElementById("result").innerHTML = ""; // Clear on switch
+    }
+  </script></body>
+</html>
