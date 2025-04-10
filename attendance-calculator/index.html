@@ -188,7 +188,6 @@
       font-size: 0.9rem;
       color: #777;
     }
-
   </style>
 </head>
 <body>
@@ -221,7 +220,8 @@
     function getWorkingDays(from, to) {
       let count = 0;
       for (let d = new Date(from); d <= to; d.setDate(d.getDate() + 1)) {
-        if (d.getDay() !== 5 && d.getDay() !== 6) count++;
+        const day = d.getDay();
+        if (day !== 5 && day !== 6) count++; // skip Friday (5) and Saturday (6)
       }
       return count;
     }
@@ -229,12 +229,21 @@
     function calculate() {
       const percent = parseFloat(document.getElementById("percent").value);
       const heldClasses = 105;
-      const start = new Date("2025-04-11");
-      const end = new Date("2025-05-14");
-      const workingDaysLeft = getWorkingDays(start, end);
 
+      const today = new Date();
+      const end = new Date("2025-05-14");
+
+      if (today > end) {
+        document.getElementById("result").innerHTML = isBangla
+          ? `<span class='fail'>সময় শেষ। আপনি আর উপস্থিতির হার উন্নত করতে পারবেন না।</span>`
+          : `<span class='fail'>Time is over. You can't improve your attendance anymore.</span>`;
+        return;
+      }
+
+      const workingDaysLeft = getWorkingDays(today, end);
       const attended = (percent / 100) * heldClasses;
-      const finalPercentage = ((attended + workingDaysLeft) / (heldClasses + workingDaysLeft)) * 100;
+      const totalAfter = heldClasses + workingDaysLeft;
+      const finalPercentage = ((attended + workingDaysLeft) / totalAfter) * 100;
       const rounded = finalPercentage.toFixed(2);
 
       const resultDiv = document.getElementById("result");
