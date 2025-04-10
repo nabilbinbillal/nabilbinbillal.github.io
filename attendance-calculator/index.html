@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="bn">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,176 +12,181 @@
       --green: #28a745;
       --red: #dc3545;
       --shadow: rgba(0, 0, 0, 0.1);
-    }* {
-  box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
-}
+    }
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
+    }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  animation: fadeIn 1s ease-in;
-  position: relative;
-}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      animation: fadeIn 1s ease-in;
+      position: relative;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-header {
-  background: var(--primary);
-  color: var(--secondary);
-  padding: 1rem;
-  width: 100%;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: bold;
-  box-shadow: 0 4px 6px var(--shadow);
-}
+    header {
+      background: var(--primary);
+      color: var(--secondary);
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      box-shadow: 0 4px 6px var(--shadow);
+    }
 
-.developer-credit {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 6px 12px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #333;
-  box-shadow: 0 2px 6px var(--shadow);
-  z-index: 10;
-}
+    .developer-credit {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      box-shadow: 0 2px 6px var(--shadow);
+      z-index: 10;
+    }
 
-.developer-credit a {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: bold;
-}
+    .developer-credit a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.container {
-  max-width: 550px;
-  background: var(--secondary);
-  margin-top: 2rem;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px var(--shadow);
-  text-align: center;
-  animation: slideUp 0.5s ease-out;
-}
+    .container {
+      max-width: 550px;
+      background: var(--secondary);
+      margin-top: 2rem;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px var(--shadow);
+      text-align: center;
+      animation: slideUp 0.5s ease-out;
+    }
 
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-label {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  display: block;
-  color: #333;
-}
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      color: #333;
+    }
 
-input {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
 
-button {
-  margin-top: 1.5rem;
-  padding: 0.8rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: 0 3px 6px var(--shadow);
-}
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 3px 6px var(--shadow);
+    }
 
-button:hover {
-  background: #e85d00;
-}
+    button:hover {
+      background: #e85d00;
+    }
 
-.result {
-  margin-top: 1.8rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  min-height: 50px;
-}
+    .result {
+      margin-top: 1.8rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      min-height: 50px;
+    }
 
-.success { color: var(--green); }
-.fail { color: var(--red); }
+    .success { color: var(--green); }
+    .fail { color: var(--red); }
 
-.language-switcher {
-  margin-top: 1.5rem;
-  text-align: center;
-}
+    .language-switcher {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
 
-.language-switcher button {
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-weight: bold;
-}
+    .language-switcher button {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: bold;
+    }
 
-.language-switcher button:hover {
-  background: var(--primary);
-  color: white;
-}
+    .language-switcher button:hover {
+      background: var(--primary);
+      color: white;
+    }
 
-footer {
-  margin-top: auto;
-  padding: 1rem;
-  background-color: #eee;
-  text-align: center;
-  font-size: 0.95rem;
-  width: 100%;
-  box-shadow: inset 0 1px 4px var(--shadow);
-}
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      background-color: #eee;
+      text-align: center;
+      font-size: 0.95rem;
+      width: 100%;
+      box-shadow: inset 0 1px 4px var(--shadow);
+    }
 
-@media(max-width: 600px) {
-  .container {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
+    @media(max-width: 600px) {
+      .container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
 
-  .developer-credit {
-    position: static;
-    margin-top: 0.5rem;
-    text-align: center;
-  }
-}
-
+      .developer-credit {
+        position: static;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
   <header id="title">হাজিরা ক্যালকুলেটর</header>
   <div class="developer-credit">
     Website Developed by <a href="https://nabilbinbillal.github.io" target="_blank">Nabil Bin Billal</a>
-  </div>  <div class="container">
+  </div>
+  <div class="container">
     <label id="label" for="percent">আপনার বর্তমান উপস্থিতির শতাংশ লিখুন:</label>
     <input type="number" id="percent" min="0" max="100" placeholder="উদাহরণঃ 45">
+    <p>আপনার Attendance দেখতে <a href="https://bgc.eshiksabd.com" target="_blank">এখানে ভিসিট করুন</a></p>
     <button onclick="calculate()" id="btn">হিসাব করুন</button>
-    <div class="result" id="result"></div><div class="language-switcher">
-  <button onclick="toggleLanguage()">Change to English</button>
-</div>
-
-  </div>  <footer>
+    <div class="result" id="result"></div>
+    <div class="language-switcher">
+      <button onclick="toggleLanguage()">Change to English</button>
+    </div>
+  </div>
+  <footer>
     &copy; 2025
-  </footer>  <script>
+  </footer>
+
+  <script>
     let isBangla = true;
 
     function getWorkingDays(from, to) {
@@ -224,5 +230,6 @@ footer {
       document.querySelector(".language-switcher button").innerText = isBangla ? "Change to English" : "বাংলায় পরিবর্তন করুন";
       document.getElementById("result").innerHTML = "";
     }
-  </script></body>
+  </script>
+</body>
 </html>
