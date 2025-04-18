@@ -59,172 +59,199 @@
 
 
     <!-- Styles -->
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+   
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: "Michroma", sans-serif;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #212121;
-            position: relative;
-        }
+    body {
+      background-color: #0d0d0d;
+      color: #00ff9f;
+      font-family: "Share Tech Mono", monospace;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-        .loader-wrapper {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-        }
+    .loader-wrapper {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        #svg {
-            height: 150px;
-            width: 150px;
-            stroke: white;
-            fill-opacity: 0;
-            stroke-width: 3px;
-            stroke-dasharray: 4500;
-            animation: draw 8s ease infinite;
-        }
+    .glitch-text {
+      font-size: 16px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      color: #00ff9f;
+      position: relative;
+    }
 
-        @keyframes draw {
-            0% {
-                stroke-dashoffset: 4500;
-            }
+    .glitch-text::before,
+    .glitch-text::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      color: #00ff9f;
+      clip: rect(0, 0, 0, 0);
+    }
 
-            100% {
-                stroke-dashoffset: 0;
-            }
-        }
+    .glitch-text::before {
+      animation: glitchTop 1s infinite linear alternate-reverse;
+      color: #ff00ff;
+    }
 
-        .name-container {
-            height: 30px;
-            overflow: hidden;
-        }
+    .glitch-text::after {
+      animation: glitchBottom 1.5s infinite linear alternate-reverse;
+      color: #00ffff;
+    }
 
-        .logo-name {
-            color: #fff;
-            font-size: 20px;
-            letter-spacing: 12px;
-            text-transform: uppercase;
-            margin-left: 20px;
-            font-weight: bolder;
-        }
+    @keyframes glitchTop {
+      0% {
+        clip: rect(0, 9999px, 0, 0);
+      }
+      10% {
+        clip: rect(0, 9999px, 5px, 0);
+        transform: translate(-2px, -2px);
+      }
+      20% {
+        clip: rect(0, 9999px, 3px, 0);
+        transform: translate(2px, -1px);
+      }
+      100% {
+        clip: rect(0, 9999px, 0, 0);
+      }
+    }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            /* Use opacity instead of visibility for fade-in effect */
-            transition: opacity 1s ease-in-out;
-        }
+    @keyframes glitchBottom {
+      0% {
+        clip: rect(0, 9999px, 0, 0);
+      }
+      10% {
+        clip: rect(5px, 9999px, 10px, 0);
+        transform: translate(1px, 1px);
+      }
+      20% {
+        clip: rect(3px, 9999px, 8px, 0);
+        transform: translate(-1px, 2px);
+      }
+      100% {
+        clip: rect(0, 9999px, 0, 0);
+      }
+    }
 
-        .loaded iframe {
-            opacity: 1;
-        }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
 
-        .loaded .loader-wrapper {
-            display: none;
-        }
-    </style>
+    .loaded iframe {
+      opacity: 1;
+    }
+
+    .loaded .loader-wrapper {
+      display: none;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 18px;
+      background: #00ff9f;
+      animation: blink 0.7s steps(1) infinite;
+      margin-left: 4px;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <h1 style="visibility: hidden;">Nabil Bin Billal - a MERN Stack Developer</h1>
-    <div class="loader-wrapper loading-page">
-        <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path
-                d="M415.44 512h-95.11L212.12 357.46v91.1L125.69 512H28V29.82L68.47 0h108.05l123.74 176.13V63.45L386.69 0h97.69v461.5zM38.77 35.27V496l72-52.88V194l215.5 307.64h84.79l52.35-38.17h-78.27L69 13zm82.54 466.61l80-58.78v-101l-79.76-114.4v220.94L49 501.89h72.34zM80.63 10.77l310.6 442.57h82.37V10.77h-79.75v317.56L170.91 10.77zM311 191.65l72 102.81V15.93l-72 53v122.72z" />
-        </svg>
-        <div class="name-container">
-            <div class="logo-name">NABIL</div>
-        </div>
-    </div>
-<iframe 
-  name="nabilbinbillal-portfolio"
-  src="https://nabilbinbillal.pages.dev/" 
-  onload="document.body.classList.add('loaded');"
-  title="Nabil Bin Billal Portfolio Website">
-</iframe>
+  <div class="loader-wrapper">
+    <div class="glitch-text" id="terminalText" data-text="Initializing..."></div>
+    <div class="cursor"></div>
+  </div>
 
+  <iframe 
+    name="nabilbinbillal-portfolio"
+    src="https://nabilbinbillal.pages.dev/"
+    onload="document.body.classList.add('loaded');"
+    title="Nabil Bin Billal Portfolio Website">
+  </iframe>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
-        integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        const timeoutDuration = 5000; // 5 seconds
-        let timeout;
+  <script>
+    const terminalEl = document.getElementById("terminalText");
+    const texts = [
+      "Initializing system...",
+      "Loading assets...",
+      "Establishing secure connection...",
+      "Booting up NABIL's Terminal..."
+    ];
 
-        // Function to handle timeout
-        const handleTimeout = () => {
-            gsap.fromTo(
-                ".loading-page",
-                { opacity: 1 },
-                {
-                    opacity: 0,
-                    display: "none",
-                    duration: 1.5,
-                    delay: 0,
-                }
-            );
-        };
+    const startTime = Date.now();
+    const fastThreshold = 1200;
+    let i = 0;
+    let textPos = 0;
 
-        // Check if the iframe has loaded
-        const iframe = document.querySelector('iframe');
-        iframe.addEventListener('load', () => {
-            document.body.classList.add('loaded');
-            clearTimeout(timeout);
-        });
+    function typeEffect() {
+      if (i < texts.length) {
+        if (textPos < texts[i].length) {
+          terminalEl.textContent = texts[i].substring(0, textPos + 1);
+          terminalEl.setAttribute("data-text", terminalEl.textContent);
+          textPos++;
+          setTimeout(typeEffect, 40);
+        } else {
+          setTimeout(() => {
+            i++;
+            textPos = 0;
+            typeEffect();
+          }, 800);
+        }
+      }
+    }
 
-        // Set a timeout to handle cases where the iframe takes too long to load
-        timeout = setTimeout(handleTimeout, timeoutDuration);
+    // Only start glitch typing if iframe is still not loaded after threshold
+    setTimeout(() => {
+      if (!document.body.classList.contains("loaded")) {
+        typeEffect();
+      }
+    }, fastThreshold);
 
-        // Ensure animation is faster if the connection is good
-        gsap.fromTo(
-            ".loading-page",
-            { opacity: 1 },
-            {
-                opacity: 0,
-                display: "none",
-                duration: 1.5,
-                delay: 3.5,
-            }
-        );
+    // If iframe loads fast, hide instantly with fade
+    const iframe = document.querySelector("iframe");
 
-        gsap.fromTo(
-            ".logo-name",
-            {
-                y: 50,
-                opacity: 0,
-            },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 2,
-                delay: 0.5,
-            }
-        );
-    </script>
+    iframe.addEventListener("load", () => {
+      const loadTime = Date.now() - startTime;
+      if (loadTime < fastThreshold) {
+        document.body.classList.add("loaded");
+      } else {
+        setTimeout(() => {
+          document.body.classList.add("loaded");
+        }, 1200);
+      }
+    });
+  </script>
 </body>
-
 </html>
