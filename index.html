@@ -59,8 +59,7 @@
 
 
     <!-- Styles -->
-   
-  <style>
+   <style>
     @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
     * {
@@ -87,14 +86,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
 
     .glitch-text {
       font-size: 16px;
       letter-spacing: 1px;
       white-space: nowrap;
-      color: #00ff9f;
       position: relative;
+      margin-bottom: 10px;
     }
 
     .glitch-text::before,
@@ -152,6 +152,22 @@
       }
     }
 
+    .progress-bar {
+      width: 220px;
+      height: 8px;
+      border: 1px solid #00ff9f;
+      margin-top: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #00ff9f;
+      width: 0%;
+      transition: width 0.2s;
+    }
+
     iframe {
       width: 100%;
       height: 100%;
@@ -190,8 +206,11 @@
 
 <body>
   <div class="loader-wrapper">
-    <div class="glitch-text" id="terminalText" data-text="Initializing..."></div>
+    <div class="glitch-text" id="terminalText" data-text="Waking up terminal...">Waking up terminal...</div>
     <div class="cursor"></div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
   </div>
 
   <iframe 
@@ -203,55 +222,61 @@
 
   <script>
     const terminalEl = document.getElementById("terminalText");
-    const texts = [
-      "Initializing system...",
-      "Loading assets...",
-      "Establishing secure connection...",
-      "Booting up NABIL's Terminal..."
+    const progressFill = document.getElementById("progressFill");
+
+    const messages = [
+      "Waking up terminal...",
+      "Decrypting thoughts...",
+      "Analyzing digital footprint...",
+      "Optimizing creativity cores...",
+      "Verifying Nabil's presence...",
+      "Initiating Portfolio Drive..."
     ];
 
-    const startTime = Date.now();
-    const fastThreshold = 1200;
     let i = 0;
     let textPos = 0;
+    let percent = 0;
+    let loaded = false;
 
     function typeEffect() {
-      if (i < texts.length) {
-        if (textPos < texts[i].length) {
-          terminalEl.textContent = texts[i].substring(0, textPos + 1);
+      if (i < messages.length) {
+        if (textPos < messages[i].length) {
+          terminalEl.textContent = messages[i].substring(0, textPos + 1);
           terminalEl.setAttribute("data-text", terminalEl.textContent);
           textPos++;
-          setTimeout(typeEffect, 40);
+          setTimeout(typeEffect, 30);
         } else {
-          setTimeout(() => {
-            i++;
-            textPos = 0;
-            typeEffect();
-          }, 800);
+          textPos = 0;
+          i++;
+          setTimeout(typeEffect, 1000);
         }
       }
     }
 
-    // Only start glitch typing if iframe is still not loaded after threshold
-    setTimeout(() => {
-      if (!document.body.classList.contains("loaded")) {
-        typeEffect();
+    function animateProgress() {
+      if (percent < 100 && !loaded) {
+        percent += Math.random() * 3;
+        if (percent > 100) percent = 100;
+        progressFill.style.width = percent + "%";
+        setTimeout(animateProgress, 60);
       }
-    }, fastThreshold);
+    }
 
-    // If iframe loads fast, hide instantly with fade
-    const iframe = document.querySelector("iframe");
-
-    iframe.addEventListener("load", () => {
-      const loadTime = Date.now() - startTime;
-      if (loadTime < fastThreshold) {
+    window.addEventListener("load", () => {
+      loaded = true;
+      percent = 100;
+      progressFill.style.width = "100%";
+      setTimeout(() => {
         document.body.classList.add("loaded");
-      } else {
-        setTimeout(() => {
-          document.body.classList.add("loaded");
-        }, 1200);
-      }
+      }, 500);
     });
+
+    setTimeout(() => {
+      if (!loaded) {
+        typeEffect();
+        animateProgress();
+      }
+    }, 500);
   </script>
 </body>
 </html>
