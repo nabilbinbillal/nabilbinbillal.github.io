@@ -59,7 +59,7 @@
 
 
     <!-- Styles -->
-   <style>
+  style>
     @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
     * {
@@ -95,6 +95,8 @@
       white-space: nowrap;
       position: relative;
       margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
     }
 
     .glitch-text::before,
@@ -152,6 +154,15 @@
       }
     }
 
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     .progress-bar {
       width: 220px;
       height: 8px;
@@ -206,7 +217,7 @@
 
 <body>
   <div class="loader-wrapper">
-    <div class="glitch-text" id="terminalText" data-text="Waking up terminal...">Waking up terminal...</div>
+    <div class="glitch-text" id="terminalText" data-text="Loading: Nabil Bin Billal's Portfolio">Loading: Nabil Bin Billal's Portfolio</div>
     <div class="cursor"></div>
     <div class="progress-bar">
       <div class="progress-fill" id="progressFill"></div>
@@ -225,7 +236,7 @@
     const progressFill = document.getElementById("progressFill");
 
     const messages = [
-      "Waking up terminal...",
+      "Loading: Nabil Bin Billal's Portfolio",
       "Decrypting thoughts...",
       "Analyzing digital footprint...",
       "Optimizing creativity cores...",
@@ -255,7 +266,7 @@
 
     function animateProgress() {
       if (percent < 100 && !loaded) {
-        percent += Math.random() * 3;
+        percent += Math.random() * 4;
         if (percent > 100) percent = 100;
         progressFill.style.width = percent + "%";
         setTimeout(animateProgress, 60);
@@ -263,12 +274,11 @@
     }
 
     window.addEventListener("load", () => {
+      // Display the site immediately
       loaded = true;
-      percent = 100;
-      progressFill.style.width = "100%";
       setTimeout(() => {
         document.body.classList.add("loaded");
-      }, 500);
+      }, 100); // Quick hide after loading
     });
 
     setTimeout(() => {
@@ -276,7 +286,7 @@
         typeEffect();
         animateProgress();
       }
-    }, 500);
+    }, 100); // Short delay for users to see loading animation
   </script>
 </body>
 </html>
