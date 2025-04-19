@@ -175,51 +175,73 @@
   </iframe>
 
   <script>
-    const terminalEl = document.getElementById("terminalText");
-    const progressFill = document.getElementById("progressFill");
+  const terminalEl = document.getElementById("terminalText");
+  const progressFill = document.getElementById("progressFill");
 
-    const messages = [
-      "Loading: Nabil Bin Billal's Portfolio",
-      "Decrypting thoughts...",
-      "Analyzing digital footprint...",
-      "Optimizing creativity cores...",
-      "Verifying Nabil's presence...",
-      "Initiating Portfolio Drive..."
-    ];
+  const messages = [
+    "Loading: Nabil Bin Billal's Portfolio",
+    "Decrypting thoughts...",
+    "Analyzing digital footprint...",
+    "Optimizing creativity cores...",
+    "Verifying Nabil's presence...",
+    "Initiating Portfolio Drive..."
+  ];
 
-    let i = 0, textPos = 0, percent = 0;
+  let i = 0, textPos = 0, percent = 0;
 
-    function typeEffect() {
-      if (i < messages.length) {
-        if (textPos < messages[i].length) {
-          terminalEl.textContent = messages[i].substring(0, textPos + 1);
-          terminalEl.setAttribute("data-text", terminalEl.textContent);
-          textPos++;
-          setTimeout(typeEffect, 30);
-        } else {
-          textPos = 0;
-          i++;
-          setTimeout(typeEffect, 1000);
-        }
+  function typeEffect() {
+    if (i < messages.length) {
+      if (textPos < messages[i].length) {
+        terminalEl.textContent = messages[i].substring(0, textPos + 1);
+        terminalEl.setAttribute("data-text", terminalEl.textContent);
+        textPos++;
+        setTimeout(typeEffect, 30);
+      } else {
+        textPos = 0;
+        i++;
+        setTimeout(typeEffect, 1000);
       }
     }
+  }
 
-    function progressAnimation() {
-      if (percent < 100) {
-        percent++;
-        progressFill.style.width = percent + "%";
-        setTimeout(progressAnimation, 25);
+  function progressAnimation() {
+    if (percent < 100) {
+      percent++;
+      progressFill.style.width = percent + "%";
+      setTimeout(progressAnimation, 25);
+    }
+  }
+
+  // Function to handle scrolling to the section based on the fragment
+  function scrollToSection() {
+    const section = window.location.hash;
+    if (section) {
+      const targetElement = document.querySelector(section);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
       }
     }
+  }
 
-    // Hash routing logic
-    const hash = window.location.hash.substring(1); // Remove the '#' symbol
-    const iframeSrc = hash ? `https://nabilbinbillal.pages.dev/#${hash}` : "https://nabilbinbillal.pages.dev/";
+  // Listen for hash changes
+  window.addEventListener("hashchange", scrollToSection, false);
 
-    document.getElementById("portfolioFrame").src = iframeSrc;
+  // Scroll to the section when the page initially loads (in case a hash is already present)
+  document.addEventListener("DOMContentLoaded", function() {
+    scrollToSection();
+  });
 
-    typeEffect();
-    progressAnimation();
-  </script>
+  // Hash routing logic for iframe source
+  const hash = window.location.hash.substring(1); // Remove the '#' symbol
+  const iframeSrc = hash ? `https://nabilbinbillal.pages.dev/#${hash}` : "https://nabilbinbillal.pages.dev/";
+
+  document.getElementById("portfolioFrame").src = iframeSrc;
+
+  // Call the functions for type effect and progress animation
+  typeEffect();
+  progressAnimation();
+</script>
+
+
 </body>
 </html>
