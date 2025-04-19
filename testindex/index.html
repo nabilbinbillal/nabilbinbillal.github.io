@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nabil Bin Billal</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="myFrame" src=""></iframe>
+
+  <script>
+    function updateIframeSrc() {
+      const baseUrl = "https://nabilbinbillal.pages.dev";
+      const hash = window.location.hash; // e.g. #contact, or "" if none
+      const finalUrl = baseUrl + (hash || ""); // fallback to base URL
+      document.getElementById("myFrame").src = finalUrl;
+    }
+
+    // Load the correct URL on page load
+    updateIframeSrc();
+
+    // Optional: Update iframe if user changes hash manually
+    window.addEventListener("hashchange", updateIframeSrc);
+  </script>
+</body>
+</html>
