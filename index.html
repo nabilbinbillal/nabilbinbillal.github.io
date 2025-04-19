@@ -189,6 +189,7 @@
 
   let i = 0, textPos = 0, percent = 0;
 
+  // Type Effect Function
   function typeEffect() {
     if (i < messages.length) {
       if (textPos < messages[i].length) {
@@ -204,6 +205,7 @@
     }
   }
 
+  // Progress Bar Animation
   function progressAnimation() {
     if (percent < 100) {
       percent++;
@@ -212,23 +214,58 @@
     }
   }
 
-  // Function to handle scrolling to the section based on the fragment
+  // Function to handle smooth scroll when a hash is changed
   function scrollToSection() {
     const section = window.location.hash;
     if (section) {
       const targetElement = document.querySelector(section);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }
 
-  // Listen for hash changes
-  window.addEventListener("hashchange", scrollToSection, false);
+  // Update the active navigation link
+  function updateActiveNavLink() {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+    
+    let currentSection = "";
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        currentSection = section.id;
+      }
+    });
 
-  // Scroll to the section when the page initially loads (in case a hash is already present)
-  document.addEventListener("DOMContentLoaded", function() {
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
+  // Prevent default scrolling behavior when clicking on nav links
+  document.querySelectorAll("nav a").forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.hash = this.getAttribute("href");
+      scrollToSection();
+    });
+  });
+
+  // Handle hash changes and scroll behavior
+  window.addEventListener("hashchange", function () {
     scrollToSection();
+    updateActiveNavLink();
+  });
+
+  // Automatically scroll to the section when the page loads (if hash exists)
+  document.addEventListener("DOMContentLoaded", function () {
+    scrollToSection();
+    updateActiveNavLink();
   });
 
   // Hash routing logic for iframe source
@@ -237,9 +274,12 @@
 
   document.getElementById("portfolioFrame").src = iframeSrc;
 
-  // Call the functions for type effect and progress animation
+  // Call type effect and progress animation
   typeEffect();
   progressAnimation();
+
+  // Scroll listener for updating active nav item as you scroll
+  window.addEventListener('scroll', updateActiveNavLink);
 </script>
 
 
