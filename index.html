@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nabil Bin Billal - MERN Stack Developer & Content Writer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabil Bin Billal - MERN Stack Developer & Content Writer</title>
     <meta name="description" content="Explore Nabil Bin Billal's portfolio — MERN Stack Developer, Android Developer, and Content Writer with expertise in science, technology, and environment.">
 <meta name="keywords" content="Nabil Bin Billal, Nabil Billal, Nabilbinbillal, নাবিল বিন বিল্লাল, نابل بن بلال, Nabil Bin Bilal Portfolio, Nabil Bin Billal Website, Nabil Bin Billal Web Developer, Professional Web Developer, MERN Stack Developer, MERN Stack Expert, Android Developer, Nabil Bin Billal Android Developer, Mobile App Developer, WordPress Developer, CMS Expert, Content Writer, Scientific Writer, Technical Writer, Research Writer, GitHub Developer, JavaScript Developer, React Developer, Node.js Developer, Frontend Developer, Backend Developer, Full Stack Developer, MongoDB Developer, PHP Developer, MySQL Developer, API Developer, Cloud Computing, UI/UX Developer, Web Design Expert, Responsive Web Design, Progressive Web Apps (PWA), DevOps Enthusiast, Open Source Contributor, Software Engineer, Science Content Creator, STEM Advocate, Science Moderator, Climate Change Enthusiast, Climate Activist, Environmental Initiatives, AI & Machine Learning Enthusiast, Python Developer, Ethical Tech Development, E-commerce Developer, Shopify Developer, WooCommerce Expert, Tech Blogger, Digital Creator, Research Enthusiast, Science & Technology Advocate, Software Solutions Architect, Digital Transformation Expert, Web Security Expert, Cybersecurity Advocate, Web3 Developer, Blockchain Developer, SEO Expert, Digital Marketing, Notun Protidin Developer, Bidibo News Developer, Bidibo Science Hub, Bidibo Translator Plugin, Notun Protidin, Bidibo Innovations, Bangladeshi Developer, Developer in Bangladesh, Tech Innovator, Startup Founder, SaaS Developer, Web Application Developer, Software Development, Next.js Developer, Next-Level UI/UX, Ethical Hacking, Competitive Programmer, Problem Solver, STEM Innovator, Tech Visionary, AI Enthusiast, AR/VR Developer, Cloud Computing, SaaS Development, Business Automation, Digital Nomad, Agile Development, Scrum Developer, Personal Branding Expert, Career Growth, Online Portfolio, Professional Portfolio, Knowledge Sharing Advocate, Engineering Mindset, Future-Ready Developer, Disruptive Technology, Motivational Tech Leader, Nabil Bin Billal GitHub, Nabil Bin Billal LinkedIn, Nabil Bin Billal YouTube, Nabil Bin Billal Resume, Nabil Bin Billal Projects, Tech Leader, Digital Creator">
 
@@ -55,19 +54,10 @@
 
     <meta name="yandex-verification" content="296b91393da2610d" />
 
-
-
-
-    <!-- Styles -->
+  <!-- Styles -->
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
-
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
+    * { padding: 0; margin: 0; box-sizing: border-box; }
     body {
       background-color: #0d0d0d;
       color: #00ff9f;
@@ -79,7 +69,6 @@
       justify-content: center;
       position: relative;
     }
-
     .loader-wrapper {
       position: absolute;
       z-index: 10;
@@ -88,7 +77,6 @@
       align-items: center;
       text-align: center;
     }
-
     .glitch-text {
       font-size: 16px;
       letter-spacing: 1px;
@@ -98,7 +86,6 @@
       opacity: 0;
       animation: fadeIn 1.5s ease-in-out forwards;
     }
-
     .glitch-text::before,
     .glitch-text::after {
       content: attr(data-text);
@@ -109,60 +96,30 @@
       color: #00ff9f;
       clip: rect(0, 0, 0, 0);
     }
-
     .glitch-text::before {
       animation: glitchTop 1s infinite linear alternate-reverse;
       color: #ff00ff;
     }
-
     .glitch-text::after {
       animation: glitchBottom 1.5s infinite linear alternate-reverse;
       color: #00ffff;
     }
-
     @keyframes glitchTop {
-      0% {
-        clip: rect(0, 9999px, 0, 0);
-      }
-      10% {
-        clip: rect(0, 9999px, 5px, 0);
-        transform: translate(-2px, -2px);
-      }
-      20% {
-        clip: rect(0, 9999px, 3px, 0);
-        transform: translate(2px, -1px);
-      }
-      100% {
-        clip: rect(0, 9999px, 0, 0);
-      }
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(0, 9999px, 5px, 0); transform: translate(-2px, -2px); }
+      20% { clip: rect(0, 9999px, 3px, 0); transform: translate(2px, -1px); }
+      100% { clip: rect(0, 9999px, 0, 0); }
     }
-
     @keyframes glitchBottom {
-      0% {
-        clip: rect(0, 9999px, 0, 0);
-      }
-      10% {
-        clip: rect(5px, 9999px, 10px, 0);
-        transform: translate(1px, 1px);
-      }
-      20% {
-        clip: rect(3px, 9999px, 8px, 0);
-        transform: translate(-1px, 2px);
-      }
-      100% {
-        clip: rect(0, 9999px, 0, 0);
-      }
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(5px, 9999px, 10px, 0); transform: translate(1px, 1px); }
+      20% { clip: rect(3px, 9999px, 8px, 0); transform: translate(-1px, 2px); }
+      100% { clip: rect(0, 9999px, 0, 0); }
     }
-
     @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
-
     .progress-bar {
       width: 220px;
       height: 8px;
@@ -171,14 +128,12 @@
       position: relative;
       overflow: hidden;
     }
-
     .progress-fill {
       height: 100%;
       background: #00ff9f;
       width: 0%;
       transition: width 0.2s;
     }
-
     iframe {
       width: 100%;
       height: 100%;
@@ -189,15 +144,8 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
-
-    .loaded iframe {
-      opacity: 1;
-    }
-
-    .loaded .loader-wrapper {
-      display: none;
-    }
-
+    .loaded iframe { opacity: 1; }
+    .loaded .loader-wrapper { display: none; }
     .cursor {
       display: inline-block;
       width: 8px;
@@ -206,12 +154,7 @@
       animation: blink 0.7s steps(1) infinite;
       margin-left: 4px;
     }
-
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
+    @keyframes blink { 50% { opacity: 0; } }
   </style>
 </head>
 
@@ -224,11 +167,11 @@
     </div>
   </div>
 
-  <iframe 
+  <iframe
+    id="portfolioFrame"
     name="nabilbinbillal-portfolio"
-    src="https://nabilbinbillal.pages.dev/"
-    onload="document.body.classList.add('loaded');"
-    title="Nabil Bin Billal Portfolio Website">
+    title="Nabil Bin Billal Portfolio Website"
+    onload="document.body.classList.add('loaded');">
   </iframe>
 
   <script>
@@ -244,10 +187,7 @@
       "Initiating Portfolio Drive..."
     ];
 
-    let i = 0;
-    let textPos = 0;
-    let percent = 0;
-    let loaded = false;
+    let i = 0, textPos = 0, percent = 0;
 
     function typeEffect() {
       if (i < messages.length) {
@@ -264,29 +204,22 @@
       }
     }
 
-    function animateProgress() {
-      if (percent < 100 && !loaded) {
-        percent += Math.random() * 4;
-        if (percent > 100) percent = 100;
+    function progressAnimation() {
+      if (percent < 100) {
+        percent++;
         progressFill.style.width = percent + "%";
-        setTimeout(animateProgress, 60);
+        setTimeout(progressAnimation, 25);
       }
     }
 
-    window.addEventListener("load", () => {
-      // Display the site immediately
-      loaded = true;
-      setTimeout(() => {
-        document.body.classList.add("loaded");
-      }, 100); // Quick hide after loading
-    });
+    // Hash routing logic
+    const hash = window.location.hash.substring(1); // Remove the '#' symbol
+    const iframeSrc = hash ? `https://nabilbinbillal.pages.dev/#${hash}` : "https://nabilbinbillal.pages.dev/";
 
-    setTimeout(() => {
-      if (!loaded) {
-        typeEffect();
-        animateProgress();
-      }
-    }, 100); // Short delay for users to see loading animation
+    document.getElementById("portfolioFrame").src = iframeSrc;
+
+    typeEffect();
+    progressAnimation();
   </script>
 </body>
 </html>
