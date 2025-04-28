@@ -1,127 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Practicals by Bidibo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Tailwind Config (optional for animations) -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            fadeIn: 'fadeIn 1s ease-in forwards',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: 0 },
-              '100%': { opacity: 1 },
-            },
-          },
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicals by Bidibo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
         }
-      }
-    }
-  </script>
-  <style>
-    body {
-      background: linear-gradient(to right, #dbeafe, #fef9c3);
-      min-height: 100vh;
-    }
-    iframe {
-      width: 100%;
-      height: 90vh;
-    }
-  </style>
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        .bangla {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .btn {
+            transition: all 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .viewer-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .viewer-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .viewer-container {
+            transform: scale(0.9);
+            transition: all 0.3s ease;
+        }
+        
+        .viewer-overlay.active .viewer-container {
+            transform: scale(1);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+    </style>
 </head>
-<body class="flex flex-col items-center p-4 space-y-8 animate-fadeIn">
-
-  <h1 class="text-4xl font-bold text-blue-700">Practicals by Bidibo</h1>
-
-  <!-- Bangla Translate -->
-  <button onclick="translateBangla()" class="px-4 py-2 bg-green-500 text-white rounded shadow hover:bg-green-600">
-    বাংলা অনুবাদ করুন
-  </button>
-
-  <!-- File List -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
-
-    <!-- Physics -->
-    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
-      <h2 class="text-2xl font-semibold">Physics</h2>
-      <div class="flex space-x-4">
-        <button onclick="viewPDF('https://drive.google.com/uc?id=1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_&export=download')" class="btn">View</button>
-        <a href="https://drive.google.com/uc?export=download&id=1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_" download class="btn">Download</a>
-      </div>
-    </div>
-
-    <!-- Higher Math -->
-    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
-      <h2 class="text-2xl font-semibold">Higher Math</h2>
-      <div class="flex space-x-4">
-        <button onclick="viewPDF('https://drive.google.com/uc?id=1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV&export=download')" class="btn">View</button>
-        <a href="https://drive.google.com/uc?export=download&id=1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV" download class="btn">Download</a>
-      </div>
-    </div>
-
-    <!-- Zoology -->
-    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
-      <h2 class="text-2xl font-semibold">Zoology</h2>
-      <div class="flex space-x-4">
-        <button onclick="viewPDF('https://drive.google.com/uc?id=1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR&export=download')" class="btn">View</button>
-        <a href="https://drive.google.com/uc?export=download&id=1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR" download class="btn">Download</a>
-      </div>
-    </div>
-
-    <!-- Botany -->
-    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
-      <h2 class="text-2xl font-semibold">Botany</h2>
-      <div class="flex flex-col space-y-2">
-        <div class="text-lg font-medium">বই</div>
-        <div class="flex space-x-4">
-          <button onclick="viewPDF('https://drive.google.com/uc?id=1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k&export=download')" class="btn">View</button>
-          <a href="https://drive.google.com/uc?export=download&id=1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k" download class="btn">Download</a>
+<body class="min-h-screen bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-10 animate-fadeIn">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Practicals by Bidibo</h1>
+            <button id="toggleLang" class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium hover:bg-indigo-200 transition">
+                বাংলা দেখুন
+            </button>
         </div>
-      </div>
-      <div class="flex flex-col space-y-2 pt-4">
-        <div class="text-lg font-medium">প্রাকটিকেল খাতা সিগনেচার করা</div>
-        <div class="flex space-x-4">
-          <button onclick="viewPDF('https://drive.google.com/uc?id=1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R&export=download')" class="btn">View</button>
-          <a href="https://drive.google.com/uc?export=download&id=1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R" download class="btn">Download</a>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Physics -->
+            <div class="card bg-white rounded-xl p-6 animate-fadeIn delay-100">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-semibold text-gray-800">Physics</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Physics practical materials and resources for your studies.</p>
+                <div class="flex space-x-3">
+                    <button onclick="viewFile('1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                        View
+                    </button>
+                    <button onclick="downloadFile('1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_', 'Physics_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
+                        Download
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Higher Math -->
+            <div class="card bg-white rounded-xl p-6 animate-fadeIn delay-200">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-semibold text-gray-800">Higher Math</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Higher Mathematics practical materials and resources.</p>
+                <div class="flex space-x-3">
+                    <button onclick="viewFile('1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                        View
+                    </button>
+                    <button onclick="downloadFile('1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV', 'Higher_Math_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
+                        Download
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Zoology -->
+            <div class="card bg-white rounded-xl p-6 animate-fadeIn delay-300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-semibold text-gray-800">Zoology</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Zoology practical materials and resources for your studies.</p>
+                <div class="flex space-x-3">
+                    <button onclick="viewFile('1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                        View
+                    </button>
+                    <button onclick="downloadFile('1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR', 'Zoology_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
+                        Download
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Botany -->
+            <div class="card bg-white rounded-xl p-6 animate-fadeIn delay-400">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-semibold text-gray-800">Botany</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Botany practical materials and resources for your studies.</p>
+                <div class="space-y-3">
+                    <div class="flex space-x-3">
+                        <button onclick="viewFile('1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                            বই (View)
+                        </button>
+                        <button onclick="downloadFile('1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k', 'Botany_Book.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
+                            বই (Download)
+                        </button>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button onclick="viewFile('1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                            প্রাকটিকেল খাতা (View)
+                        </button>
+                        <button onclick="downloadFile('1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R', 'Botany_Practical_Notebook.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
+                            প্রাকটিকেল খাতা (Download)
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-
-  </div>
-
-  <!-- View PDF Modal -->
-  <div id="viewer" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 hidden flex-col items-center justify-center p-4 z-50">
-    <button onclick="closeViewer()" class="mb-4 px-6 py-2 bg-red-500 text-white rounded shadow hover:bg-red-600">
-      Exit View
-    </button>
-    <iframe id="pdfFrame" class="rounded-lg shadow-lg"></iframe>
-  </div>
-
-  <script>
-    function viewPDF(url) {
-      document.getElementById('viewer').classList.remove('hidden');
-      document.getElementById('pdfFrame').src = url;
-    }
-    function closeViewer() {
-      document.getElementById('viewer').classList.add('hidden');
-      document.getElementById('pdfFrame').src = '';
-    }
-    function translateBangla() {
-      alert('এটি শুধু ডিজাইন করা হয়েছে। বাংলা অনুবাদের জন্য উন্নত ফিচার পরবর্তীতে আসবে।');
-    }
-  </script>
-
-  <style>
-    .btn {
-      @apply px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition;
-    }
-  </style>
-
+    
+    <!-- PDF Viewer Overlay -->
+    <div id="viewerOverlay" class="viewer-overlay fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+        <div class="viewer-container bg-white rounded-lg w-full max-w-6xl max-h-screen overflow-hidden flex flex-col">
+            <div class="flex justify-between items-center bg-gray-100 px-4 py-3 border-b">
+                <h3 class="font-medium text-gray-800" id="viewerTitle">Document Viewer</h3>
+                <button onclick="closeViewer()" class="text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex-1 overflow-auto">
+                <iframe id="pdfViewer" class="w-full h-full min-h-[70vh]" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle Bangla/English
+        const toggleLangBtn = document.getElementById('toggleLang');
+        let isBangla = false;
+        
+        toggleLangBtn.addEventListener('click', () => {
+            isBangla = !isBangla;
+            
+            if (isBangla) {
+                document.body.classList.add('bangla');
+                toggleLangBtn.textContent = 'View in English';
+                
+                // Update titles and texts to Bangla
+                document.querySelector('h1').textContent = 'বিডিবোর প্রাকটিকেল';
+                document.querySelectorAll('.card h2')[0].textContent = 'পদার্থবিদ্যা';
+                document.querySelectorAll('.card p')[0].textContent = 'আপনার পড়াশোনার জন্য পদার্থবিদ্যা ব্যবহারিক উপকরণ এবং সম্পদ।';
+                document.querySelectorAll('.card h2')[1].textContent = 'উচ্চতর গণিত';
+                document.querySelectorAll('.card p')[1].textContent = 'উচ্চতর গণিত ব্যবহারিক উপকরণ এবং সম্পদ।';
+                document.querySelectorAll('.card h2')[2].textContent = 'প্রাণিবিদ্যা';
+                document.querySelectorAll('.card p')[2].textContent = 'আপনার পড়াশোনার জন্য প্রাণিবিদ্যা ব্যবহারিক উপকরণ এবং সম্পদ।';
+                document.querySelectorAll('.card h2')[3].textContent = 'উদ্ভিদবিদ্যা';
+                document.querySelectorAll('.card p')[3].textContent = 'আপনার পড়াশোনার জন্য উদ্ভিদবিদ্যা ব্যবহারিক উপকরণ এবং সম্পদ।';
+            } else {
+                document.body.classList.remove('bangla');
+                toggleLangBtn.textContent = 'বাংলা দেখুন';
+                
+                // Revert to English
+                document.querySelector('h1').textContent = 'Practicals by Bidibo';
+                document.querySelectorAll('.card h2')[0].textContent = 'Physics';
+                document.querySelectorAll('.card p')[0].textContent = 'Physics practical materials and resources for your studies.';
+                document.querySelectorAll('.card h2')[1].textContent = 'Higher Math';
+                document.querySelectorAll('.card p')[1].textContent = 'Higher Mathematics practical materials and resources.';
+                document.querySelectorAll('.card h2')[2].textContent = 'Zoology';
+                document.querySelectorAll('.card p')[2].textContent = 'Zoology practical materials and resources for your studies.';
+                document.querySelectorAll('.card h2')[3].textContent = 'Botany';
+                document.querySelectorAll('.card p')[3].textContent = 'Botany practical materials and resources for your studies.';
+            }
+        });
+        
+        // PDF Viewer Functions
+        function viewFile(fileId) {
+            const viewer = document.getElementById('pdfViewer');
+            const overlay = document.getElementById('viewerOverlay');
+            const title = document.getElementById('viewerTitle');
+            
+            // Set the PDF URL for direct viewing
+            viewer.src = `https://drive.google.com/file/d/${fileId}/preview`;
+            
+            // Set appropriate title based on file
+            if (fileId === '1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_') {
+                title.textContent = isBangla ? 'পদার্থবিদ্যা প্রাকটিকেল' : 'Physics Practical';
+            } else if (fileId === '1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV') {
+                title.textContent = isBangla ? 'উচ্চতর গণিত প্রাকটিকেল' : 'Higher Math Practical';
+            } else if (fileId === '1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR') {
+                title.textContent = isBangla ? 'প্রাণিবিদ্যা প্রাকটিকেল' : 'Zoology Practical';
+            } else if (fileId === '1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k') {
+                title.textContent = isBangla ? 'উদ্ভিদবিদ্যা বই' : 'Botany Book';
+            } else if (fileId === '1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R') {
+                title.textContent = isBangla ? 'উদ্ভিদবিদ্যা প্রাকটিকেল খাতা' : 'Botany Practical Notebook';
+            }
+            
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeViewer() {
+            const overlay = document.getElementById('viewerOverlay');
+            const viewer = document.getElementById('pdfViewer');
+            
+            overlay.classList.remove('active');
+            viewer.src = '';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Direct download function
+        function downloadFile(fileId, fileName) {
+            // Create a direct download link
+            const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+            
+            // Create a temporary anchor element to trigger download
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // Close viewer when clicking outside
+        document.getElementById('viewerOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeViewer();
+            }
+        });
+        
+        // Close viewer with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeViewer();
+            }
+        });
+    </script>
 </body>
 </html>
