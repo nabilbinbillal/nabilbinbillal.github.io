@@ -6,6 +6,7 @@
     <title>Practicals by Bidibo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
         
@@ -63,6 +64,21 @@
             transform: scale(1);
         }
         
+        #pdfCanvas {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .pdf-controls {
+            background: #f3f4f6;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -86,6 +102,20 @@
         
         .delay-400 {
             animation-delay: 0.4s;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -111,7 +141,7 @@
                 </div>
                 <p class="text-gray-600 mb-6">Physics practical materials and resources for your studies.</p>
                 <div class="flex space-x-3">
-                    <button onclick="viewFile('1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                    <button onclick="viewFile('1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_', 'Physics_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
                         View
                     </button>
                     <button onclick="downloadFile('1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_', 'Physics_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
@@ -132,7 +162,7 @@
                 </div>
                 <p class="text-gray-600 mb-6">Higher Mathematics practical materials and resources.</p>
                 <div class="flex space-x-3">
-                    <button onclick="viewFile('1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                    <button onclick="viewFile('1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV', 'Higher_Math_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
                         View
                     </button>
                     <button onclick="downloadFile('1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV', 'Higher_Math_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
@@ -153,7 +183,7 @@
                 </div>
                 <p class="text-gray-600 mb-6">Zoology practical materials and resources for your studies.</p>
                 <div class="flex space-x-3">
-                    <button onclick="viewFile('1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                    <button onclick="viewFile('1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR', 'Zoology_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
                         View
                     </button>
                     <button onclick="downloadFile('1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR', 'Zoology_Practical.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
@@ -175,7 +205,7 @@
                 <p class="text-gray-600 mb-6">Botany practical materials and resources for your studies.</p>
                 <div class="space-y-3">
                     <div class="flex space-x-3">
-                        <button onclick="viewFile('1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                        <button onclick="viewFile('1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k', 'Botany_Book.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
                             বই (View)
                         </button>
                         <button onclick="downloadFile('1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k', 'Botany_Book.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
@@ -183,7 +213,7 @@
                         </button>
                     </div>
                     <div class="flex space-x-3">
-                        <button onclick="viewFile('1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
+                        <button onclick="viewFile('1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R', 'Botany_Practical_Notebook.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200">
                             প্রাকটিকেল খাতা (View)
                         </button>
                         <button onclick="downloadFile('1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R', 'Botany_Practical_Notebook.pdf')" class="btn flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
@@ -206,13 +236,30 @@
                     </svg>
                 </button>
             </div>
-            <div class="flex-1 overflow-auto">
-                <iframe id="pdfViewer" class="w-full h-full min-h-[70vh]" frameborder="0"></iframe>
+            <div class="pdf-controls">
+                <button id="prevPage" class="px-3 py-1 bg-gray-200 rounded">Previous</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button id="nextPage" class="px-3 py-1 bg-gray-200 rounded">Next</button>
+            </div>
+            <div class="flex-1 overflow-auto p-4 flex justify-center">
+                <canvas id="pdfCanvas"></canvas>
+            </div>
+            <div id="loadingIndicator" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="loading"></div>
+                <span class="ml-2 text-white">Loading PDF...</span>
             </div>
         </div>
     </div>
     
     <script>
+        // Initialize PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js';
+        
+        let currentPdf = null;
+        let currentPage = 1;
+        let pageCount = 0;
+        let pdfTitle = '';
+        
         // Toggle Bangla/English
         const toggleLangBtn = document.getElementById('toggleLang');
         let isBangla = false;
@@ -252,15 +299,18 @@
         });
         
         // PDF Viewer Functions
-        function viewFile(fileId) {
-            const viewer = document.getElementById('pdfViewer');
+        async function viewFile(fileId, fileName) {
             const overlay = document.getElementById('viewerOverlay');
             const title = document.getElementById('viewerTitle');
+            const loadingIndicator = document.getElementById('loadingIndicator');
             
-            // Set the PDF URL for direct viewing
-            viewer.src = `https://drive.google.com/file/d/${fileId}/preview`;
+            // Show loading indicator
+            loadingIndicator.classList.remove('hidden');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
             
             // Set appropriate title based on file
+            pdfTitle = fileName;
             if (fileId === '1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_') {
                 title.textContent = isBangla ? 'পদার্থবিদ্যা প্রাকটিকেল' : 'Physics Practical';
             } else if (fileId === '1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV') {
@@ -273,31 +323,114 @@
                 title.textContent = isBangla ? 'উদ্ভিদবিদ্যা প্রাকটিকেল খাতা' : 'Botany Practical Notebook';
             }
             
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            try {
+                // Load PDF directly using PDF.js
+                const pdfUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+                const loadingTask = pdfjsLib.getDocument({
+                    url: pdfUrl,
+                    withCredentials: false
+                });
+                
+                currentPdf = await loadingTask.promise;
+                pageCount = currentPdf.numPages;
+                currentPage = 1;
+                
+                // Render first page
+                await renderPage(currentPage);
+                
+                // Update page info
+                document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${pageCount}`;
+                
+                // Hide loading indicator
+                loadingIndicator.classList.add('hidden');
+            } catch (error) {
+                console.error('Error loading PDF:', error);
+                loadingIndicator.classList.add('hidden');
+                alert('Failed to load PDF. Please try again or download the file.');
+                closeViewer();
+            }
         }
+        
+        async function renderPage(pageNum) {
+            const canvas = document.getElementById('pdfCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            const page = await currentPdf.getPage(pageNum);
+            const viewport = page.getViewport({ scale: 1.5 });
+            
+            // Prepare canvas
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            
+            // Render PDF page
+            await page.render({
+                canvasContext: ctx,
+                viewport: viewport
+            }).promise;
+        }
+        
+        // Navigation controls
+        document.getElementById('prevPage').addEventListener('click', async () => {
+            if (currentPage > 1) {
+                currentPage--;
+                await renderPage(currentPage);
+                document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${pageCount}`;
+            }
+        });
+        
+        document.getElementById('nextPage').addEventListener('click', async () => {
+            if (currentPage < pageCount) {
+                currentPage++;
+                await renderPage(currentPage);
+                document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${pageCount}`;
+            }
+        });
         
         function closeViewer() {
             const overlay = document.getElementById('viewerOverlay');
-            const viewer = document.getElementById('pdfViewer');
-            
             overlay.classList.remove('active');
-            viewer.src = '';
             document.body.style.overflow = 'auto';
+            currentPdf = null;
         }
         
-        // Direct download function
-        function downloadFile(fileId, fileName) {
-            // Create a direct download link
-            const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+        // Direct download function using fetch
+        async function downloadFile(fileId, fileName) {
+            const downloadBtn = event.target;
+            const originalText = downloadBtn.innerHTML;
             
-            // Create a temporary anchor element to trigger download
-            const link = document.createElement('a');
-            link.href = downloadUrl;
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // Show loading state
+            downloadBtn.innerHTML = '<span class="loading"></span> Downloading...';
+            downloadBtn.disabled = true;
+            
+            try {
+                // Create a direct download link
+                const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+                
+                // Fetch the file
+                const response = await fetch(downloadUrl);
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                
+                // Create a temporary anchor element to trigger download
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                
+                // Cleanup
+                setTimeout(() => {
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url);
+                }, 100);
+            } catch (error) {
+                console.error('Download error:', error);
+                alert('Download failed. Please try again.');
+            } finally {
+                // Restore button state
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+            }
         }
         
         // Close viewer when clicking outside
