@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practicals by Bidibo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Config (optional for animations) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fadeIn: 'fadeIn 1s ease-in forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: linear-gradient(to right, #dbeafe, #fef9c3);
+      min-height: 100vh;
+    }
+    iframe {
+      width: 100%;
+      height: 90vh;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center p-4 space-y-8 animate-fadeIn">
+
+  <h1 class="text-4xl font-bold text-blue-700">Practicals by Bidibo</h1>
+
+  <!-- Bangla Translate -->
+  <button onclick="translateBangla()" class="px-4 py-2 bg-green-500 text-white rounded shadow hover:bg-green-600">
+    বাংলা অনুবাদ করুন
+  </button>
+
+  <!-- File List -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
+
+    <!-- Physics -->
+    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
+      <h2 class="text-2xl font-semibold">Physics</h2>
+      <div class="flex space-x-4">
+        <button onclick="viewPDF('https://drive.google.com/uc?id=1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_&export=download')" class="btn">View</button>
+        <a href="https://drive.google.com/uc?export=download&id=1VA3wA-PV4nXPaoYFFiDjhdee1I-2Uoq_" download class="btn">Download</a>
+      </div>
+    </div>
+
+    <!-- Higher Math -->
+    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
+      <h2 class="text-2xl font-semibold">Higher Math</h2>
+      <div class="flex space-x-4">
+        <button onclick="viewPDF('https://drive.google.com/uc?id=1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV&export=download')" class="btn">View</button>
+        <a href="https://drive.google.com/uc?export=download&id=1IJfDeTaDwAeOjKmQwPBN_EOvOsouA9WV" download class="btn">Download</a>
+      </div>
+    </div>
+
+    <!-- Zoology -->
+    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
+      <h2 class="text-2xl font-semibold">Zoology</h2>
+      <div class="flex space-x-4">
+        <button onclick="viewPDF('https://drive.google.com/uc?id=1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR&export=download')" class="btn">View</button>
+        <a href="https://drive.google.com/uc?export=download&id=1NF67mlQXeZxtlHdtHAHmEzPF4NYP3gVR" download class="btn">Download</a>
+      </div>
+    </div>
+
+    <!-- Botany -->
+    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
+      <h2 class="text-2xl font-semibold">Botany</h2>
+      <div class="flex flex-col space-y-2">
+        <div class="text-lg font-medium">বই</div>
+        <div class="flex space-x-4">
+          <button onclick="viewPDF('https://drive.google.com/uc?id=1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k&export=download')" class="btn">View</button>
+          <a href="https://drive.google.com/uc?export=download&id=1oBHSkdj-iFQVeiFP6OpBIuptkqbtfe2k" download class="btn">Download</a>
+        </div>
+      </div>
+      <div class="flex flex-col space-y-2 pt-4">
+        <div class="text-lg font-medium">প্রাকটিকেল খাতা সিগনেচার করা</div>
+        <div class="flex space-x-4">
+          <button onclick="viewPDF('https://drive.google.com/uc?id=1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R&export=download')" class="btn">View</button>
+          <a href="https://drive.google.com/uc?export=download&id=1Ds4ZlIPbouO5olvui22CRrQBkU0OfA7R" download class="btn">Download</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- View PDF Modal -->
+  <div id="viewer" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 hidden flex-col items-center justify-center p-4 z-50">
+    <button onclick="closeViewer()" class="mb-4 px-6 py-2 bg-red-500 text-white rounded shadow hover:bg-red-600">
+      Exit View
+    </button>
+    <iframe id="pdfFrame" class="rounded-lg shadow-lg"></iframe>
+  </div>
+
+  <script>
+    function viewPDF(url) {
+      document.getElementById('viewer').classList.remove('hidden');
+      document.getElementById('pdfFrame').src = url;
+    }
+    function closeViewer() {
+      document.getElementById('viewer').classList.add('hidden');
+      document.getElementById('pdfFrame').src = '';
+    }
+    function translateBangla() {
+      alert('এটি শুধু ডিজাইন করা হয়েছে। বাংলা অনুবাদের জন্য উন্নত ফিচার পরবর্তীতে আসবে।');
+    }
+  </script>
+
+  <style>
+    .btn {
+      @apply px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition;
+    }
+  </style>
+
+</body>
+</html>
