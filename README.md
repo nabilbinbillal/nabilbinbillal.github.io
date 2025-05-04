@@ -30,7 +30,9 @@ Welcome to my GitHub profile! I'm **Nabil Bin Billal**, a passionate developer a
 
 
 🌿 **Contributing To:**  
-The **[3ZERO Club](https://3zero.club/)** with a focus on **climate change** and **environmental** initiatives to promote a sustainable future. Additionally, serving as a moderator for two prominent science communities:
+Nabil Bin Billal is serving as the **Secretary of the Brahmanbaria Govt. College Science Club**, working to facilitate scientific discussions and activities within the college community.
+
+Also he is contributing to the **[3ZERO Club](https://3zero.club/)** with a focus on **climate change** and **environmental** initiatives to promote a sustainable future. Additionally, serving as a moderator for two prominent science communities:
 - **কি... বিজ্ঞান খুঁজছেন [513k members+]** – A community of over 500k members dedicated to sharing and discussing scientific knowledge and discoveries. [*Link:*](https://www.facebook.com/groups/777602136864885)  
 - **বিজ্ঞান খুঁজে লাভ নাই [293k members+]** – A group with nearly 300k members focused on promoting scientific thinking and exploration. [*Link:*](https://www.facebook.com/groups/1092290431877571)  
 - Working as a writer at the **[Science & Experiment](https://www.facebook.com/sciandexp)** science page, where I contribute articles and insights to promote scientific knowledge and experiments.
@@ -97,6 +99,8 @@ The **[3ZERO Club](https://3zero.club/)** with a focus on **climate change** and
   - [Notun Protidin - Writer and Developer](https://www.notunprotidin.xyz/author/nabil-bin-billal/)
   - [Bidibo News - Writer and Developer](https://bidibo.xyz/author/nabil-bin-billal)
   - [Bidibo's Science Hub - Developed by Nabil Bin Billal](https://science.bidibo.xyz/)
+
+Additionally, Nabil Bin Billal contributes regularly to [**The Teen Magazine**](https://theteenmagazine.com/writer/nabil-bin-billal), where he writes insightful articles on science, technology, and climate change. His articles provide valuable perspectives on the intersection of environmental issues and modern technologies.
 
 ---
 
