@@ -3,36 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Worry? - Nabil Bin Billal</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Discover a simple flowchart to let go of worries and embrace happiness. Share this wisdom to brighten someone's day!">
-    <meta name="keywords" content="happiness, worry less, life advice, motivational flowchart, Nabil Bin Billal, positive thinking">
+    <title>Why Worry? - Flowchart to Happiness | Nabil Bin Billal</title>
+    <meta name="description" content="Interactive flowchart to help you stop worrying. Answer simple questions to find peace of mind. Available in English and Bengali.">
+    <meta name="keywords" content="worry, happiness, flowchart, mental health, peace of mind, stress relief, Nabil Bin Billal">
     <meta name="author" content="Nabil Bin Billal">
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Why Worry? - A Flowchart to Happiness">
-    <meta property="og:description" content="Discover a simple flowchart to let go of worries and embrace happiness. Share this wisdom to brighten someone's day!">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nabilbinbillal.github.io/why-worry/"> 
+    <meta property="og:url" content="https://nabilbinbillal.github.io/why-worry/">
+    <meta property="og:title" content="Why Worry? - Flowchart to Happiness">
+    <meta property="og:description" content="Interactive flowchart to help you stop worrying. Answer simple questions to find peace of mind.">
+    <meta property="og:image" content="https://nabilbinbillal.github.io/why-worry/preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nabilbinbillal.github.io/why-worry/">
+    <meta property="twitter:title" content="Why Worry? - Flowchart to Happiness">
+    <meta property="twitter:description" content="Interactive flowchart to help you stop worrying. Answer simple questions to find peace of mind.">
+    <meta property="twitter:image" content="https://nabilbinbillal.github.io/why-worry/preview.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://nabilbinbillal.github.io/favicon.ico" type="image/x-icon">
+    
+    <!-- Schema.org markup for Google -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Why Worry? - A Flowchart to Happiness",
-        "description": "A simple interactive flowchart to help you let go of worries and embrace happiness, created by Nabil Bin Billal.",
-        "url": "https://nabilbinbillal.github.io/why-worry/", 
-        "author": {
-            "@type": "Person",
-            "name": "Nabil Bin Billal",
-            "url": "https://nabilbinbillal.github.io/"
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Nabil Bin Billal"
-        }
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Why Worry? Flowchart",
+      "url": "https://nabilbinbillal.github.io/why-worry/",
+      "description": "Interactive flowchart to help you stop worrying and find happiness",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web Browser",
+      "author": {
+        "@type": "Person",
+        "name": "Nabil Bin Billal"
+      }
     }
     </script>
+
+    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --primary: #7c3aed;
@@ -64,6 +77,7 @@
             justify-content: center;
             padding: 1rem;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .container {
@@ -330,22 +344,14 @@
         <div class="counter-container">
             <p id="counterText">See how many people found happiness with this!</p>
             <div class="counter" id="happinessCounter">Loading happiness count...</div>
-
-
-
-
-
-      <div class="counter-image">
-  <a href="#">
-    <img src="https://services.webestools.com/cpt_global/60637-7.png"
-         alt="Free Global Counter"
-         loading="lazy" />
-  </a>
-</div>
-      
-
-
-  </div>
+            <div class="counter-image">
+                <a href="#">
+                    <img src="https://services.webestools.com/cpt_global/60637-7.png"
+                         alt="Visitor Counter"
+                         loading="lazy" />
+                </a>
+            </div>
+        </div>
 
         <div class="share-section" id="shareSection">
             <p id="shareText">Share this wisdom to brighten someone's day!</p>
@@ -372,7 +378,7 @@
         </div>
 
         <div class="footer">
-            Made with <span style="color: #ef4444">💝</span> by <a href="https://nabilbinbillal.github.io/" target="_blank">Nabil Bin Billal</a>
+            Made with <span style="color: #ef4444">💝</span> by <a href="https://nabilbinbillal.github.io/" target="_blank" rel="noopener noreferrer">Nabil Bin Billal</a>
         </div>
     </div>
 
@@ -404,15 +410,19 @@
                 result1: "তাহলে চিন্তা কেন? জীবন উপভোগ করুন! 🌈",
                 result2: "তাহলে চিন্তা কেন? পদক্ষেপ নিন! 💪",
                 result3: "তাহলে চিন্তা কেন? ছেড়ে দিন! যা হওয়ার তা হবেই! 🕊️",
-                counter: "এটি বহুসংখ্যক মানুষকে খুশি করেছে",
+                counter: "এটি {count} জন মানুষকে খুশি করেছে",
                 counterText: "দেখুন এটি কতজন মানুষকে খুশি করেছে!",
                 share: "এটি শেয়ার করে অন্যকে খুশি করুন!",
                 langBtn: "English"
             }
         };
 
-        // Current language
-        let currentLang = 'en';
+        // Check URL for language parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        
+        // Set initial language based on URL or default to English
+        let currentLang = (urlLang === 'bn') ? 'bn' : 'en';
 
         // Format number with commas
         function formatNumber(num) {
@@ -441,7 +451,7 @@
             }
         }, 1000);
 
-        // Flowchart logic with beautiful transitions
+        // Flowchart elements
         const questionEl = document.getElementById('question');
         const optionsEl = document.getElementById('options');
         const resultEl = document.getElementById('result');
@@ -555,6 +565,7 @@
             }, 300);
         }
 
+        // Event listeners
         document.addEventListener('click', (e) => {
             const btn = e.target.closest('.btn');
             if (!btn || !btn.parentElement.isSameNode(optionsEl)) return;
@@ -571,10 +582,17 @@
 
         langSwitcher.addEventListener('click', () => {
             currentLang = currentLang === 'en' ? 'bn' : 'en';
+            
+            // Update URL without reloading
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.set('lang', currentLang);
+            window.history.pushState({}, '', newUrl);
+            
             updateContent();
             showStep(currentStep);
         });
 
+        // Share buttons functionality
         document.getElementById('copyLinkShare').addEventListener('click', () => {
             navigator.clipboard.writeText(window.location.href).then(() => {
                 const btn = document.getElementById('copyLinkShare');
@@ -587,32 +605,43 @@
         });
 
         document.getElementById('instagramShare').addEventListener('click', () => {
-            window.open(`https://www.instagram.com/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+            window.open(`https://www.instagram.com/?url=${encodeURIComponent(window.location.href)}`, '_blank', 'noopener,noreferrer');
         });
 
         document.getElementById('telegramShare').addEventListener('click', () => {
-            window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(content[currentLang].share)}`, '_blank');
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(content[currentLang].share)}`, '_blank', 'noopener,noreferrer');
         });
 
         document.getElementById('whatsappShare').addEventListener('click', () => {
-            window.open(`https://wa.me/?text=${encodeURIComponent(content[currentLang].share + " " + window.location.href)}`, '_blank');
+            window.open(`https://wa.me/?text=${encodeURIComponent(content[currentLang].share + " " + window.location.href)}`, '_blank', 'noopener,noreferrer');
         });
 
         document.getElementById('facebookShare').addEventListener('click', () => {
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank', 'noopener,noreferrer');
         });
 
         document.getElementById('twitterShare').addEventListener('click', () => {
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(content[currentLang].share + " " + window.location.href)}`, '_blank');
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(content[currentLang].share + " " + window.location.href)}`, '_blank', 'noopener,noreferrer');
         });
 
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             updateCounterDisplay();
             updateContent();
             showStep(0);
             
+            // Periodically update counter
             setInterval(updateCounterDisplay, 5000);
         });
     </script>
+    
+    <!-- FreeCounterStat counter -->
+    <a href="https://www.freecounterstat.com" title="free counter">
+      <img src="https://counter11.optistats.ovh/private/freecounterstat.php?c=1ear5ewcqeuutkls1rmsxpmwbgmc9u3r" 
+           border="0" 
+           title="free counter" 
+           alt="free counter" 
+           id="sfc1ear5ewcqeuutkls1rmsxpmwbgmc9u3r">
+    </a>
 </body>
 </html>
