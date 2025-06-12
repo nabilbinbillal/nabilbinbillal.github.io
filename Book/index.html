@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Collection - Nabil Bin Billal</title>
+  <meta name="description" content="Explore the curated book collection by Nabil Bin Billal, a MERN Stack developer and science enthusiast from Bangladesh. Discover books on technology, science, and more.">
+  <meta name="keywords" content="Nabil Bin Billal, book collection, Nabil Bin Billal portfolio, books, reading, technology books, science books, MERN Stack developer, Bangladesh developer, Nabil Bin Billal GitHub, Nabil Bin Billal LinkedIn">
+  <meta name="author" content="Nabil Bin Billal">
+  <meta name="robots" content="index, follow">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Book Collection - Nabil Bin Billal">
+  <meta property="og:site_name" content="Nabil Bin Billal">
+  <meta property="og:url" content="https://nabilbinbillal.github.io/Book">
+  <meta property="og:description" content="Discover Nabil Bin Billal's curated book collection featuring technology, science, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nabilbinbillal.github.io/Book/og-image.jpg">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Book Collection - Nabil Bin Billal">
+  <meta name="twitter:description" content="Discover Nabil Bin Billal's curated book collection featuring technology, science, and more.">
+  <meta name="twitter:image" content="https://nabilbinbillal.github.io/Book/og-image.jpg">
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://nabilbinbillal.github.io/Book">
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9BTW3Z885"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q9BTW3Z885');
+  </script>
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Book Collection - Nabil Bin Billal",
+    "url": "https://nabilbinbillal.github.io/Book",
+    "description": "Explore the curated book collection by Nabil Bin Billal, featuring books on technology, science, and more.",
+    "author": {
+      "@type": "Person",
+      "name": "Nabil Bin Billal",
+      "url": "https://nabilbinbillal.github.io",
+      "sameAs": [
+        "https://www.facebook.com/nabilbinbillal",
+        "https://www.linkedin.com/in/nabilbinbillal",
+        "https://github.com/nabilbinbillal"
+      ]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Nabil Bin Billal"
+    }
+  }
+  </script>
+  <!-- Web Font Loader -->
+  <script>
+    WebFontConfig = {
+      google: { families: ['Michroma', 'Roboto:400,700'] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = true;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+  <!-- Styles -->
+  <style>
+    @font-face {
+      font-family: 'Pacifico';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Pacifico Regular'), local('Pacifico-Regular'),
+           url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Michroma';
+      font-style: normal;
+      font-weight: 400;
+      src: url('https://aboutnabil.pages.dev/PN_zRfy9qWD8fEagAPg9pTn5_PDb.woff2') format('woff2');
+      font-display: swap;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Michroma', sans-serif;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #212121;
+      position: relative;
+    }
+    .loader-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    #svg {
+      height: 150px;
+      width: 150px;
+      stroke: white;
+      fill-opacity: 0;
+      stroke-width: 3px;
+      stroke-dasharray: 4500;
+      animation: draw 8s ease infinite;
+    }
+    @keyframes draw {
+      0% { stroke-dashoffset: 4500; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .name-container {
+      height: 30px;
+      overflow: hidden;
+    }
+    .logo-name {
+      color: #fff;
+      font-size: 20px;
+      letter-spacing: 12px;
+      text-transform: uppercase;
+      margin-left: 20px;
+      font-weight: bolder;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .loaded iframe {
+      opacity: 1;
+    }
+    .loaded .loader-wrapper {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="position: absolute; left: -9999px;">Book Collection by Nabil Bin Billal</h1>
+  </header>
+  <main>
+    <div class="loader-wrapper loading-page">
+      <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M415.44 512h-95.11L212.12 357.46v91.1L125.69 512H28V29.82L68.47 0h108.05l123.74 176.13V63.45L386.69 0h97.69v461.5zM38.77 35.27V496l72-52.88V194l215.5 307.64h84.79l52.35-38.17h-78.27L69 13zm82.54 466.61l80-58.78v-101l-79.76-114.4v220.94L49 501.89h72.34zM80.63 10.77l310.6 442.57h82.37V10.77h-79.75v317.56L170.91 10.77zM311 191.65l72 102.81V15.93l-72 53v122.72z" />
+      </svg>
+      <div class="name-container">
+        <div class="logo-name">BOOKS</div>
+      </div>
+    </div>
+    <iframe src="https://nabilbinbillal.pages.dev/Book" title="Nabil Bin Billal Book Collection" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
+  </main>
+  <!-- GSAP Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    window.onload = function() {
+      const timeoutDuration = 5000; // 5 seconds
+      let timeout;
+      const handleTimeout = () => {
+        gsap.fromTo(".loading-page", { opacity: 1 }, {
+          opacity: 0,
+          display: "none",
+          duration: 1.5,
+          delay: 0
+        });
+      };
+      const iframe = document.querySelector('iframe');
+      iframe.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+        clearTimeout(timeout);
+      });
+      timeout = setTimeout(handleTimeout, timeoutDuration);
+      gsap.fromTo(".loading-page", { opacity: 1 }, {
+        opacity: 0,
+        display: "none",
+        duration: 1.5,
+        delay: 3.5
+      });
+      gsap.fromTo(".logo-name", { y: 50, opacity: 0 }, {
+        y: 0,
+        opacity: 1,
+        duration: 2,
+        delay: 0.5
+      });
+    };
+  </script>
+</body>
+</html>
