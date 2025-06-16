@@ -3,18 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="My Google Knowledge Panel – Nabil Bin Billal">
-    <meta name="description" content="Nabil Bin Billal is a MERN Stack Developer, Android Developer, and Content Writer from Bangladesh. Explore his Google Knowledge Panel, portfolio, and social media links.">
-    <meta name="keywords" content="Nabil Bin Billal, MERN Stack Developer, Android Developer, Content Writer, Bangladesh, Google Knowledge Panel">
+    <meta name="title" content="Nabil Bin Billal | Knowledge Panel">
+    <meta name="description" content="Official knowledge panel for Nabil Bin Billal - MERN Stack Developer, Android Developer, and Content Writer from Bangladesh. Explore portfolio, achievements, and contact information.">
+    <meta name="keywords" content="Nabil Bin Billal, MERN Stack Developer, Android Developer, Content Writer, Bangladesh, Google Knowledge Panel, Web Developer, Brahmanbaria">
     <meta name="author" content="Nabil Bin Billal">
-    <meta property="og:title" content="My Google Knowledge Panel – Nabil Bin Billal">
-    <meta property="og:description" content="Discover Nabil Bin Billal, a skilled MERN Stack Developer, Android Developer, and Content Writer from Bangladesh. View his Google Knowledge Panel and connect with him.">
+    <meta property="og:title" content="Nabil Bin Billal | Official Knowledge Panel & Portfolio">
+    <meta property="og:description" content="Discover Nabil Bin Billal, a skilled MERN Stack Developer, Android Developer, and Content Writer from Bangladesh. View his official knowledge panel and portfolio.">
     <meta property="og:image" content="https://nabilbinbillal.github.io/Nabil-Bin-Billal.png">
     <meta property="og:url" content="https://nabilbinbillal.github.io">
+    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <title>My Google Knowledge Panel – Nabil Bin Billal</title>
+    <meta name="twitter:creator" content="@nabilbinbillal">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="canonical" href="https://nabilbinbillal.github.io">
+    
+    <title>Nabil Bin Billal | Official Knowledge Panel & Portfolio</title>
+    
+    <!-- Preload important resources -->
+    <link rel="preload" href="https://nabilbinbillal.github.io/Nabil-Bin-Billal.png" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://nabilbinbillal.github.io/Nabil-Bin-Billal.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
 
-    <!-- Schema.org Person -->
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #1e3a8a);
+            color: white;
+            padding: 5rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        header img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        
+        header img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        p {
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+        }
+
+        .panel-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: white;
+            color: var(--primary);
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+            margin: 0.5rem;
+        }
+        
+        .panel-link:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .secondary-link {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .secondary-link:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        main {
+            padding: 4rem 0;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .social-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon {
+            font-size: 1.25rem;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-gray);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .experience-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .experience-org {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .experience-date {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-desc {
+            color: var(--gray);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.875rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            header img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .card {
+                padding: 1.75rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .panel-link, .secondary-link {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+
+
+
+
+ <!-- Schema.org Person -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -172,7 +541,7 @@
         },
         {
           "@type": "Question",
-          "name": "What are Nabil Bin Billal’s academic qualifications?",
+          "name": "What are Nabil Bin Billal's academic qualifications?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Nabil Bin Billal is currently studying Science at Brahmanbaria Govt. College. He earned a Golden A+ with a GPA of 5 in his SSC exams."
@@ -191,7 +560,7 @@
           "name": "What achievements has Nabil Bin Billal accomplished?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nabil’s notable achievements include earning a Golden A+ with GPA 5 in the SSC exam and placing first in local Math and Science Olympiads."
+            "text": "Nabil's notable achievements include earning a Golden A+ with GPA 5 in the SSC exam and placing first in local Math and Science Olympiads."
           }
         },
         {
@@ -212,7 +581,7 @@
         },
         {
           "@type": "Question",
-          "name": "What are Nabil Bin Billal’s hobbies and interests?",
+          "name": "What are Nabil Bin Billal's hobbies and interests?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Nabil enjoys programming, reading books, writing, research, gardening, and tree plantation."
@@ -223,15 +592,15 @@
           "name": "What organizations is Nabil Bin Billal associated with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nabil is a moderator for two large science communities on Facebook: 'কি?... বিজ্ঞান খুঁজছেন' and 'বিজ্ঞান খুঁজে লাভ নাই!'. He is also a key volunteer at Dr. Yunus’s 3Zero Club, focusing on environmental sustainability and climate change."
+            "text": "Nabil is a moderator for two large science communities on Facebook: 'কি?... বিজ্ঞান খুঁজছেন' and 'বিজ্ঞান খুঁজে লাভ নাই!'. He is also a key volunteer at Dr. Yunus's 3Zero Club, focusing on environmental sustainability and climate change."
           }
         },
         {
           "@type": "Question",
-          "name": "What is Nabil Bin Billal’s website?",
+          "name": "What is Nabil Bin Billal's website?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can view Nabil’s work and portfolio on his official website: https://nabilbinbillal.github.io."
+            "text": "You can view Nabil's work and portfolio on his official website: https://nabilbinbillal.github.io."
           }
         },
         {
@@ -318,173 +687,149 @@
     }
     </script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
 
-        body {
-            background-color: #f9fafb;
-            color: #1f2937;
-            line-height: 1.6;
-        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
 
-        header {
-            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-            border: 4px solid white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .panel-link {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-
-        .panel-link:hover {
-            background-color: #1e40af;
-        }
-
-        main {
-            padding: 3rem 0;
-        }
-
-        .social-links {
-            background: white;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .social-links h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-links li a {
-            display: inline-block;
-            color: #2563eb;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .social-links li a:hover {
-            background-color: #eff6ff;
-            color: #1e40af;
-        }
-
-        footer {
-            background-color: #1f2937;
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            header img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .social-links ul {
-                flex-direction: column;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="https://nabilbinbillal.github.io/Nabil-Bin-Billal.png" alt="Nabil Bin Billal photo">
-            <h1>My Google Knowledge Panel – Nabil Bin Billal</h1>
-            <p>Hi, I'm Nabil Bin Billal. I'm a MERN Stack Developer, Android Developer, and Content Writer from Bangladesh. This Google Knowledge Panel represents me.</p>
-            <a href="https://g.co/kgs/zaB6q4g" class="panel-link" target="_blank">🔗 View my Google Knowledge Panel</a>
+            <img src="https://nabilbinbillal.github.io/Nabil-Bin-Billal.png" alt="Nabil Bin Billal" width="160" height="160">
+            <h1>Nabil Bin Billal</h1>
+            <p class="subtitle">MERN Stack Developer | Android Developer | Content Writer</p>
+            <p>Welcome to my official knowledge panel and portfolio website. I'm a passionate developer and writer from Bangladesh.</p>
+            <div class="btn-group">
+                <a href="https://g.co/kgs/zaB6q4g" class="panel-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-external-link-alt"></i> View Knowledge Panel
+                </a>
+                <a href="#contact" class="panel-link secondary-link">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </a>
+            </div>
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <section class="social-links">
-                <h2>Connect with Me</h2>
-                <ul>
-                    <li><a href="https://github.com/nabilbinbillal" target="_blank">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/nabilbinbillal" target="_blank">LinkedIn</a></li>
-                    <li><a href="https://www.instagram.com/nabilbinbillal" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.threads.net/@nabilbinbillal" target="_blank">Threads</a></li>
-                    <li><a href="https://www.youtube.com/@NabilBinBillal" target="_blank">YouTube</a></li>
-                </ul>
-            </section>
-        </div>
+    <main class="container">
+        <section id="about" class="card">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div>
+                    <p>I'm Nabil Bin Billal, a multi-talented professional with expertise in web development, content creation, and scientific writing. Currently based in Bangladesh, I combine technical skills with creative expression to deliver impactful digital solutions.</p>
+                    <p>As a developer, I specialize in the MERN stack (MongoDB, Express.js, React, Node.js) and have extensive experience with WordPress and Android development. My technical skills are complemented by strong writing abilities, allowing me to create both the platform and the content it delivers.</p>
+                    <p>Beyond my technical work, I'm deeply involved in the science community, serving as a moderator for major science groups and contributing to scientific publications.</p>
+                </div>
+                <div>
+                    <h3>Key Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">MERN Stack</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Android Development</span>
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">Content Writing</span>
+                        <span class="skill-tag">Scientific Writing</span>
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                    </div>
+                    
+                    <h3 style="margin-top: 1.5rem;">Education</h3>
+                    <div class="experience-item">
+                        <div class="experience-title">Science Program</div>
+                        <div class="experience-org">Brahmanbaria Govt. College</div>
+                        <div class="experience-date">2023 - Present</div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-title">Secondary School Certificate (SSC)</div>
+                        <div class="experience-org">Golden A+ (GPA 5.00)</div>
+                        <div class="experience-date">Graduated 2022</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Organizational Roles</h3>
+                    <div class="experience-item">
+                        <div class="experience-title">Secretary & Website Developer</div>
+                        <div class="experience-org">Brahmanbaria Govt. College Science Club</div>
+                        <div class="experience-date">April 2015 - Present</div>
+                        <div class="experience-desc">Leading the club's activities and maintaining its official website and digital presence.</div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-title">Moderator & Analysis Expert</div>
+                        <div class="experience-org">Science Communities on Facebook</div>
+                        <div class="experience-date">2018 - Present</div>
+                        <div class="experience-desc">Managing and contributing to large science discussion groups with thousands of members.</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Content & Development Work</h3>
+                    <div class="experience-item">
+                        <div class="experience-title">Content Writer & Developer</div>
+                        <div class="experience-org">Bidibo News & Science Hub</div>
+                        <div class="experience-date">2020 - Present</div>
+                        <div class="experience-desc">Creating content and developing platforms for science communication and news dissemination.</div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-title">Contributor</div>
+                        <div class="experience-org">Notun Protidin</div>
+                        <div class="experience-date">2021 - Present</div>
+                        <div class="experience-desc">Writing and editing content for this Bengali news platform.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="card">
+            <h2>Connect With Me</h2>
+            <p>Feel free to reach out for collaborations, projects, or just to say hello. I'm always open to interesting opportunities and conversations.</p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/nabilbinbillal" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f social-icon"></i> Facebook
+                </a>
+                <a href="https://www.linkedin.com/in/nabilbinbillal" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in social-icon"></i> LinkedIn
+                </a>
+                <a href="https://www.instagram.com/nabilbinbillal" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram social-icon"></i> Instagram
+                </a>
+                <a href="https://www.youtube.com/@NabilBinBillal" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube social-icon"></i> YouTube
+                </a>
+                <a href="https://twitter.com/nabilbinbillal" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter social-icon"></i> Twitter
+                </a>
+                <a href="https://github.com/nabilbinbillal" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github social-icon"></i> GitHub
+                </a>
+                <a href="https://www.threads.net/@nabilbinbillal" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-threads social-icon"></i> Threads
+                </a>
+                <a href="mailto:nabilbinbillal@gmail.com" class="social-link">
+                    <i class="fas fa-envelope social-icon"></i> Email
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2025 Nabil Bin Billal. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://aboutnabil.pages.dev/" class="footer-link" target="_blank" rel="noopener noreferrer">About</a>
+                <a href="https://nabilbinbillal.pages.dev/" class="footer-link" target="_blank" rel="noopener noreferrer">Portfolio</a>
+                <a href="https://www.bidibo.xyz/author/nabil-bin-billal" class="footer-link" target="_blank" rel="noopener noreferrer">Articles</a>
+                <a href="https://www.prlog.org/13075728-nabil-bin-billal-rising-star-in-science-and-technology.html" class="footer-link" target="_blank" rel="noopener noreferrer">Press</a>
+                <a href="https://wikigenius.org/wiki/Nabil_Bin_Billal" class="footer-link" target="_blank" rel="noopener noreferrer">Wiki</a>
+                <a href="https://medium.com/@nabilbinbillal" class="footer-link" target="_blank" rel="noopener noreferrer">Blog</a>
+            </div>
+            <p class="copyright">© 2025 Nabil Bin Billal. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Add smooth scroll for anchor links (if needed in future)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
