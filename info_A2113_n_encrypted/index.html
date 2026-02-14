@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Something</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.6;
+            font-weight: 600;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 18px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-no {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-no:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .input-container {
+            margin-top: 25px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+            background: #f7fafc;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+        }
+
+        .thank-you {
+            text-align: center;
+            color: #2d3748;
+            font-size: 24px;
+            line-height: 1.8;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .heart {
+            color: #f5576c;
+            font-size: 32px;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+        }
+
+        .loading {
+            text-align: center;
+            color: #667eea;
+            font-size: 20px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            button {
+                padding: 16px 25px;
+                font-size: 15px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content" id="content">
+            <!-- Step 1 -->
+            <div id="step1">
+                <h1>নোশিন, এখন কি সত্যিই দরকার?</h1>
+                <div class="button-group">
+                    <button class="btn-yes" onclick="goToStep2()">হ্যাঁ সত্যিই ঐ Information গুলো দরকার</button>
+                    <button class="btn-no" onclick="showThankYou()">না এখনও তোমাকে জিজ্ঞেস করলেই চলবে দরকার নেই</button>
+                </div>
+            </div>
+
+            <!-- Thank You Message -->
+            <div id="thankYou" class="hidden">
+                <div class="thank-you">
+                    <span class="heart">♥</span>
+                    <p>ধন্যবাদ নোশিন আমার বিশ্বাস রাখার জন্য</p>
+                    <span class="heart">♥</span>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="step2" class="hidden">
+                <h1>তুমি কি সিউর এগুলো তোমার এখন দরকার? আমাকে জিজ্ঞেস করতে পারবেনা তুমি?</h1>
+                <div class="button-group">
+                    <button class="btn-yes" onclick="goToStep3()">হ্যাঁ, আমার সত্যিই এখন দরকার</button>
+                    <button class="btn-no" onclick="showThankYou()">না, তোমাকে জিজ্ঞেস করেই নেব</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div id="step3" class="hidden">
+                <h1>নোশিন দেখো, সিরিয়াসলি তোমার এখন যদি দরকার হয় তবেই কেবল Use করো, নাহয় আমাকে জিজ্ঞেস করে নাও। তুমি কি Finally sure?</h1>
+                <div class="button-group">
+                    <button class="btn-yes" onclick="goToStep4()">হ্যাঁ, আমি সম্পূর্ণ নিশ্চিত</button>
+                    <button class="btn-no" onclick="showThankYou()">না, তোমার কাছেই জিজ্ঞেস করব</button>
+                </div>
+            </div>
+
+            <!-- Step 4 - Confirmation Input -->
+            <div id="step4" class="hidden">
+                <h1>অনুগ্রহ করে নিশ্চিত করতে টাইপ করুন</h1>
+                <div class="input-container">
+                    <input type="text" id="confirmText" placeholder='টাইপ করুন: "Yes I need"' autocomplete="off">
+                    <input type="text" id="nameInput" placeholder="তোমার নাম: Jannat Jafrin Noshin" autocomplete="off">
+                    <button class="submit-btn" onclick="verifyAndProceed()">Submit</button>
+                </div>
+            </div>
+
+            <!-- Step 5 - Final Confirmation -->
+            <div id="step5" class="hidden">
+                <h1>আমি নিশ্চিত করছি যে আমার তোমার শেয়ার করা Information গুলো দেখতে হবে</h1>
+                <div class="button-group">
+                    <button class="btn-yes" onclick="redirectToSite()">হ্যাঁ, আমি নিশ্চিত</button>
+                    <button class="btn-no" onclick="goToStep1()">না, আমি আবার ভাবতে চাই</button>
+                </div>
+            </div>
+
+            <!-- Loading Screen -->
+            <div id="loading" class="hidden">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Redirecting you to the site...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Prevent common hacking attempts
+        (function() {
+            // Disable right-click
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+
+            // Disable certain keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+                if (e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+                    (e.ctrlKey && e.keyCode === 85)) {
+                    e.preventDefault();
+                }
+            });
+
+            // Basic anti-tamper check
+            var element = new Image();
+            Object.defineProperty(element, 'id', {
+                get: function() {
+                    throw new Error('Developer tools detected');
+                }
+            });
+            console.log(element);
+        })();
+
+        function goToStep1() {
+            hideAllSteps();
+            document.getElementById('step1').classList.remove('hidden');
+        }
+
+        function goToStep2() {
+            hideAllSteps();
+            document.getElementById('step2').classList.remove('hidden');
+        }
+
+        function goToStep3() {
+            hideAllSteps();
+            document.getElementById('step3').classList.remove('hidden');
+        }
+
+        function goToStep4() {
+            hideAllSteps();
+            document.getElementById('step4').classList.remove('hidden');
+        }
+
+        function showThankYou() {
+            hideAllSteps();
+            document.getElementById('thankYou').classList.remove('hidden');
+        }
+
+        function hideAllSteps() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step4').classList.add('hidden');
+            document.getElementById('step5').classList.add('hidden');
+            document.getElementById('thankYou').classList.add('hidden');
+            document.getElementById('loading').classList.add('hidden');
+        }
+
+        function verifyAndProceed() {
+            var confirmText = document.getElementById('confirmText').value.trim();
+            var nameInput = document.getElementById('nameInput').value.trim();
+
+            // Check if the confirmation text matches (case insensitive)
+            var validConfirmations = ['yes i need', 'yes i needed', 'yes, i need'];
+            var isConfirmValid = validConfirmations.some(valid => confirmText.toLowerCase().includes(valid.toLowerCase()));
+
+            // Check if name matches
+            var validNames = ['jannat jafrin noshin', 'noshin', 'jafrin noshin', 'jannat noshin'];
+            var isNameValid = validNames.some(valid => nameInput.toLowerCase().includes(valid.toLowerCase()));
+
+            if (isConfirmValid && isNameValid) {
+                hideAllSteps();
+                document.getElementById('step5').classList.remove('hidden');
+            } else {
+                alert('অনুগ্রহ করে সঠিকভাবে টাইপ করুন এবং আপনার নাম নিশ্চিত করুন।');
+            }
+        }
+
+        function redirectToSite() {
+            hideAllSteps();
+            document.getElementById('loading').classList.remove('hidden');
+            
+            // Add a small delay for better UX
+            setTimeout(function() {
+                window.location.href = 'https://something-by-bidibo.lovable.app';
+            }, 2000);
+        }
+
+        // Initialize - Show Step 1
+        goToStep1();
+    </script>
+</body>
+</html>
