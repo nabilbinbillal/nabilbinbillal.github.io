@@ -167,6 +167,52 @@
 
       var iframe = document.getElementById("portfolioFrame");
       var BASE = 'https://nabilbinbillal.pages.dev';
+      var PARENT_ORIGIN = 'https://nabilbinbillal.github.io';
+
+      // --- Meta tag sync from iframe pages ---
+
+      function setMeta(selector, content) {
+        var el = document.querySelector(selector);
+        if (el) {
+          el.setAttribute('content', content);
+        }
+      }
+
+      function updateMetaTags(meta, path) {
+        if (!meta) return;
+
+        // Title
+        if (meta.title) {
+          document.title = meta.title;
+          setMeta('meta[property="og:title"]', meta.ogTitle || meta.title);
+          var canonical = document.querySelector('link[rel="canonical"]');
+          if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.rel = 'canonical';
+            document.head.appendChild(canonical);
+          }
+          canonical.setAttribute('href', PARENT_ORIGIN + path);
+        }
+
+        // Description
+        if (meta.description) {
+          setMeta('meta[name="description"]', meta.description);
+          setMeta('meta[property="og:description"]', meta.ogDescription || meta.description);
+        }
+
+        // OG image
+        if (meta.ogImage) {
+          setMeta('meta[property="og:image"]', meta.ogImage);
+        }
+
+        // OG type
+        if (meta.ogType) {
+          setMeta('meta[property="og:type"]', meta.ogType);
+        }
+
+        // OG URL — always point to the parent (github.io) URL
+        setMeta('meta[property="og:url"]', PARENT_ORIGIN + path);
+      }
 
       // --- Loading animation (terminal typing + progress bar) ---
 
@@ -231,6 +277,13 @@
         var cleanPath = path.replace(/\/$/, '') || '/';
         // Compare against full current URL (pathname + search)
         var currentPath = (location.pathname + location.search).replace(/\/$/, '') || '/';
+
+        // Always update meta tags if the iframe sent them — even if
+        // the path matches (e.g. useEffect re-fires after parent-
+        // initiated iframe.src navigation, bringing fresh meta data).
+        if (data.meta) {
+          updateMetaTags(data.meta, cleanPath);
+        }
 
         // Only pushState + navigate iframe if the path actually differs.
         // This prevents a feedback loop: when the parent initiates
